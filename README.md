@@ -1,18 +1,29 @@
 # Adaptive Routing in MANETs
 
-A lightweight, mobility-aware adaptive routing approach for Mobile Ad Hoc Networks (MANETs), to be investigated through NS-3 simulation.
+COMP 5213 – Computer Networks · Group 8
 
-**Course:** COMP 5213 – Computer Networks  
-**Group:** Group 8  
-**Status:** Topic approved; implementation in progress
+**Status:** Three-node AODV baseline verified in ns-3.46 on Ubuntu.
 
 ## 1. Overview
 
-Mobile Ad Hoc Networks consist of wireless devices that communicate without requiring fixed network infrastructure. Devices may also forward packets for other devices.
+Imagine three phones outdoors. The first can reach the middle phone by radio. The middle phone can reach the last. A **mobile ad hoc network (MANET)** lets devices forward messages for each other without a fixed access point. A **node** is one device, a **packet** is one small unit of data, and a **hop** is one transmission between neighboring devices.
 
-Because nodes can move, wireless links and network routes can change frequently. This can lead to route failures, packet loss, and increased communication delay.
+**ns-3** is the program that models these devices, their radios, and the passage of time on one computer. **Ad hoc On-Demand Distance Vector (AODV)** is the routing protocol inside the model. When a sender needs a route, AODV can ask nearby nodes for a path. Each device records which neighbor should receive the packet next.
 
-This project investigates whether a lightweight, adaptive route-selection mechanism can improve MANET performance under different mobility conditions.
+```mermaid
+flowchart TD
+    S["Source · 10.0.0.1"] -->|"Hop 1 · 50 m"| R["Relay · 10.0.0.2"]
+    R -->|"Hop 2 · 50 m"| D["Destination · 10.0.0.3"]
+```
+
+| Three-node UDP run | Sent | Received | Delivery |
+|---|---:|---:|---:|
+| Relay stays in place | 30 | 30 | 100% |
+| Relay moves out of range at 10 s | 30 | 10 | 33.33% |
+
+Both routing tables showed the same two-hop path at 8 seconds. The moving run demonstrates what happens when the only relay leaves. The research question comes next: when more than one path is available, can a mobility-aware routing decision improve delivery?
+
+[Follow the setup, experiments, and results in the project log](docs/project-log.md)
 
 ## 2. Problem Statement
 
@@ -79,9 +90,10 @@ These papers provide background on mobility-aware routing, topology control, lin
 
 - [x] GitHub repository created.
 - [x] Project topic approved.
-- [ ] Ubuntu development environment verified.
-- [ ] NS-3 installed and tested.
-- [ ] AODV baseline simulation implemented.
+- [x] Ubuntu development environment verified.
+- [x] ns-3.46 built and tested.
+- [x] Three-node AODV baseline verified with ping and UDP.
+- [ ] Four-node baseline with an alternate relay (Step 3).
 - [ ] Adaptive mechanism implemented.
 - [ ] Experiments completed and results analyzed.
 
