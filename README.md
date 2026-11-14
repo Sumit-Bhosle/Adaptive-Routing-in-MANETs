@@ -1,231 +1,336 @@
 # Adaptive Routing in MANETs
 
-COMP 5213 – Computer Networks · Group 8
+**COMP 5213 — Computer Networks | Lakehead University | Group 8**
 
-**Status:** Three- and four-node AODV baselines verified. The adaptive rule is outlined. Step 4B is the next experiment.
+A simulation project investigating whether mobility-aware route selection
+can improve packet delivery as wireless devices move.
 
-## 1. Overview
+**Current phase — Link Observation and Mobility Analysis**
 
-Imagine three phones outdoors. The first can reach the middle phone by radio. The middle phone can reach the last. A **mobile ad hoc network (MANET)** lets devices forward messages for each other without a fixed access point. A **node** is one device, a **packet** is one small unit of data, and a **hop** is one transmission between neighboring devices.
+The standard AODV baseline experiments and the first moving-link signal
+plot are complete. The next experiment will measure signals from both
+relay candidates at the sender. The adaptive routing mechanism is
+currently in design.
 
-**ns-3** is the program that models these devices, their radios, and the passage of time on one computer. **Ad hoc On-Demand Distance Vector (AODV)** is the routing protocol inside the model. When a sender needs a route, AODV can ask nearby nodes for a path. Each device records which neighbor should receive the packet next.
+## Understanding the Project
 
-```mermaid
-flowchart TD
-    S["Source · 10.0.0.1"] -->|"Hop 1 · 50 m"| R["Relay · 10.0.0.2"]
-    R -->|"Hop 2 · 50 m"| D["Destination · 10.0.0.3"]
-```
+A **Mobile Ad Hoc Network (MANET)** is a wireless network in which devices
+can move and forward packets for one another without a fixed access point.
 
-| Three-node UDP run | Sent | Received | Delivery |
-|---|---:|---:|---:|
-| Relay stays in place | 30 | 30 | 100% |
-| Relay moves out of range at 10 s | 30 | 10 | 33.33% |
-
-Both routing tables showed the same two-hop path at 8 seconds. The moving run demonstrates what happens when the only relay leaves. The research question comes next: when more than one path is available, can a mobility-aware routing decision improve delivery?
-
-[Follow the setup, experiments, and results in the project log](docs/project-log.md)
-
-### Four-node result
-
-With both relays stationary, all 30 UDP packets arrived. When the active relay moved at 10 s, 29 of 30 arrived (96.67%). The source used gateway `10.0.0.2` at 8 s and `10.0.0.3` at 12 s. Packet 10 was lost. Packet 11 arrived at 11.507394 s. This measures the first observed delivery after movement; routing snapshots do not pinpoint the instant the replacement route was installed.
-
-The three- and four-node demonstrations used different radio models. Interpret each moving run against its own stationary control.
-
-### Project roadmap
-
-Green marks verified work, blue marks the proposed design, and amber marks the current checkpoint. The final comparison uses the same radio model, movement traces, traffic and measurement window for all three methods.
-
-```mermaid
-flowchart TD
-    A["Research question and three foundation papers"] --> B["1 · Build ns-3.46 on Ubuntu"]
-    B --> C["2 · Verify a three-node route"]
-    C --> D["3 · Verify recovery with a second relay"]
-    D --> E["4A · Outline the adaptive routing rule"]
-    E --> F["4B · CURRENT: measure signal during gradual movement"]
-    F --> G{"Observable weakening before contact is lost?"}
-    G -->|Unclear| H["Inspect radio model, movement and missed probes"]
-    H --> F
-    G -->|Yes| I["4C · Define the score, weights and switching rule"]
-    I --> J["5 · Implement selection between valid routes"]
-    J --> K{"Do the traces show both scores and the selected next hop?"}
-    K -->|No| L["Inspect candidate discovery and forwarding"]
-    L --> J
-    K -->|Yes| M["6 · Run matched experiments"]
-    M --> N["Standard AODV"]
-    M --> O["Custom rule with fixed weights"]
-    M --> P["Custom rule with adaptive weights"]
-    N --> Q["Compare delivery, throughput, delay and overhead"]
-    O --> Q
-    P --> Q
-    Q --> R["7 · Plot curves in Gnuplot and explain trade-offs"]
-    R --> S["8 · Finish report, presentation and reproduction guide"]
-    classDef done fill:#dbf3e4,stroke:#247148,color:#143b26
-    classDef proposed fill:#deeaff,stroke:#4776aa,color:#162d4e
-    classDef current fill:#fff0bd,stroke:#a26b00,color:#412900,stroke-width:3px
-    class A,B,C,D done
-    class E proposed
-    class F current
-```
-
-## 2. Problem Statement
-
-Standard routing protocols such as AODV discover routes when needed, but changing network conditions can cause established routes to fail.
-
-Our project will investigate a route-selection mechanism that adjusts the importance of selected routing factors according to observed mobility conditions.
-
-## 3. Objectives
-
-- Establish a working MANET simulation using NS-3.
-- Evaluate standard AODV as a baseline.
-- Design and implement a lightweight adaptive route-selection mechanism.
-- Investigate how mobility-dependent routing decisions affect network performance.
-- Compare the proposed approach against the baseline under controlled simulation conditions.
-- Analyze and document experimental results.
-
-## 4. Proposed Approach
-
-The proposed rule combines current link quality with an estimate of stability from recent signal observations. Step 4B will use a distance-dependent radio model, keep one relay stationary, move the other gradually, and record the signal strength and sequence number of probes received at the source. Its first deliverable is a plot of received power (dBm) against time (s) with one curve per relay.
-
-After inspecting the pilot traces, define the observation window and weights. At route selection, compare valid candidates and record their scores and the next hop actually used. A strong first-hop signal alone cannot establish that the relay has a valid onward route.
-
-## 5. Experimental evaluation
-
-| Planned comparison | Output |
+| Term | Meaning in this project |
 |---|---|
-| Motion in the four-node network | Signal vs time, routing snapshots, packet arrivals and recovery timeline |
-| Increasing node speed | Packet delivery or loss (%), application throughput (kb/s), end-to-end delay (ms), and routing overhead (control bytes/s) |
-| Increasing node count or offered load | Throughput, delay and control traffic with the other settings held fixed |
-| Energy, if a radio energy model is configured | Joules consumed and joules per delivered packet |
+| Node | A simulated wireless device |
+| Packet | A small unit of transmitted data |
+| Source | The device sending application data |
+| Destination | The device intended to receive that data |
+| Relay | A device forwarding packets toward the destination |
+| Hop | One transmission between neighboring devices |
+| Route | The sequence of hops leading to the destination |
+| ns-3 | The simulator used to model devices, radios, traffic, and movement |
+| AODV | Ad hoc On-Demand Distance Vector, the baseline routing protocol |
+| UDP | The transport protocol used to generate our application traffic |
+| dBm | The unit used for received signal power |
 
-Record duration, measurement window, topology, channel width (MHz), radio data rate (Mb/s), offered load, mobility and repetitions. Save per-run CSVs and Gnuplot scripts. Label axes, units, legends and uncertainty across independent runs. The final report will connect each comparative figure to the settings that produced it.
+AODV discovers routes when they are needed. As devices move, an existing
+route may fail and another route may become necessary.
 
-## 6. Technology Stack
+Our research question is whether observations of link quality and
+stability can help a device select a suitable route as conditions change.
 
-- **Operating system:** Ubuntu running in a virtual machine
-- **Network simulation:** NS-3
-- **Implementation:** C++
-- **Analysis and visualization:** Gnuplot for evaluation figures, with Python for data preparation as needed
-- **Version control:** Git and GitHub
+## Project Phases
 
-## 7. Research Foundation
-
-The initial literature review is guided by the following journal papers:
-
-1. *An Adaptive Reinforcement Learning-Based Mobility-Aware Routing for Heterogeneous Wireless Body Area Networks* (2024).
-2. *Topology Control Using Optimized Clustering Scheme in Mobile Ad Hoc Network* (2024).
-3. *An Adaptive Congestion and Energy Aware Multipath Routing Scheme for Mobile Ad-Hoc Networks Through Stable Link Prediction* (2023).
-
-These papers provide background on mobility-aware routing, topology control, link stability, and adaptive routing decisions. They will inform our design without being reproduced as complete implementations.
-
-## 8. Project Status
-
-- [x] GitHub repository created.
-- [x] Project topic approved.
-- [x] Ubuntu development environment verified.
-- [x] ns-3.46 built and tested.
-- [x] Three-node AODV baseline verified with ping and UDP.
-- [x] Four-node baseline with an alternate relay (Step 3).
-- [x] Initial adaptive routing design outlined (Step 4A).
-- [ ] Received-signal trace and first Gnuplot curve (Step 4B).
-- [ ] Adaptive mechanism implemented.
-- [ ] Experiments completed and results analyzed.
-
-## 9. Repository
-
-Source code, documentation, and reproducible experiment configurations will be maintained in this repository as development progresses.
-
-## Latest checkpoint — gradual movement and signal measurements
-
-Standard AODV remains the routing protocol. The first received-signal
-measurement experiment and Gnuplot figure are complete.
-
-A stationary relay at 5 m received 30/30 UDP packets. At 61.03 m it
-received 0/30. Starting at 5 m and moving away at 5 m/s from 10 s,
-the relay received 19/30 packets (63.3%).
-
-Received power stayed near -51.63 dBm before movement and decreased
-afterward. The last UDP arrival was at 18.500314 s. The final received
-Wi-Fi frame was recorded at 19.100170 s, at approximately -81.76 dBm.
-
-![Received signal during gradual relay movement](results/relay-signal-trace/verified-moving-5m/relay-signal.png)
-
-### Current roadmap checkpoint
+| Phase | Purpose | Status |
+|---|---|---|
+| Research Foundation and Method Design | Connect the research question to the foundation papers and outline the proposed mechanism | Initial direction outlined; detailed design ongoing |
+| Simulation Environment | Build ns-3 and establish the development workflow | Complete |
+| Standard AODV Baselines | Observe delivery, route failure, and recovery in small networks | Initial demonstrations complete |
+| Link Observation and Mobility Analysis | Measure signal changes during movement and compare relay candidates | **Current phase** |
+| Adaptive Routing Implementation | Implement candidate scoring and make it control forwarding | Planned |
+| Comparative Performance Evaluation | Compare standard AODV, fixed-weight selection, and adaptive-weight selection | Planned |
+| Results and Research Communication | Produce reproducible figures, a report, and the final presentation | Planned |
 
 ```mermaid
 flowchart TD
-    A["Completed — AODV baseline experiments"] --> B["Completed — moving-link signal plot"]
-    B --> C["Next — observe both relays at the sender"]
-    C --> D["Define adaptive scores and switching rules"]
-    D --> E["Implement route selection and verify forwarding"]
-    E --> F["Compare AODV, fixed weights and adaptive weights"]
-    F --> G["Gnuplot results, report and presentation"]
+    A["Research foundation and initial design"] --> B["Simulation environment"]
+    B --> C["Standard AODV baselines"]
+    C --> D["CURRENT — Link observation and mobility analysis"]
+    D --> E["Finalize adaptive scores and switching rules"]
+    E --> F["Implement and verify adaptive routing"]
+    F --> G["Compare methods under matched settings"]
+    G --> H["Results, report and presentation"]
+
+    classDef complete fill:#dbf3e4,stroke:#247148,color:#143b26
+    classDef current fill:#fff0bd,stroke:#a26b00,color:#412900
+    classDef ongoing fill:#deeaff,stroke:#4776aa,color:#162d4e
+    class B,C complete
+    class A ongoing
+    class D current
 ```
-### 3. Add the detailed project-log entry
 
-```bash
-cat >> docs/project-log.md <<'EOF'
+## Research Foundation and Method Design
 
-## Step 4B checkpoint — gradual movement and received signal
+The project proposal identifies three foundation papers:
 
-### Purpose
+| Foundation paper | Intended contribution to the project |
+|---|---|
+| *An Adaptive Reinforcement Learning-Based Mobility-Aware Routing for Heterogeneous Wireless Body Area Networks* (2024) | Concepts related to mobility-aware decisions and link lifetime |
+| *Topology Control Using Optimized Clustering Scheme in Mobile Ad Hoc Network* (2024) | Concepts related to changing topology and connectivity |
+| *An Adaptive Congestion and Energy Aware Multipath Routing Scheme for Mobile Ad-Hoc Networks Through Stable Link Prediction* (2023) | Concepts related to link stability and route selection |
 
-Determine whether signal weakening can be observed before packet
-delivery stops, as groundwork for mobility-aware route selection.
+These are the titles supplied in the project proposal. Full bibliographic
+references and detailed paper summaries remain part of the literature
+documentation.
 
-### Files and responsibilities
+The proposed mechanism combines current link quality with an estimate
+of stability derived from recent observations. It will adjust the
+importance of these factors according to observed mobility conditions.
 
-- `simulations/relay-signal-trace.cc` configures movement, traffic,
-  position snapshots and received-signal tracing.
-- `plots/relay-signal.gp` converts recorded measurements into a figure.
-- Each trial directory stores its routing tables and console output.
-- `results/relay-signal-trace/verified-moving-5m/` preserves the plotted
-  moving trial, including `signal.dat` and `relay-signal.png`.
+The detailed design will specify:
 
-### Changes and checks
+- What each node can measure locally.
+- How observations become quality and stability scores.
+- How weights change with observed conditions.
+- How candidate routes are discovered and checked for validity.
+- When a node changes its selected route.
+- How extra measurement and control traffic is counted.
 
-The experiment uses LogDistancePropagationLossModel and
-ConstantVelocityMobilityModel. Relay 1 begins moving at 10 s at 5 m/s
-along the positive x-axis. Position snapshots verified the movement.
+The planned contribution is a lightweight adaptive route-selection
+mechanism built around AODV. Its effect on forwarding and network
+performance remains to be implemented and evaluated.
 
-The configurable UDP destination allows testing delivery to an individual
-relay. A close-range option places relay 1 at 5 m from node 0.
+[Read the adaptive routing design](docs/adaptive-routing-design.md)
 
-| Experiment | UDP sent | UDP received | Delivery ratio |
+## Simulation Environment
+
+The project uses Ubuntu in a virtual machine, ns-3.46, C++, Git, and
+Gnuplot.
+
+The ns-3 launcher encountered a Python 3.14 argument-parsing error in
+the development environment. Configuration and compilation currently
+use CMake and Ninja directly.
+
+| Location | Responsibility |
+|---|---|
+| `~/Projects/Adaptive-Routing-in-MANETs` | Project source, documentation, scripts, and results |
+| `~/Projects/ns-3.46` | Simulator source and build output |
+| ns-3 `scratch` directory | Symbolic links that make project simulations available to the build |
+
+The environment was checked by building and running `hello-simulator`,
+followed by the AODV examples and project simulations.
+
+## Standard AODV Baselines
+
+### Single Relay — Delivery and Route Failure
+
+Three devices formed a route from the source, through a relay, to the
+destination.
+
+| Scenario | UDP sent | UDP received | Packet delivery ratio |
+|---|---:|---:|---:|
+| Relay stationary | 30 | 30 | 100% |
+| Relay moved out of reach at 10 s | 30 | 10 | 33.33% |
+
+At 8 s, both routing tables showed the same two-hop path. After the
+only relay moved away, delivery stopped in the moving run.
+
+### Alternate Relay — Route Recovery
+
+A fourth device provided another possible relay.
+
+```mermaid
+flowchart TD
+    S["Source"] --> A["Relay 1"]
+    S --> B["Relay 2"]
+    A --> D["Destination"]
+    B --> D
+```
+
+The diagram shows the intended candidate paths.
+
+| Scenario | UDP sent | UDP received | Packet delivery ratio |
+|---|---:|---:|---:|
+| Both relays stationary | 30 | 30 | 100% |
+| Active relay moved at 10 s | 30 | 29 | 96.67% |
+
+In the moving run:
+
+- At 8 s, the source used gateway `10.0.0.2`.
+- At 12 s, the source used gateway `10.0.0.3`.
+- Packet 10 was lost.
+- Packet 11 arrived at 11.507394 s.
+
+The first observed delivery after movement occurred 1.507394 s later.
+The routing snapshots establish that the next hop changed between the
+recorded times. They do not identify the exact route-installation time.
+
+The three-node and four-node demonstrations used different radio
+models. Each moving run should be interpreted against its own
+stationary control.
+
+## Link Observation and Mobility Analysis
+
+### Completed — Gradual Movement and Signal Measurement
+
+The experiment in `simulations/relay-signal-trace.cc` uses:
+
+- `LogDistancePropagationLossModel` to model distance-dependent signal loss.
+- `ConstantVelocityMobilityModel` to move a relay gradually.
+- Position snapshots to verify movement.
+- `MonitorSnifferRx` to record successfully received Wi-Fi data frames.
+
+Relay 1 starts 5 m from node 0. At 10 s, it begins moving along the
+positive x-axis at 5 m/s.
+
+| Experiment | UDP sent | UDP received | Packet delivery ratio |
 |---|---:|---:|---:|
 | Stationary relay at 61.03 m | 30 | 0 | 0% |
 | Stationary relay at 5 m | 30 | 30 | 100% |
-| Relay moving from 5 m | 30 | 19 | 63.3% |
+| Relay moving away from 5 m | 30 | 19 | 63.33% |
 
-At 5 m, routing snapshots showed a direct one-hop route. At 61.03 m,
-the sender's route remained IN_SEARCH at the inspected times.
+The stationary close-range test showed a direct one-hop route.
+At 61.03 m, the sender's route remained `IN_SEARCH` at the inspected
+snapshots.
 
-### Signal observations
+### Observed Signal Changes
 
-MonitorSnifferRx records successfully received Wi-Fi data frames at
-relay 1, filtered by node 0's transmitter address.
+The signal trace records frames transmitted by node 0 and received
+at relay 1.
 
-- Before movement, received power was approximately -51.63 dBm.
-- The last UDP arrival was sequence 18 at 18.500314 s.
-- Its associated signal reading was approximately -80.96 dBm.
-- The final recorded Wi-Fi frame arrived at 19.100170 s at -81.76 dBm.
-- The moving trial produced 40 received-signal samples.
+| Observation | Recorded value |
+|---|---|
+| Received power before movement | Approximately −51.63 dBm |
+| Last UDP packet delivered | Sequence 18 |
+| Last UDP arrival time | 18.500314 s |
+| Signal reading at that arrival | Approximately −80.96 dBm |
+| Final received Wi-Fi frame time | 19.100170 s |
+| Final signal reading | Approximately −81.76 dBm |
+| Total received-signal samples | 40 |
 
-Wi-Fi sequence numbers and UDP application sequence numbers identify
-different layers. Routing messages can also appear in the Wi-Fi trace.
-Periods without received frames contain no signal samples.
+![Signal received by a gradually moving relay](results/relay-signal-trace/verified-moving-5m/relay-signal.png)
 
-![Moving relay signal measurements](../results/relay-signal-trace/verified-moving-5m/relay-signal.png)
+The graph shows a steady signal before movement and decreasing
+received power afterward. Signal weakening was observable while UDP
+packets were still arriving.
 
-### Interpretation and next step
+Wi-Fi frame sequence numbers and UDP packet sequence numbers belong
+to different layers. Wi-Fi data frames may also carry routing messages.
+A final Wi-Fi reception can therefore occur after the final UDP arrival.
 
-Signal weakening preceded the end of UDP delivery in this trial.
-The observed final signal value does not establish a universal threshold.
+The trace contains samples from successfully received frames. An empty
+interval means no sample was recorded. These single-run observations
+will guide further experiments and threshold selection.
 
-AODV remains responsible for routing. Step 4B continues with probes from
-both relay candidates measured at the sender. Those measurements will
-inform the proposed adaptive weights and route-switching rules.
+### Next — Observe Both Relays at the Sender
 
-The eventual evaluation will compare standard AODV, fixed-weight
-selection and adaptive-weight selection under matched settings and
-repeated runs, with delivery, throughput, delay and routing overhead
-reported using clearly labelled Gnuplot figures.
+The sender needs observations of its candidate relays to make a
+mobility-aware decision.
+
+The next experiment will:
+
+- Establish reachable starting positions for both relays.
+- Send identifiable probes from each relay toward the source.
+- Keep one relay stationary while the other moves gradually.
+- Record reception time, relay identity, sequence number, and signal power.
+- Plot one received-signal curve per relay in Gnuplot.
+- Examine weakening signals and missing probes together.
+
+This completes the next part of the measurement work needed to
+finalize the adaptive selection rule.
+
+## Adaptive Routing Implementation
+
+AODV currently handles route discovery and forwarding.
+
+The planned implementation will use the measurements to score valid
+route candidates and adjust the weighting of quality and stability.
+The design must also establish that each candidate has a valid onward
+path to the destination.
+
+Implementation verification will record:
+
+- The observations available at the decision time.
+- Candidate scores and weights.
+- The selected next hop.
+- The next hop actually used to forward packets.
+- Route changes and their effect on delivery.
+
+A fixed-weight version will provide an additional comparison for
+evaluating the effect of changing weights.
+
+## Comparative Performance Evaluation
+
+The final experiments will compare:
+
+- Standard AODV.
+- The custom mechanism with fixed weights.
+- The custom mechanism with adaptive weights.
+
+All methods will use matched topology, radio settings, traffic,
+movement traces, simulation duration, and measurement windows.
+Experiments will include repeated runs with recorded random seeds.
+
+| Evaluation metric | What it measures |
+|---|---|
+| Packet delivery ratio | Percentage of sent application packets received |
+| Packet loss | Application packets that fail to arrive within the defined measurement procedure |
+| Application throughput | Received application data per unit time |
+| End-to-end delay | Time from application transmission to reception |
+| Routing overhead | Control traffic required to establish and maintain routes |
+| Delivery interruption | Gap in reception around a route disruption |
+| Route changes | Frequency and timing of forwarding-path changes |
+| Energy consumption | Radio energy used, once an energy model is configured |
+
+Measurement definitions will specify units, observation windows,
+treatment of undelivered packets, and whether overhead is measured
+in packets, bytes, or transmissions.
+
+### Planned Experiment Variables
+
+| Variable | Planned analysis |
+|---|---|
+| Node speed | Delivery, delay, throughput, and overhead as mobility increases |
+| Node count | Performance as the network grows |
+| Offered traffic load | Performance as the amount of generated traffic increases |
+| Mobility pattern | Effects of different movement conditions |
+| Radio settings | Documented channel width, data rate, transmit power, and propagation model |
+| Simulation duration | Recorded run length, traffic interval, and observation window |
+
+Gnuplot figures will include axis labels, units, legends, and uncertainty
+where repeated runs support it. The report will identify the network
+settings behind each figure and explain both improvements and trade-offs.
+
+Energy results require an explicitly configured radio energy model.
+
+[Read the evaluation plan](docs/evaluation-plan.md)
+
+## Results and Research Communication
+
+The final report and presentation will bring together:
+
+- The research problem and foundation-paper summaries.
+- The proposed method, assumptions, and decision rules.
+- Implementation details and evidence that the rule controls forwarding.
+- Simulation settings and reproducible experiment commands.
+- Comparisons with standard AODV and the fixed-weight mechanism.
+- Gnuplot curves, metric definitions, and discussion of results.
+- Limitations and possible future improvements.
+
+## Repository Guide
+
+| Path | Contents |
+|---|---|
+| `simulations/aodv-udp-baseline.cc` | Three-node UDP baseline |
+| `simulations/aodv-four-node.cc` | Alternate-relay AODV experiment |
+| `simulations/relay-signal-trace.cc` | Gradual movement and signal observations |
+| `scripts/run-four-node.sh` | Four-node experiment runner |
+| `plots/relay-signal.gp` | Received-signal figure instructions |
+| `results/` | Trial logs, routing snapshots, measurements, and generated figures |
+| `docs/project-log.md` | Detailed development and experiment history |
+| `docs/adaptive-routing-design.md` | Proposed adaptive mechanism |
+| `docs/evaluation-plan.md` | Evaluation requirements and experiment plan |
+
+Graphs are stored alongside the measurements used to generate them.
+The verified moving-link figure and its data are in
+`results/relay-signal-trace/verified-moving-5m/`.
+
+[Read the project log](docs/project-log.md)
