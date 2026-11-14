@@ -157,3 +157,41 @@ the first observed delivery after movement. The 12-second routing snapshot
 confirmed an active two-hop route through the second relay.
 
 Trial: `results/udp-four-node/trial-bphVhd/`
+
+## 8. Project roadmap and current checkpoint
+
+Green marks verified work, blue marks the proposed design, and amber marks the current checkpoint. The final comparison uses the same radio model, movement traces, traffic and measurement window for all three methods.
+
+```mermaid
+flowchart TD
+    A["Research question and three foundation papers"] --> B["1 · Build ns-3.46 on Ubuntu"]
+    B --> C["2 · Verify a three-node route"]
+    C --> D["3 · Verify recovery with a second relay"]
+    D --> E["4A · Outline the adaptive routing rule"]
+    E --> F["4B · CURRENT: measure signal during gradual movement"]
+    F --> G{"Observable weakening before contact is lost?"}
+    G -->|Unclear| H["Inspect radio model, movement and missed probes"]
+    H --> F
+    G -->|Yes| I["4C · Define the score, weights and switching rule"]
+    I --> J["5 · Implement selection between valid routes"]
+    J --> K{"Do the traces show both scores and the selected next hop?"}
+    K -->|No| L["Inspect candidate discovery and forwarding"]
+    L --> J
+    K -->|Yes| M["6 · Run matched experiments"]
+    M --> N["Standard AODV"]
+    M --> O["Custom rule with fixed weights"]
+    M --> P["Custom rule with adaptive weights"]
+    N --> Q["Compare delivery, throughput, delay and overhead"]
+    O --> Q
+    P --> Q
+    Q --> R["7 · Plot curves in Gnuplot and explain trade-offs"]
+    R --> S["8 · Finish report, presentation and reproduction guide"]
+    classDef done fill:#dbf3e4,stroke:#247148,color:#143b26
+    classDef proposed fill:#deeaff,stroke:#4776aa,color:#162d4e
+    classDef current fill:#fff0bd,stroke:#a26b00,color:#412900,stroke-width:3px
+    class A,B,C,D done
+    class E proposed
+    class F current
+```
+
+**Next experiment (Step 4B).** Move one relay gradually and keep a second relay stationary. Record the time, relay identity, sequence number and received signal strength of probes. Plot received power (dBm) against simulated time (s) in Gnuplot. Check whether weakening is observable before reception stops. Use that evidence to set the adaptive rule’s thresholds.
