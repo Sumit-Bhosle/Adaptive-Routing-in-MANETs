@@ -159,7 +159,7 @@ flowchart TD
     D --> E["Implement route selection and verify forwarding"]
     E --> F["Compare AODV, fixed weights and adaptive weights"]
     F --> G["Gnuplot results, report and presentation"]
-
+```
 ### 3. Add the detailed project-log entry
 
 ```bash
