@@ -139,3 +139,21 @@ The ping log shows individual replies. The UDP summary reports totals. Ten UDP t
 ## 6. What question remains?
 
 With one relay, the experiment can demonstrate a broken path. Comparing routing choices requires another usable path. The planned four-node experiment will add a second relay, identify the active route, move its relay, and measure whether and when delivery resumes. That experiment and the proposed adaptive routing method are still pending.
+
+## 7. AODV recovers through a second relay
+
+Can delivery resume when the active relay moves but a second path remains available?
+
+In a four-node ns-3.46 simulation, the source sent 30 UDP packets to
+10.0.0.4. Both runs used 10.0.0.2 as the next hop at 8 seconds.
+
+| Run | Next hop at 8 s | Next hop at 12 s | Packets received |
+|---|---|---|---:|
+| Both relays stationary | 10.0.0.2 | 10.0.0.2 | 30/30 |
+| Active relay moved at 10 s | 10.0.0.2 | 10.0.0.3 | 29/30 |
+
+In the moving run, packet 10 was lost. Packet 11 arrived at 11.507394 s,
+the first observed delivery after movement. The 12-second routing snapshot
+confirmed an active two-hop route through the second relay.
+
+Trial: `results/udp-four-node/trial-bphVhd/`
