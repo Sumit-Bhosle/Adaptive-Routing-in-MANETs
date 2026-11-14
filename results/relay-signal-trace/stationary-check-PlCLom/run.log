@@ -1,0 +1,9 @@
+POSITION t_s=8 relay=1 x_m=50 y_m=35 distance_to_source_m=61.0328
+POSITION t_s=8 relay=2 x_m=50 y_m=-35 distance_to_source_m=61.0328
+POSITION t_s=12 relay=1 x_m=50 y_m=35 distance_to_source_m=61.0328
+POSITION t_s=12 relay=2 x_m=50 y_m=-35 distance_to_source_m=61.0328
+POSITION t_s=20 relay=1 x_m=50 y_m=35 distance_to_source_m=61.0328
+POSITION t_s=20 relay=2 x_m=50 y_m=-35 distance_to_source_m=61.0328
+Relay moved: 0
+UDP packets sent: 30
+UDP packets received: 0

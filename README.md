@@ -133,3 +133,99 @@ These papers provide background on mobility-aware routing, topology control, lin
 ## 9. Repository
 
 Source code, documentation, and reproducible experiment configurations will be maintained in this repository as development progresses.
+
+## Latest checkpoint — gradual movement and signal measurements
+
+Standard AODV remains the routing protocol. The first received-signal
+measurement experiment and Gnuplot figure are complete.
+
+A stationary relay at 5 m received 30/30 UDP packets. At 61.03 m it
+received 0/30. Starting at 5 m and moving away at 5 m/s from 10 s,
+the relay received 19/30 packets (63.3%).
+
+Received power stayed near -51.63 dBm before movement and decreased
+afterward. The last UDP arrival was at 18.500314 s. The final received
+Wi-Fi frame was recorded at 19.100170 s, at approximately -81.76 dBm.
+
+![Received signal during gradual relay movement](results/relay-signal-trace/verified-moving-5m/relay-signal.png)
+
+### Current roadmap checkpoint
+
+```mermaid
+flowchart TD
+    A["Completed — AODV baseline experiments"] --> B["Completed — moving-link signal plot"]
+    B --> C["Next — observe both relays at the sender"]
+    C --> D["Define adaptive scores and switching rules"]
+    D --> E["Implement route selection and verify forwarding"]
+    E --> F["Compare AODV, fixed weights and adaptive weights"]
+    F --> G["Gnuplot results, report and presentation"]
+
+### 3. Add the detailed project-log entry
+
+```bash
+cat >> docs/project-log.md <<'EOF'
+
+## Step 4B checkpoint — gradual movement and received signal
+
+### Purpose
+
+Determine whether signal weakening can be observed before packet
+delivery stops, as groundwork for mobility-aware route selection.
+
+### Files and responsibilities
+
+- `simulations/relay-signal-trace.cc` configures movement, traffic,
+  position snapshots and received-signal tracing.
+- `plots/relay-signal.gp` converts recorded measurements into a figure.
+- Each trial directory stores its routing tables and console output.
+- `results/relay-signal-trace/verified-moving-5m/` preserves the plotted
+  moving trial, including `signal.dat` and `relay-signal.png`.
+
+### Changes and checks
+
+The experiment uses LogDistancePropagationLossModel and
+ConstantVelocityMobilityModel. Relay 1 begins moving at 10 s at 5 m/s
+along the positive x-axis. Position snapshots verified the movement.
+
+The configurable UDP destination allows testing delivery to an individual
+relay. A close-range option places relay 1 at 5 m from node 0.
+
+| Experiment | UDP sent | UDP received | Delivery ratio |
+|---|---:|---:|---:|
+| Stationary relay at 61.03 m | 30 | 0 | 0% |
+| Stationary relay at 5 m | 30 | 30 | 100% |
+| Relay moving from 5 m | 30 | 19 | 63.3% |
+
+At 5 m, routing snapshots showed a direct one-hop route. At 61.03 m,
+the sender's route remained IN_SEARCH at the inspected times.
+
+### Signal observations
+
+MonitorSnifferRx records successfully received Wi-Fi data frames at
+relay 1, filtered by node 0's transmitter address.
+
+- Before movement, received power was approximately -51.63 dBm.
+- The last UDP arrival was sequence 18 at 18.500314 s.
+- Its associated signal reading was approximately -80.96 dBm.
+- The final recorded Wi-Fi frame arrived at 19.100170 s at -81.76 dBm.
+- The moving trial produced 40 received-signal samples.
+
+Wi-Fi sequence numbers and UDP application sequence numbers identify
+different layers. Routing messages can also appear in the Wi-Fi trace.
+Periods without received frames contain no signal samples.
+
+![Moving relay signal measurements](../results/relay-signal-trace/verified-moving-5m/relay-signal.png)
+
+### Interpretation and next step
+
+Signal weakening preceded the end of UDP delivery in this trial.
+The observed final signal value does not establish a universal threshold.
+
+AODV remains responsible for routing. Step 4B continues with probes from
+both relay candidates measured at the sender. Those measurements will
+inform the proposed adaptive weights and route-switching rules.
+
+The eventual evaluation will compare standard AODV, fixed-weight
+selection and adaptive-weight selection under matched settings and
+repeated runs, with delivery, throughput, delay and routing overhead
+reported using clearly labelled Gnuplot figures.
