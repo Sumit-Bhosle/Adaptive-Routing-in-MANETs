@@ -195,3 +195,85 @@ flowchart TD
 ```
 
 **Next experiment (Step 4B).** Move one relay gradually and keep a second relay stationary. Record the time, relay identity, sequence number and received signal strength of probes. Plot received power (dBm) against simulated time (s) in Gnuplot. Check whether weakening is observable before reception stops. Use that evidence to set the adaptive rule’s thresholds.
+
+## Two Relay Signal Comparison at the Sender
+
+### Purpose and setup
+
+Observe both relay candidates from the device that will eventually
+make the adaptive routing decision.
+
+The experiment uses ns-3.46, standard AODV, 802.11a Wi-Fi at 6 Mb/s,
+LogDistancePropagationLossModel, and ConstantVelocityMobilityModel.
+
+| Setting | Value |
+|---|---|
+| Observer | Node 0 at (0, 0, 0) |
+| Relay 1 initial position | (5, 0, 0) |
+| Relay 2 initial position | (0, 5, 0) |
+| Node 3 | Retained at (100, 0, 0), with no application traffic |
+| Simulation duration | 30 s |
+| Probe size | 128 bytes, configured in UdpClient |
+| Probe interval | 1 s per relay |
+| Probe count | 30 per relay |
+| Application start times | Relay 1 at 0.5 s; relay 2 at 0.75 s |
+| Receiver ports | 9001 and 9002 on node 0 |
+| Movement | Relay 1 starts at 10 s, moving along positive x at 5 m/s |
+| Random seed and run | Seed 12345, run 1 |
+
+MonitorSnifferRx is attached to node 0. Transmitter MAC-address filters
+separate observations from relay 1 and relay 2.
+
+### Stationary control
+
+Both relays remained 5 m from node 0. Each delivered 30/30 UDP probes.
+Recorded signal power from both relays remained at -51.626200 dBm.
+
+### Moving trial
+
+Relay 1 delivered 19/30 probes (63.33%), while relay 2 delivered
+30/30 (100%).
+
+Position snapshots verified relay 1 at 5 m at 8 s, 15 m at 12 s,
+and 55 m at 20 s. Relay 2 remained 5 m from node 0.
+
+Relay 1's final recorded Wi-Fi frame arrived at 19.018170 s with
+signal power -81.649675 dBm. Relay 2's final recorded frame arrived
+at 29.750314 s with signal power -51.626200 dBm.
+
+![Two relay signal comparison](../results/relay-probe-comparison/verified-moving/relay-probe-comparison.png)
+
+### Files and reproduction
+
+- `simulations/relay-probe-comparison.cc` implements the experiment.
+- `plots/relay-probe-comparison.gp` generates the comparison figure.
+- `results/relay-probe-comparison/verified-stationary/` stores the control.
+- `results/relay-probe-comparison/verified-moving/` stores the moving trial,
+  routing snapshots, extracted measurements, and figure.
+
+Use `--moveRelay=0` for the stationary control and `--moveRelay=1`
+for the moving trial. Run each in its own output directory.
+
+### Interpretation and limitations
+
+Node 0 observed weakening from one relay while the other remained steady.
+This establishes the first two-candidate signal comparison.
+
+The signal trace includes successfully received Wi-Fi data frames,
+including frames carrying routing messages. MAC sequence gaps cannot
+be interpreted directly as missing UDP probes. UDP delivery totals
+alone also cannot establish whether delivery was direct or forwarded.
+
+Both experiments use one fixed seed and run. Repeated-run evaluation
+remains pending. Relay 2 becomes both stronger and steadier in this
+scenario, so the outcome alone cannot demonstrate a benefit from
+adaptive weighting.
+
+### Next work
+
+Define quality, stability, freshness, and switching rules. First log
+their decisions, then verify their integration with actual forwarding.
+Add identifiable direct-probe measurements before calculating link
+delivery ratios. Test a strong but weakening link against a weaker,
+steady link, and check valid onward routes before selecting a relay.
+

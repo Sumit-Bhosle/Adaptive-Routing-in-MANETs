@@ -7,10 +7,10 @@ can improve packet delivery as wireless devices move.
 
 **Current phase — Link Observation and Mobility Analysis**
 
-The standard AODV baseline experiments and the first moving-link signal
-plot are complete. The next experiment will measure signals from both
-relay candidates at the sender. The adaptive routing mechanism is
-currently in design.
+The standard AODV baselines, moving-link signal plot, and two-relay
+signal comparison at the sender are complete. The next task is to
+define and validate candidate scores. The adaptive routing mechanism
+is currently in design.
 
 ## Understanding the Project
 
@@ -220,22 +220,50 @@ The trace contains samples from successfully received frames. An empty
 interval means no sample was recorded. These single-run observations
 will guide further experiments and threshold selection.
 
-### Next — Observe Both Relays at the Sender
+### Completed — Observe Both Relays at the Sender
 
-The sender needs observations of its candidate relays to make a
-mobility-aware decision.
+Node 0 now records received signal power separately for two relays.
+Both relays begin 5 m from the observer and send 128-byte UDP probes
+once per second. The simulation runs for 30 s.
 
-The next experiment will:
+In the moving trial, relay 1 starts moving at 5 m/s at 10 s.
+Relay 2 remains stationary.
 
-- Establish reachable starting positions for both relays.
-- Send identifiable probes from each relay toward the source.
-- Keep one relay stationary while the other moves gradually.
-- Record reception time, relay identity, sequence number, and signal power.
-- Plot one received-signal curve per relay in Gnuplot.
-- Examine weakening signals and missing probes together.
+| Scenario | Relay 1 probes received | Relay 2 probes received |
+|---|---:|---:|
+| Both stationary | 30/30 (100%) | 30/30 (100%) |
+| Relay 1 moving | 19/30 (63.33%) | 30/30 (100%) |
 
-This completes the next part of the measurement work needed to
-finalize the adaptive selection rule.
+Both signals initially measured approximately -51.63 dBm.
+Relay 1's signal weakened after movement began, with its final
+recorded frame at 19.018170 s measuring -81.65 dBm.
+Relay 2's signal remained near -51.63 dBm through its final
+recorded frame at 29.750314 s.
+
+![Two relay signals measured at node 0](results/relay-probe-comparison/verified-moving/relay-probe-comparison.png)
+
+The observer can distinguish a weakening link from a steady link
+in this controlled experiment. Signal samples include successfully
+received Wi-Fi data frames carrying application or routing traffic.
+Application probe totals may include delivery through intermediate
+nodes.
+
+### Next — Define and Validate Candidate Scores
+
+The next task is to define quality, stability, and observation-freshness
+rules, then log the candidate each rule would select.
+
+Further measurement work will identify individual probes and distinguish
+direct reception from forwarded delivery before using probe losses
+in a link score.
+
+A later test will make a strong but weakening link compete with a
+weaker, steady link. This will help evaluate whether stability and
+adaptive weighting add value beyond choosing the strongest signal.
+
+Standard AODV currently controls forwarding. Candidate scoring,
+valid onward-route checks, and adaptive forwarding remain to be
+implemented and evaluated.
 
 ## Adaptive Routing Implementation
 
