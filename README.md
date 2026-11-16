@@ -362,3 +362,33 @@ The verified moving-link figure and its data are in
 `results/relay-signal-trace/verified-moving-5m/`.
 
 [Read the project log](docs/project-log.md)
+
+## Checkpoint: offline relay selection
+
+The project has progressed from AODV baseline experiments to measuring
+received signal strength and evaluating candidate relays offline.
+
+In the latest experiment, relay 1 begins 5 m from the observer and moves
+at 5 m/s after 10 s. Relay 2 remains stationary at 25 m.
+
+| Selection rule | First preference for relay 2 |
+|---|---:|
+| Strongest received signal | 15 s |
+| Fixed quality/stability weights | 12 s |
+| Adaptive quality/stability weights | 12 s |
+
+The stationary control retained relay 1 after the initial observation
+period. Adaptive stability weighting increased from 20% before movement
+to 80% during rapid signal weakening.
+
+These are candidate preferences computed from recorded measurements,
+not actual route changes. This experiment does not establish an advantage
+over fixed weights or an improvement in packet delivery.
+
+![Relay selection decisions](results/relay-probe-comparison/moving-relay1-25m-pybHRK/candidate-decisions.png)
+
+Next phase: establish valid paths through both relays, integrate live
+scoring with forwarding, and evaluate delivery, throughput, delay, and
+control overhead against standard AODV.
+
+See [the project log](docs/project-log.md) for methodology and limitations.

@@ -47,26 +47,32 @@ int
 main(int argc, char* argv[])
 {
     uint32_t moveRelay = 0;
+    double relay2Distance = 5.0;
 
     CommandLine cmd(__FILE__);
     cmd.AddValue("moveRelay",
                  "0 keeps both relays stationary; 1 or 2 moves that relay at 10 s",
                  moveRelay);
+    cmd.AddValue("relay2Distance",
+                 "Initial distance of relay 2 from node 0 in metres",
+                 relay2Distance);
     cmd.Parse(argc, argv);
+    NS_ABORT_MSG_IF(!(relay2Distance > 0.0 && relay2Distance <= 1000.0),
+                    "Use a relay2Distance greater than 0 and at most 1000");
 
     NS_ABORT_MSG_IF(moveRelay > 2, "Use --moveRelay=0, 1, or 2");
 
     RngSeedManager::SetSeed(12345);
     RngSeedManager::SetRun(1);
 
-    // Both relays start five metres from the observer.
+    // Relay 1 starts at five metres; relay 2 has a configurable distance.
     NodeContainer nodes;
     nodes.Create(4);
 
     auto positions = CreateObject<ListPositionAllocator>();
     positions->Add(Vector(0, 0, 0));    // node 0: observer
     positions->Add(Vector(5, 0, 0));    // node 1: relay 1
-    positions->Add(Vector(0, 5, 0));    // node 2: relay 2
+    positions->Add(Vector(0, relay2Distance, 0));    // node 2: relay 2
     positions->Add(Vector(100, 0, 0));  // node 3: no application in this experiment
 
     MobilityHelper mobility;

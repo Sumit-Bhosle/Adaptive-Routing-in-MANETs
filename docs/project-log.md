@@ -277,3 +277,105 @@ Add identifiable direct-probe measurements before calculating link
 delivery ratios. Test a strong but weakening link against a weaker,
 steady link, and check valid onward routes before selecting a relay.
 
+## Milestone: signal-based candidate scoring
+
+### Purpose
+
+Investigate whether signal weakening can inform relay preferences before
+the moving relay becomes weaker than a stationary alternative.
+
+### Experiment
+
+- Simulator: ns-3.46; existing AODV routing.
+- Duration: 30 seconds; seed 12345, run 1.
+- Observer: node 0.
+- Relay 1: initially 5 m away; moves along positive x at 5 m/s from 10 s.
+- Relay 2: stationary, 25 m from the observer.
+- Each relay sends 30 UDP probes to the observer.
+- Signal observations include received Wi-Fi data frames, which can
+  carry application traffic or routing messages.
+- This experiment does not carry application traffic to node 3.
+
+### Scoring procedure
+
+`scripts/score-candidates.py` replays observations once per second,
+using only information available at each decision time.
+
+Signal quality is normalized between -85 and -50 dBm and clipped to
+[0, 1]. These are pilot normalization bounds, not validated reception
+thresholds.
+
+A straight-line fit over the preceding three seconds estimates signal
+weakening. Stability is one minus the weakening rate divided by 5 dB/s,
+clipped to [0, 1]. Candidates require at least three recent samples
+spanning one second; observations older than two seconds are excluded.
+
+The fixed rule gives quality and stability equal weight. The adaptive
+rule increases stability weight from 0.2 to at most 0.8 according to
+the largest weakening rate among eligible candidates. Both candidates
+receive the same weights. Exact score ties prefer the lower relay ID.
+All three rules use the same eligibility checks.
+
+These settings are provisional and require sensitivity evaluation.
+
+### Observed results
+
+| Scenario | Relay 1 probes received | Relay 2 probes received |
+|---|---:|---:|
+| Both stationary | 30/30 | 30/30 |
+| Relay 1 moving | 19/30 | 30/30 |
+
+At 1 s, neither candidate had sufficient history. At 2 s, all rules
+preferred relay 1. In the moving run, fixed and adaptive scoring
+preferred relay 2 at 12 s; strongest-signal selection followed at 15 s.
+The stationary control retained relay 1.
+
+At 12 s, relay 1's latest measured signal was -63.56 dBm, versus
+-72.60 dBm for relay 2. Relay 1's estimated weakening rate was
+5.277 dB/s. Adaptive stability weight reached 0.8, producing scores
+of approximately 0.122 for relay 1 and 0.871 for relay 2.
+
+The stability weight later decreased as the measured signal decline
+slowed. It represents recent signal weakening, not measured node speed
+or a prediction of remaining link lifetime.
+
+### Visualization and reproducibility
+
+`plots/candidate-decisions.gp` plots the three selection rules.
+`candidate-scores.csv` contains two rows per decision time.
+`candidate-decisions.csv` retains one row per time because the overall
+choices are repeated in both candidate rows.
+
+Filtering alternate rows with undefined values originally broke the
+plotted lines. Creating the single-row-per-time input resolved this.
+
+Preserved trial directories:
+
+- `results/relay-probe-comparison/stationary-25m-cGuNzk/`
+- `results/relay-probe-comparison/moving-relay1-25m-pybHRK/`
+
+To regenerate scores, run:
+
+```bash
+python3 scripts/score-candidates.py results/relay-probe-comparison/moving-relay1-25m-pybHRK/run.log
+python3 scripts/score-candidates.py results/relay-probe-comparison/stationary-25m-cGuNzk/run.log
+
+(
+  cd results/relay-probe-comparison/moving-relay1-25m-pybHRK &&
+  awk -F, 'NR == 1 || $2 == 1' candidate-scores.csv > candidate-decisions.csv &&
+  gnuplot ../../../plots/candidate-decisions.gp
+)
+```
+
+### Interpretation and next phase
+
+Both scoring methods preferred relay 2 three seconds before the
+strongest-signal rule. Their identical choices do not demonstrate
+an advantage of adaptive weighting over fixed weighting.
+
+Scoring was performed offline and did not control forwarding.
+Probe delivery totals describe the underlying AODV experiment.
+
+Next: validate onward paths through both relays, integrate live scoring
+with actual forwarding, verify packet paths, and compare performance
+under matched network settings.
