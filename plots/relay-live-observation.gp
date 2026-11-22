@@ -1,7 +1,7 @@
-set terminal pngcairo size 1400,1200 enhanced font "Sans,12"
+set terminal pngcairo size 1400,1550 enhanced font "Sans,12"
 set output "relay-live-observation.png"
 
-set multiplot layout 3,1 title \
+set multiplot layout 4,1 title \
     "AODV baseline: gradual relay movement and observed delivery"
 
 set lmargin 12
@@ -39,5 +39,15 @@ plot "stationary-delay.dat" using 1:2 with points \
        pt 6 ps 1.2 lc rgb "#0072b2" title "Stationary AODV: 30/30", \
      "moving-delay.dat" using 1:2 with points \
        pt 7 ps 0.7 lc rgb "#d55e00" title "Moving AODV: 29/30"
+
+
+set xrange [14:20]
+set yrange [0:15]
+set title "Delivery delay around the route transition"
+set xlabel "Simulation time (s)"
+plot "stationary-delay.dat" using 1:2 with points \
+       pt 6 ps 1.2 lc rgb "#0072b2" title "Stationary AODV", \
+     "moving-delay.dat" using 1:2 with points \
+       pt 7 ps 0.9 lc rgb "#d55e00" title "Moving AODV"
 
 unset multiplot

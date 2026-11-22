@@ -460,3 +460,22 @@ forwarding with valid onward paths and controlled switching.
 The symmetric starting topology is an integration test; it does not
 by itself establish an adaptive advantage over strongest-signal selection.
 These are individual controlled runs, not repeated statistical evaluation.
+
+### Startup delay and transition detail
+
+Both stationary and moving baseline runs recorded the same initial
+arrivals: packet 0 arrived at 1.509916 s with 1009.916452 ms delay,
+and packet 1 arrived at 1.510701 s with 10.700694 ms delay.
+Subsequent early packets had approximately 0.688 ms delay.
+
+This startup effect occurs before movement begins at 10 s. It is
+consistent with initial route discovery and buffering, but arrival
+logs alone do not identify its exact cause.
+
+The Gnuplot figure preserves the full delay range and adds a zoom
+covering 14–20 s and 0–15 ms. In the moving run, packet 16 was not
+received; packet 17 arrived at 17.509679 s with 9.679 ms delay.
+Lost packets have no delay sample and are not plotted as zero delay.
+
+The 2.008991 s gap between arrivals of packets 15 and 17 is an
+observed delivery gap, not an exact measurement of route repair time.
