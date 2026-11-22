@@ -379,3 +379,84 @@ Probe delivery totals describe the underlying AODV experiment.
 Next: validate onward paths through both relays, integrate live scoring
 with actual forwarding, verify packet paths, and compare performance
 under matched network settings.
+
+## Milestone: complete-path validation and gradual-movement baseline
+
+### Purpose and settings
+
+Validate both complete relay paths before integrating custom selection.
+Source: (0, 0); relay 1: (35, 10); relay 2: (35, -10);
+destination: (70, 0), in metres.
+
+The experiments use ns-3.46, standard AODV, ad hoc 802.11a Wi-Fi,
+6 Mbps data/control modes, and log-distance propagation with exponent 3,
+reference distance 1 m, and reference loss 46.6777 dB.
+Each run lasts 30 s with seed 12345 and run 1.
+The source sends 30 UDP packets of 128 bytes, one per second from 0.5 s.
+
+### Complete-path validation
+
+Each relay alone delivered 30/30 packets through a two-hop route.
+Both available delivered 30/30 via relay 1.
+With both relays placed far away, delivery was 0/30 and no usable
+destination route was found. IN_SEARCH entries are not valid paths.
+
+Results: `results/relay-path-validation/trial-odbO5P/`.
+
+### Gradual movement
+
+Relay 1 moves along positive y at 5 m/s from 10 s.
+Relay 2 and both endpoints remain stationary.
+
+| Measurement | Stationary | Moving |
+|---|---:|---:|
+| Received packets | 30/30 | 29/30 |
+| Delivery ratio | 100% | 96.67% |
+| Missing sequence | None | 16 |
+| Packet 17 delay | 0.688 ms | 9.679 ms |
+| Largest arrival gap | 1.000000 s | 2.008991 s |
+
+Moving-run route snapshots show relay 1 UP at 16 s, its route DOWN
+at 17 s, and relay 2 UP at 18 s. Snapshots do not establish exact
+failure, route-installation or repair times.
+
+Results: `results/relay-mobility-baseline/trial-IeNySU/`.
+
+### Passive live observations
+
+`simulations/relay-live-observation.cc` adds MonitorSnifferRx callbacks
+at source and destination. It does not add traffic or change routing.
+
+Relay 1 starts near -77.490 dBm at both endpoints. Its last recorded
+frame at each endpoint is at 15.500688 s, near -81.960 dBm.
+Relay 2 remains near -77.490 dBm through its last observation at
+29.500688 s. Delivery remains 29/30.
+
+These observations include successfully received Wi-Fi data frames,
+not exclusively UDP application packets. Frame counts are not probe
+delivery ratios; missing observations do not independently prove link
+failure. The final observed signal is not a calibrated failure threshold.
+
+Destination-side measurements are diagnostic information. The source
+cannot use them unless an explicit information exchange is implemented.
+
+### Figure and reproduction
+
+![Signals and delivery delay](../results/relay-live-observation/moving-ICAaHb/relay-live-observation.png)
+
+The top panels use the passive-observation run. The delay panel uses
+the original stationary and moving baseline logs.
+Lost packets have no delay samples.
+
+From `results/relay-live-observation/moving-ICAaHb/`, run:
+`gnuplot ../../../plots/relay-live-observation.gp`
+
+The plotting inputs are stored alongside the figure.
+
+### Next phase and limits
+
+Implement live scoring in observation-only mode, then integrate actual
+forwarding with valid onward paths and controlled switching.
+The symmetric starting topology is an integration test; it does not
+by itself establish an adaptive advantage over strongest-signal selection.
+These are individual controlled runs, not repeated statistical evaluation.

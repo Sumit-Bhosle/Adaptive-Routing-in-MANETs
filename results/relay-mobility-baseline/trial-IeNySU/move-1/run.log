@@ -1,0 +1,79 @@
+CONFIG activeRelay=0 moveRelay=1 speed_mps=5 movement_start_s=10 duration_s=30 seed=12345 run=1
+POSITION node=0 x_m=0 y_m=0
+POSITION node=1 x_m=35 y_m=10
+POSITION node=2 x_m=35 y_m=-10
+POSITION node=3 x_m=70 y_m=0
+UDP_RX t_s=1.509916 seq=0 delay_ms=1009.916452
+UDP_RX t_s=1.510701 seq=1 delay_ms=10.700694
+UDP_RX t_s=2.500688 seq=2 delay_ms=0.688242
+UDP_RX t_s=3.500688 seq=3 delay_ms=0.688242
+UDP_RX t_s=4.500688 seq=4 delay_ms=0.688242
+UDP_RX t_s=5.500688 seq=5 delay_ms=0.688242
+UDP_RX t_s=6.500688 seq=6 delay_ms=0.688242
+UDP_RX t_s=7.500688 seq=7 delay_ms=0.688242
+RELAY_POSITION t_s=8.000000 relay=1 x_m=35.000000 y_m=10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+RELAY_POSITION t_s=8.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=8.500688 seq=8 delay_ms=0.688242
+RELAY_POSITION t_s=9.000000 relay=1 x_m=35.000000 y_m=10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+RELAY_POSITION t_s=9.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=9.500688 seq=9 delay_ms=0.688242
+RELAY_POSITION t_s=10.000000 relay=1 x_m=35.000000 y_m=10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+RELAY_POSITION t_s=10.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=10.500688 seq=10 delay_ms=0.688248
+RELAY_POSITION t_s=11.000000 relay=1 x_m=35.000000 y_m=15.000000 source_distance_m=38.078866 destination_distance_m=38.078866
+RELAY_POSITION t_s=11.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=11.500688 seq=11 delay_ms=0.688262
+RELAY_POSITION t_s=12.000000 relay=1 x_m=35.000000 y_m=20.000000 source_distance_m=40.311289 destination_distance_m=40.311289
+RELAY_POSITION t_s=12.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=12.500688 seq=12 delay_ms=0.688278
+RELAY_POSITION t_s=13.000000 relay=1 x_m=35.000000 y_m=25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+RELAY_POSITION t_s=13.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=13.500688 seq=13 delay_ms=0.688296
+RELAY_POSITION t_s=14.000000 relay=1 x_m=35.000000 y_m=30.000000 source_distance_m=46.097722 destination_distance_m=46.097722
+RELAY_POSITION t_s=14.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=14.500688 seq=14 delay_ms=0.688318
+RELAY_POSITION t_s=15.000000 relay=1 x_m=35.000000 y_m=35.000000 source_distance_m=49.497475 destination_distance_m=49.497475
+RELAY_POSITION t_s=15.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=15.500688 seq=15 delay_ms=0.688342
+RELAY_POSITION t_s=16.000000 relay=1 x_m=35.000000 y_m=40.000000 source_distance_m=53.150729 destination_distance_m=53.150729
+RELAY_POSITION t_s=16.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+RELAY_POSITION t_s=17.000000 relay=1 x_m=35.000000 y_m=45.000000 source_distance_m=57.008771 destination_distance_m=57.008771
+RELAY_POSITION t_s=17.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=17.509679 seq=17 delay_ms=9.678968
+RELAY_POSITION t_s=18.000000 relay=1 x_m=35.000000 y_m=50.000000 source_distance_m=61.032778 destination_distance_m=61.032778
+RELAY_POSITION t_s=18.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=18.500688 seq=18 delay_ms=0.688242
+RELAY_POSITION t_s=19.000000 relay=1 x_m=35.000000 y_m=55.000000 source_distance_m=65.192024 destination_distance_m=65.192024
+RELAY_POSITION t_s=19.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=19.500688 seq=19 delay_ms=0.688242
+RELAY_POSITION t_s=20.000000 relay=1 x_m=35.000000 y_m=60.000000 source_distance_m=69.462220 destination_distance_m=69.462220
+RELAY_POSITION t_s=20.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=20.500688 seq=20 delay_ms=0.688242
+RELAY_POSITION t_s=21.000000 relay=1 x_m=35.000000 y_m=65.000000 source_distance_m=73.824115 destination_distance_m=73.824115
+RELAY_POSITION t_s=21.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=21.500688 seq=21 delay_ms=0.688242
+RELAY_POSITION t_s=22.000000 relay=1 x_m=35.000000 y_m=70.000000 source_distance_m=78.262379 destination_distance_m=78.262379
+RELAY_POSITION t_s=22.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=22.500688 seq=22 delay_ms=0.688242
+RELAY_POSITION t_s=23.000000 relay=1 x_m=35.000000 y_m=75.000000 source_distance_m=82.764727 destination_distance_m=82.764727
+RELAY_POSITION t_s=23.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=23.500688 seq=23 delay_ms=0.688242
+RELAY_POSITION t_s=24.000000 relay=1 x_m=35.000000 y_m=80.000000 source_distance_m=87.321246 destination_distance_m=87.321246
+RELAY_POSITION t_s=24.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=24.500688 seq=24 delay_ms=0.688242
+RELAY_POSITION t_s=25.000000 relay=1 x_m=35.000000 y_m=85.000000 source_distance_m=91.923882 destination_distance_m=91.923882
+RELAY_POSITION t_s=25.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=25.500688 seq=25 delay_ms=0.688242
+RELAY_POSITION t_s=26.000000 relay=1 x_m=35.000000 y_m=90.000000 source_distance_m=96.566040 destination_distance_m=96.566040
+RELAY_POSITION t_s=26.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=26.500688 seq=26 delay_ms=0.688242
+RELAY_POSITION t_s=27.000000 relay=1 x_m=35.000000 y_m=95.000000 source_distance_m=101.242284 destination_distance_m=101.242284
+RELAY_POSITION t_s=27.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=27.500688 seq=27 delay_ms=0.688242
+RELAY_POSITION t_s=28.000000 relay=1 x_m=35.000000 y_m=100.000000 source_distance_m=105.948101 destination_distance_m=105.948101
+RELAY_POSITION t_s=28.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=28.500688 seq=28 delay_ms=0.688242
+RELAY_POSITION t_s=29.000000 relay=1 x_m=35.000000 y_m=105.000000 source_distance_m=110.679718 destination_distance_m=110.679718
+RELAY_POSITION t_s=29.000000 relay=2 x_m=35.000000 y_m=-10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+UDP_RX t_s=29.500688 seq=29 delay_ms=0.688242
+SUMMARY moveRelay=1 sent=30 received=29 pdr_percent=96.666667

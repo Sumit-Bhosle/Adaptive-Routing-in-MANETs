@@ -392,3 +392,30 @@ scoring with forwarding, and evaluate delivery, throughput, delay, and
 control overhead against standard AODV.
 
 See [the project log](docs/project-log.md) for methodology and limitations.
+
+## Checkpoint: complete paths and live signal observation
+
+Both candidate relays independently support a two-hop AODV path.
+The no-relay control delivered no packets.
+
+| Experiment | Delivered |
+|---|---:|
+| Both relays stationary | 30/30 |
+| Relay 1 available alone | 30/30 |
+| Relay 2 available alone | 30/30 |
+| Neither relay nearby | 0/30 |
+| Relay 1 moving gradually | 29/30 |
+
+In the moving baseline, packet 16 was missing. The largest observed
+arrival gap was 2.008991 s; packet 17 arrived with 9.679 ms delay.
+These measurements are not an exact route-repair duration.
+
+Passive observations show relay 1 weakening at both endpoints while
+relay 2 remains stable. Adding observation callbacks retained the
+baseline delivery result of 29/30.
+
+![Relay signals and AODV packet delay](results/relay-live-observation/moving-ICAaHb/relay-live-observation.png)
+
+Current status: standard AODV still controls forwarding. The custom
+selection rule has been tested offline. Next: live scoring, then
+verified forwarding integration and matched performance comparisons.

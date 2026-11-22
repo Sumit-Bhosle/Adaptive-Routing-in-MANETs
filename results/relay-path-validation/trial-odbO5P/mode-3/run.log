@@ -1,0 +1,6 @@
+CONFIG activeRelay=3 duration_s=30 seed=12345 run=1
+POSITION node=0 x_m=0 y_m=0
+POSITION node=1 x_m=10000 y_m=10000
+POSITION node=2 x_m=-10000 y_m=-10000
+POSITION node=3 x_m=70 y_m=0
+SUMMARY activeRelay=3 sent=30 received=0 pdr_percent=0
