@@ -661,3 +661,100 @@ strongest-signal selection, but all three achieved identical delivery.
 No adaptive-weighting advantage over fixed weights is established.
 Next, establish how onward-link validity is obtained and communicated,
 then evaluate performance and overhead across planned, repeated trials.
+
+## STA-RS comparison: achievements, evidence and limitations
+
+### Method name
+
+The working method name is **STA-RS — Signal-Trend-Aware Relay Selection**.
+Historical filenames containing `adaptive` are retained for reproducibility.
+
+STA-RS uses received signal quality and weakening trends to score relays.
+Its feedback-enabled version additionally requires fresh onward-probe
+evidence received through actual network messages.
+
+The implementation remains a controlled four-node prototype. Onward host
+routes are configured, while AODV remains available as fallback.
+
+### Initial forwarding comparison
+
+Trial: `results/relay-forwarding-prototype/trial-qoaktp/`.
+
+| Measurement | Standard AODV | STA-RS forwarding prototype |
+|---|---|---|
+| Stationary application delivery | 30/30 | 30/30 |
+| Moving application delivery | 29/30 | 30/30 |
+| Moving delivery ratio | 96.666667% | 100% |
+| Packet 16 | Not received | Received |
+| Packet 17 end-to-end delay | 9.678968 ms | 0.688242 ms |
+
+STA-RS selected relay 2 at 14 s. Forwarding traces showed relay 2 carrying
+packet 14 and subsequent packets. Standard AODV used relay 2 for packet 17
+after the interruption.
+
+The delivery difference is one packet, or approximately 3.33 percentage
+points, in this run. Packet 17 is a specific transition observation,
+not the mean delay of the experiment.
+
+These measurements predate regular neighbour probes and onward-feedback
+integration. Configured onward routes are a comparison limitation.
+
+### Equal-support selection comparison with periodic probes
+
+Trial: `results/relay-probe-selection/comparison-J425UC/`.
+
+| Rule | Relay 1 to relay 2 switch | Application delivery |
+|---|---|---|
+| Strongest signal | 14 s | 30/30 |
+| Fixed weights | 12 s | 30/30 |
+| STA-RS adaptive weights | 12 s | 30/30 |
+
+All three rules used the same probing configuration and forwarding support.
+Live scores matched Python replay across all 180 candidate rows.
+
+The experiment demonstrates earlier selection by the stability-aware rules.
+It does not demonstrate better delivery from earlier switching or an
+advantage of adaptive weights over fixed weights.
+
+### Onward-feedback verification
+
+Trial: `results/relay-feedback-selection/trial-0eR1Mg/`.
+
+The message sequence is: relay probe, destination confirmation, relay report
+to source. The source updates its evidence only upon receiving the report.
+Evidence age uses the original probe timestamp.
+
+| Check | Stationary | Moving relay 1 |
+|---|---|---|
+| Application delivery | 30/30 | 30/30 |
+| Source reports received for relay 1 | 60 | 31 |
+| Source reports received for relay 2 | 60 | 60 |
+| Relay 1 selection change | No change after initial selection | Relay 2 selected at 12 s |
+
+In the moving run, relay 1 evidence was 1.75 s old at 17 s and 2.75 s
+old at 18 s. With a two-second limit and once-per-second evaluation,
+the 18 s check marked it expired.
+
+This verifies message delivery and evidence expiry. It does not isolate
+the benefit of onward verification because relay 1 lost connectivity to
+both endpoints and STA-RS had already selected relay 2.
+
+### Monitoring cost
+
+The moving feedback run attempted 120 probes, 91 destination confirmations
+and 91 relay reports: 302 messages, each with 64 bytes of UDP payload.
+
+That totals 19328 bytes of attempted monitoring payload. It excludes
+UDP/IP/Wi-Fi headers, other control traffic and application traffic.
+Socket acceptance is not proof of over-the-air transmission or reception.
+
+### Supported conclusion
+
+STA-RS has progressed from offline scoring to verified live scoring,
+actual forwarding control and network-delivered onward evidence.
+The initial forwarding experiment showed improved delivery and a lower
+delay for packet 17 compared with standard AODV in that specific setup.
+
+General performance gains, the value of adaptive weighting, and the
+benefit-versus-overhead trade-off remain to be established through
+controlled ablations and repeated experiments.

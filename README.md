@@ -473,3 +473,58 @@ Live scores matched Python replay across all 180 candidate rows.
 Stability-aware selection switched earlier in this run, but adaptive
 weighting has not demonstrated an advantage over fixed weighting.
 Monitoring overhead and onward-link validity require further evaluation.
+
+## STA-RS: implemented features and experimental results
+
+**STA-RS — Signal-Trend-Aware Relay Selection** is the project's custom
+relay-selection mechanism. It combines signal quality, weakening trends,
+adaptive weighting and fresh onward-link confirmations.
+
+The current implementation is a four-node prototype with configured
+relay-to-destination routes and AODV fallback.
+
+✓ = implemented or observed. Pending = not yet established.
+
+| Feature or experimental result | Standard AODV | STA-RS prototype |
+|---|---|---|
+| On-demand route discovery | ✓ | Uses AODV as fallback |
+| Relay scoring using signal strength and weakening trends | Not part of the baseline | ✓ |
+| Adaptive quality/stability weights | Not part of the baseline | ✓ |
+| Fresh onward-probe confirmation required for selector eligibility | No STA-RS confirmation rule | ✓ In the feedback-enabled version |
+| Actual packet forwarding follows the selected relay | AODV-selected route | ✓ Verified by packet traces |
+| Stationary delivery in the initial forwarding comparison | 30/30 | 30/30 |
+| Moving delivery in the initial forwarding comparison | 29/30 | 30/30 |
+| Packet 17 delay in that moving comparison | 9.678968 ms | 0.688242 ms |
+| Extra STA-RS probes and feedback | None | Additional monitoring traffic |
+| Repeated-scenario performance advantage | Evaluation pending | Evaluation pending |
+| Adaptive weighting advantage over fixed weights | Not applicable | Not yet demonstrated |
+
+### What the results establish
+
+Live scoring matched Python replay across 120 candidate rows before
+regular probes were added, and across 180 rows in the probe-based
+three-rule comparison.
+
+With identical periodic probes and forwarding support, fixed-weight
+selection and STA-RS switched to relay 2 at 12 s; strongest-signal
+selection switched at 14 s. All three delivered 30/30 application packets.
+
+The feedback-enabled STA-RS version delivered 30/30 packets in both
+stationary and moving checks. Source-side logs confirmed reception of
+onward evidence and its expiry after updates stopped.
+
+### Scope of the comparison
+
+The initial AODV-versus-STA-RS delivery and delay figures predate regular
+probes and onward-confirmation feedback. They must not be presented as
+measurements of the latest feedback-enabled version.
+
+These are controlled single-seed/run results. Configured onward routes
+differ from standard AODV's routing support. The experiments establish
+working integration and preliminary benefits, not general superiority.
+
+AODV has its own route discovery and maintenance mechanisms; the absence
+of STA-RS-specific scoring or confirmation messages does not imply that
+AODV performs no route validation.
+
+See [the project log](docs/project-log.md) for trial paths and evidence.
