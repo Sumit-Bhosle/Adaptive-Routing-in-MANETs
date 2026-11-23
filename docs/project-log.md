@@ -556,3 +556,108 @@ Candidate preferences are not actual forwarding changes.
 
 Implement controlled forwarding integration, verify the actual packet
 path, and evaluate switching safeguards before broader comparisons.
+
+## Milestone: forwarding rules under identical prototype support
+
+The forwarding prototype was extended to compare strongest-signal,
+fixed-weight and adaptive selection using the same configured onward
+routes, eligibility checks, traffic and network settings.
+
+Trial: `results/relay-selection-comparison/trial-G8jGsJ/`.
+
+| Rule | Stationary delivery | Moving delivery | Moving-run relay switch |
+|---|---|---|---|
+| Strongest signal | 30/30 | 30/30 | Relay 1 to relay 2 at 14 s |
+| Fixed weights | 30/30 | 30/30 | Relay 1 to relay 2 at 14 s |
+| Adaptive weights | 30/30 | 30/30 | Relay 1 to relay 2 at 14 s |
+
+All rules first installed relay 1 at 2 s. These results verify that
+each rule can control forwarding. They do not demonstrate an advantage
+from adaptive weighting in this scenario.
+
+The next experiment varies the stationary relay's offset and the moving
+relay's speed while retaining the scoring formulas. Configured onward
+routes remain a prototype assumption; signal eligibility at the source
+does not establish onward-link validity.
+
+## Milestone: forwarding integration and probe-based selection
+
+### Forwarding verification
+
+Simulation: `simulations/relay-forwarding-prototype.cc`.
+Trial: `results/relay-forwarding-prototype/trial-qoaktp/`.
+
+The selector installs a source host route through its preferred relay.
+Relay-to-destination host routes are configured in advance. When no
+candidate is eligible, the source's selector route is removed, allowing
+AODV to handle traffic.
+
+UDP forwarding traces identified the relay carrying each packet.
+Destination receive logs confirmed delivery.
+
+Both stationary modes delivered 30/30 packets. Under movement,
+standard AODV delivered 29/30 and the adaptive prototype delivered 30/30.
+Packet 16 was absent from the AODV receive log but present in the
+prototype's log. Packet 17 delay was 9.678968 ms under AODV and
+0.688242 ms under the prototype.
+
+Configured onward routes differ from standard AODV's routing support,
+so these results do not isolate the contribution of adaptive weighting.
+
+### Equal-support comparisons
+
+Trials:
+- `results/relay-selection-comparison/trial-G8jGsJ/`
+- `results/relay-selection-scenarios/offset25-speed5-nMRwJB/`
+
+Strongest-signal, fixed-weight and adaptive rules all delivered 30/30
+packets in stationary and moving runs. All switched to relay 2 at 14 s
+in the moving runs.
+
+In the offset-25 adaptive run, relay 2 had only two samples in the
+three-second window at 11–13 s. It was therefore ineligible, even though
+this did not establish that the relay was disconnected.
+
+### Regular neighbour probes
+
+Simulation: `simulations/relay-probe-selection.cc`.
+Initial check: `results/relay-probe-selection/check-VzMJTi/`.
+Comparison: `results/relay-probe-selection/comparison-J425UC/`.
+
+Each relay attempts 60 one-hop broadcast probes at 0.5-second intervals.
+UDP payload size is 64 bytes, including the sequence/timestamp header.
+The relays use staggered transmission schedules.
+
+Only identified probe frames received at node 0 enter scoring.
+The scoring formulas and eligibility requirements remain unchanged.
+
+In the stationary check, both relays had 60/60 probes received.
+In each moving comparison run, relay 1 had 31/60 probes received and
+relay 2 had 60/60. All 60 sends per relay were accepted by their sockets;
+socket acceptance does not establish over-the-air delivery.
+
+### Results with probes
+
+| Rule | Moving-run switch | Application packets received |
+|---|---|---|
+| Strongest signal | 14 s | 30/30 |
+| Fixed weights | 12 s | 30/30 |
+| Adaptive weights | 12 s | 30/30 |
+
+All 180 candidate rows matched between live C++ scoring and Python replay.
+Categorical fields and choices matched exactly. Numerical comparison
+used relative tolerance 1e-9 and absolute tolerance 1e-10.
+
+Each run attempted 120 probes, representing 7680 bytes of UDP payload.
+This excludes UDP/IP/Wi-Fi headers and other network control traffic;
+it is not a complete routing-overhead measurement.
+
+### Interpretation and next work
+
+Regular probes addressed inconsistent observation opportunities.
+Stability-aware rules selected the alternative two seconds earlier than
+strongest-signal selection, but all three achieved identical delivery.
+
+No adaptive-weighting advantage over fixed weights is established.
+Next, establish how onward-link validity is obtained and communicated,
+then evaluate performance and overhead across planned, repeated trials.

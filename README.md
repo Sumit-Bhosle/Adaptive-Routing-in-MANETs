@@ -445,3 +445,31 @@ experiment, so an adaptive performance advantage is not established.
 
 Next phase: connect verified selection decisions to forwarding,
 verify packet paths, and evaluate delivery and overhead.
+
+## Checkpoint: forwarding integration and regular neighbour probes
+
+The custom selector now controls the source's next hop in a four-node
+prototype. Relay-to-destination routes are configured in advance;
+general route discovery and onward-link verification remain pending.
+
+In the initial moving experiment, the adaptive prototype delivered
+30/30 packets versus 29/30 for standard AODV. This is a controlled
+prototype result, not an isolated test of adaptive weighting.
+
+![Forwarding and delivery comparison](results/relay-forwarding-prototype/trial-qoaktp/comparison/relay-forwarding-comparison.png)
+
+Periodic neighbour probes were then added to provide consistent
+measurement opportunities for both relays.
+
+| Selection rule | Switch to relay 2 | Application delivery |
+|---|---|---|
+| Strongest signal | 14 s | 30/30 |
+| Fixed weights | 12 s | 30/30 |
+| Adaptive weights | 12 s | 30/30 |
+
+All three rules used the same probe configuration and forwarding support.
+Live scores matched Python replay across all 180 candidate rows.
+
+Stability-aware selection switched earlier in this run, but adaptive
+weighting has not demonstrated an advantage over fixed weighting.
+Monitoring overhead and onward-link validity require further evaluation.
