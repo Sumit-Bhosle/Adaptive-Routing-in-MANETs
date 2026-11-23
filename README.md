@@ -419,3 +419,29 @@ baseline delivery result of 29/30.
 Current status: standard AODV still controls forwarding. The custom
 selection rule has been tested offline. Next: live scoring, then
 verified forwarding integration and matched performance comparisons.
+
+## Checkpoint: live relay scoring verified
+
+Our signal-trend-aware adaptive relay-selection method now calculates
+candidate preferences during the ns-3 simulation using observations
+at the source. Standard AODV still controls packet forwarding.
+
+Live C++ scores matched the Python replay across all 120 candidate
+rows from stationary and moving runs, within numerical tolerance.
+
+| Scenario | Candidate preferences | UDP delivery |
+|---|---|---|
+| Stationary | All rules prefer relay 1 from 2 s | 30/30 |
+| Moving relay 1 | All rules prefer relay 2 from 14 s | 29/30 |
+
+In the moving run, AODV routing snapshots showed relay 1 at 14–16 s,
+no UP destination route at 17 s, and relay 2 from 18 s.
+
+![Live relay preferences and AODV route snapshots](results/relay-live-scoring/trial-cnTRwL/move-1/relay-live-decisions.png)
+
+These preferences do not yet change forwarding. Strongest-signal,
+fixed-weight and adaptive selection made identical choices in this
+experiment, so an adaptive performance advantage is not established.
+
+Next phase: connect verified selection decisions to forwarding,
+verify packet paths, and evaluate delivery and overhead.

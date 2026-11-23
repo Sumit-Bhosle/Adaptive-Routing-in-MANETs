@@ -479,3 +479,80 @@ Lost packets have no delay sample and are not plotted as zero delay.
 
 The 2.008991 s gap between arrivals of packets 15 and 17 is an
 observed delivery gap, not an exact measurement of route repair time.
+
+## Milestone: live candidate scoring and replay verification
+
+### Purpose
+
+Move the existing offline scoring calculation into ns-3 and verify
+equivalent results while the simulation is running.
+
+### Implementation
+
+Simulation: `simulations/relay-live-scoring.cc`.
+
+Only signals received at node 0 feed the scorer. Destination observations
+remain diagnostic and are not supplied to the source's selection logic.
+
+Scoring runs once per second from 1 through 30 s. It preserves the Python
+implementation's three-second observation window, two-second freshness
+limit, minimum three samples spanning one second, quality normalization,
+weakening calculation, adaptive weights and lower-ID exact tie rule.
+
+The scorer records preferences without modifying routes or adding traffic.
+Standard AODV remains responsible for packet forwarding.
+
+### Verification
+
+Trial directory: `results/relay-live-scoring/trial-cnTRwL/`.
+
+The simulation writes `live-candidate-scores.csv`. Source observations
+are emitted as precise `SIGNAL_RX` records. The existing Python scorer
+replays those inputs to produce `candidate-scores.csv`.
+
+Both scenarios passed comparison of all 60 candidate rows each:
+120 rows total. Status, sample counts and choices matched exactly.
+Numerical fields matched with relative tolerance 1e-9 and absolute
+tolerance 1e-10.
+
+### Results
+
+| Scenario | Preferences | UDP delivery |
+|---|---|---|
+| Stationary | None at 1 s; relay 1 from 2 s | 30/30 |
+| Moving | None at 1 s; relay 1 from 2 s; relay 2 from 14 s | 29/30 |
+
+All three rules produced the same choices in this experiment.
+Delivery counts remained consistent with the previous AODV baseline.
+
+| Snapshot time | AODV source route to destination |
+|---|---|
+| 14–16 s | Relay 1 |
+| 17 s | No UP destination route |
+| 18–19 s | Relay 2 |
+
+### Visualization and reproducibility
+
+`plots/relay-live-decisions.gp` displays strongest-signal, fixed-weight
+and adaptive preferences in separate panels. The fourth panel shows
+AODV routing snapshots as points, without implying exact transition
+times between observations.
+
+Plot inputs and the PNG are stored in:
+`results/relay-live-scoring/trial-cnTRwL/move-1/`.
+
+From that directory, regenerate the plot with:
+
+    gnuplot ../../../../plots/relay-live-decisions.gp
+
+### Interpretation
+
+The earlier preference for relay 2 motivates a forwarding experiment.
+It does not establish an exact four-second recovery improvement,
+prove delivery gains, or demonstrate an advantage over fixed weights.
+Candidate preferences are not actual forwarding changes.
+
+### Next phase
+
+Implement controlled forwarding integration, verify the actual packet
+path, and evaluate switching safeguards before broader comparisons.
