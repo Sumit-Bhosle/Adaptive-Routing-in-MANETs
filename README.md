@@ -528,3 +528,30 @@ of STA-RS-specific scoring or confirmation messages does not imply that
 AODV performs no route validation.
 
 See [the project log](docs/project-log.md) for trial paths and evidence.
+
+## STA-RS milestone: verifying the onward link
+
+A relay can remain close to the source while losing its connection
+to the destination. STA-RS uses recent destination confirmation,
+reported through the relay, to check onward-link eligibility.
+
+In a controlled experiment, relay 1 moved toward the source and away
+from the destination. Both configurations generated the same monitoring
+traffic; only the requirement for fresh onward confirmation changed.
+
+| Moving-relay configuration | Packets received | Delivery ratio |
+|---|---:|---:|
+| Onward confirmation not required | 13/30 | 43.33% |
+| Onward confirmation required | 28/30 | 93.33% |
+
+Requiring confirmation delivered 15 additional packets, improving
+delivery by 50 percentage points in this run. STA-RS changed to relay 2
+at 15 s after relay 1's evidence exceeded the 2 s freshness limit.
+Both stationary controls delivered 30/30 packets.
+
+![STA-RS onward-link verification experiment](results/relay-onward-ablation/trial-P2th4c/comparison/sta-rs-onward-ablation.png)
+
+This comparison isolates onward verification within the prototype.
+It is not a comparison against standard AODV or evidence that adaptive
+weights outperform fixed weights. Configured relay-to-destination routes
+and one seed/run were used.

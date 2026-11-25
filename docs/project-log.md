@@ -758,3 +758,77 @@ delay for packet 17 compared with standard AODV in that specific setup.
 General performance gains, the value of adaptive weighting, and the
 benefit-versus-overhead trade-off remain to be established through
 controlled ablations and repeated experiments.
+
+## Experiment: contribution of onward-link verification
+
+### Purpose and configuration
+
+Test whether a strong source-facing link is sufficient to choose a relay
+when its onward connection to the destination fails.
+
+The experiment uses simulations/relay-onward-ablation.cc. Relay 1 moves
+toward the source at 5 m/s for 6 s, starting at simulation time 10 s.
+Relay 2 remains stationary. The simulation lasts 30 s and sends
+30 application packets. Seed 12345 and run 1 are used.
+
+The adaptive selector and configured onward routes are used in both
+configurations. Probes and feedback remain enabled in both; requireOnward
+controls whether fresh onward evidence is required for candidate eligibility.
+The evidence freshness limit is 2 s.
+
+### Results
+
+| Movement | Onward confirmation required | Received | Delivery ratio |
+|---|---|---:|---:|
+| Stationary | No | 30/30 | 100% |
+| Stationary | Yes | 30/30 | 100% |
+| Toward source | No | 13/30 | 43.33% |
+| Toward source | Yes | 28/30 | 93.33% |
+
+During movement, the source received all 60 probes from each relay.
+However, the destination received only 26 probes from relay 1, with
+the last reception at 12.750230 s. Relay 2 delivered all 60 probes
+to the destination.
+
+Without the eligibility check, relay 1 remained selected and application
+sequences 13 through 29 were missing. With the check enabled, relay 1's
+evidence age reached 2.25 s at decision time 15 s. The selector changed
+to relay 2, and delivery resumed with sequence 15 at 15.500688 s.
+Only sequences 13 and 14 were missing.
+
+The check therefore delivered 15 additional packets and increased
+delivery by 50 percentage points in this experiment. The observed
+3 s gap between arrivals of sequences 12 and 15 is a delivery gap,
+not an exact measurement of route repair time.
+
+### Interpretation and limitations
+
+The result supports verifying onward connectivity rather than relying
+only on source-facing signal measurements. It isolates the contribution
+of the freshness gate, not adaptive weighting.
+
+This is a single-run prototype ablation using configured onward routes.
+A failed configured route can continue dropping packets when the check
+is disabled. The result must not be presented as a 50-percentage-point
+improvement over standard AODV.
+
+The check governs custom relay selection; AODV fallback remains possible.
+Feedback provides recent connectivity evidence, not a guarantee of
+future delivery. Monitoring overhead and broader performance still
+require measurement.
+
+### Artifacts and plot labels
+
+Trial: results/relay-onward-ablation/trial-P2th4c/
+Plot script: plots/sta-rs-onward-ablation.gp
+Figure: comparison/sta-rs-onward-ablation.png within the trial.
+
+The figure shows packet reception by sequence number, cumulative
+received packets versus simulation time, and evidence age versus
+simulation time. Time and age are measured in seconds; packet totals
+are counts; sequence numbers and reception states are unitless.
+
+Final figures must include descriptive axis labels, units where
+applicable, readable legends, scenario settings, and clearly labelled
+event markers. Repeated-run figures should state the number of runs
+and define any uncertainty intervals.
