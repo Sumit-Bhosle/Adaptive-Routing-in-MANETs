@@ -1013,3 +1013,93 @@ Rerun the experiment after building its executable:
    comparison method.
 6. Produce final plots, conclusions, presentation, and a reproducible demo.
 7. Create `FINAL_Walkthrough.MD` after these evaluations are complete.
+
+## Milestone: delay, goodput, and monitoring analysis
+
+### Data and verification
+
+The extractor checked all 150 logs in
+`results/relay-failure-feedback/repeated-wuKU9x/`.
+
+Application arrival counts matched the simulation summaries. The script
+checked sequence uniqueness and consistency between arrival time,
+reported delay, and the configured application send schedule.
+
+Extractor: `scripts/extract-failure-feedback-metrics.py`.
+Plot script: `plots/sta-rs-performance-metrics.gp`.
+
+### Measurement definitions
+
+- PDR: received application packets divided by transmitted packets.
+- Whole-run goodput: received UDP payload bytes times eight, divided by
+  30 seconds and 1000, reported in kbit/s.
+- Each application UDP payload is 128 bytes, including SeqTsHeader.
+- Time-series goodput: reception counts in one-second windows [start,end),
+  averaged across ten runs and plotted at the window midpoint.
+- Delay: received-packet end-to-end delay in milliseconds.
+- Before/from 10-second delay groups use original packet send times.
+  In stationary runs, 10 seconds is only a matched analysis boundary.
+- Reported group delay is the mean of per-run means.
+- Whiskers show observed run minima and maxima, not confidence intervals.
+- Monitoring includes neighbour probes, unicast validations, destination
+  confirmations, onward reports, and failure reports.
+- Monitoring payload counts socket-accepted messages at 64 bytes each.
+  It excludes routing traffic, ARP, headers, ACKs, and retransmissions.
+- A missing packet has no delay sample. An observed arrival gap is not
+  an exact route-repair-time measurement.
+
+### Observed comparison
+
+| Scenario | Metric | Monitored AODV | STA-RS with failure feedback |
+|---|---|---:|---:|
+| Away | PDR (%) | 97.667 | 100.000 |
+| Away | Goodput (kbit/s) | 1.0001 | 1.0240 |
+| Away | Mean delay, packets sent from 10 s (ms) | 1.0221 | 0.7303 |
+| Away | Monitoring payload (bytes/run) | 27059.2 | 28230.4 |
+| Toward source | PDR (%) | 100.000 | 100.000 |
+| Toward source | Goodput (kbit/s) | 1.0240 | 1.0240 |
+| Toward source | Mean delay, packets sent from 10 s (ms) | 0.8981 | 0.7301 |
+| Toward source | Monitoring payload (bytes/run) | 26419.2 | 27814.4 |
+
+Based on the displayed means, revised STA-RS has approximately 28.5%
+lower received-packet delay in away movement and 18.7% lower delay in
+toward-source movement. These are descriptive comparisons, not claims
+of statistical significance. Delay ranges overlap, and AODV loses
+application packets in the away scenario.
+
+Monitoring payload increases by approximately 4.3% and 5.3%, respectively.
+Each run offers only 3840 application UDP payload bytes, so the roughly
+26–31 kB monitoring payload is substantial for this light traffic load.
+These measurements do not support a low-overhead claim.
+
+Original STA-RS has a toward-source goodput gap corresponding to its
+missing packets. Failure feedback removes this gap in the evaluated
+runs. Strongest-signal and fixed-weight selection with failure feedback
+achieve essentially the same performance as revised STA-RS.
+
+Lower monitoring totals during movement can result from fewer successful
+validations and fewer resulting confirmations; they do not necessarily
+indicate greater efficiency.
+
+### Reproduction
+
+From the repository root:
+
+    python3 scripts/extract-failure-feedback-metrics.py results/relay-failure-feedback/repeated-wuKU9x
+
+The metrics directory contains per-run results, grouped summaries,
+per-second goodput, and metric definitions.
+
+To regenerate figures using the saved plot inputs:
+
+    (cd results/relay-failure-feedback/repeated-wuKU9x/comparison && gnuplot ../../../../plots/sta-rs-performance-metrics.gp)
+
+### Next evaluation
+
+Add an ordinary AODV baseline without custom probes, unicast validation,
+confirmations, or failure reports. Preserve topology, radio settings,
+application traffic, movement scenarios, and run indices. This separates
+the effects of monitoring traffic from the custom forwarding method.
+
+Total network overhead and a recent published comparison technique remain
+pending. The final walkthrough and conclusions remain provisional.

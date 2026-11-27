@@ -1,0 +1,15 @@
+Application UDP payload: 128 bytes, including SeqTsHeader.
+Whole-run goodput denominator: 30 seconds; decimal kbit/s.
+Time-series bins: reception times in [start, end), width 1 second.
+Delay includes received packets only; losses have no delay value.
+Before/from 10 s groups use packet SEND time, not arrival time.
+For stationary runs, 10 s is a matched analysis boundary only.
+Each run sends 10 packets before 10 s and 20 from 10 s onward.
+Group delay results average per-run means; valid-run counts are saved.
+Min/max describe observed run ranges, not confidence intervals.
+Monitoring counters cover neighbour probes, unicast validation,
+destination confirmations, onward reports, and failure reports.
+Monitoring payload is 64 bytes per socket-accepted message.
+Socket acceptance does not prove transmission or delivery.
+These counters EXCLUDE IP/UDP/MAC headers, AODV, ARP, ACKs and retries.
+Largest observed arrival gap is not an exact route-repair time.

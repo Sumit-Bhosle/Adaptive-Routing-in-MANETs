@@ -599,3 +599,32 @@ and the final report and presentation.
 
 See [the project log](docs/project-log.md) for implementation details,
 experimental limitations, and reproduction commands.
+
+### Delay, goodput, and monitoring cost
+
+The repeated evaluation also measures application delivery delay,
+delivered UDP payload rate, and monitoring payload accepted by sockets.
+
+| Scenario | Configuration | Goodput (kbit/s) | Mean delay for received packets sent from 10 s (ms) | Monitoring payload (kB/run) |
+|---|---|---:|---:|---:|
+| Away | AODV with monitoring | 1.0001 | 1.0221 | 27.0592 |
+| Away | STA-RS with failure feedback | 1.0240 | 0.7303 | 28.2304 |
+| Toward source | AODV with monitoring | 1.0240 | 0.8981 | 26.4192 |
+| Toward source | STA-RS with failure feedback | 1.0240 | 0.7301 | 27.8144 |
+
+Values are averages across ten runs. Delay includes received packets
+only; lost packets have no delay sample. Observed delay ranges overlap.
+
+Goodput counts 128-byte UDP payloads, including SeqTsHeader, over the
+30-second simulation. Monitoring uses decimal kB (1000 bytes) and excludes
+AODV, ARP, protocol headers, acknowledgements, and retransmissions.
+Socket acceptance does not prove transmission or delivery.
+
+![Delay and monitoring cost](results/relay-failure-feedback/repeated-wuKU9x/comparison/sta-rs-delay-and-monitoring.png)
+
+![Application goodput over time](results/relay-failure-feedback/repeated-wuKU9x/comparison/sta-rs-goodput-over-time.png)
+
+STA-RS improves the measured mean delay in these movement scenarios at
+additional monitoring cost. Strongest-signal and fixed-weight selectors
+show essentially the same performance. Ordinary AODV without custom
+monitoring remains a pending comparison.
