@@ -1,0 +1,1632 @@
+MOTION_CONFIG toward_source=0 movement_enabled=1 movement_start_s=10 movement_duration_within_simulation_s=20 speed_mps=5
+EVALUATION_CONFIG seed=12345 run=2 duration_s=30 application_interval_s=1 application_max_packets=30
+UNICAST_VALIDATION_CONFIG interval_s=0.5 count_per_relay=60 udp_payload_bytes=64 ttl=1 relay1_start_s=0.30 relay2_start_s=0.425 onward_evidence=unicast-delivery return_feedback=broadcast
+PROBE_CONFIG interval_s=0.5 count_per_relay=60 udp_payload_bytes=64 ttl=1 scoring_input=identified-probes
+FORWARDING_CONFIG rule=adaptive selector_enabled=0 configured_onward_routes=0
+CONFIG activeRelay=0 moveRelay=1 speed_mps=5 relay2_offset_m=25 movement_start_s=10 duration_s=30 seed=12345
+POSITION node=0 x_m=0 y_m=0
+POSITION node=1 x_m=35 y_m=10
+POSITION node=2 x_m=35 y_m=-25
+POSITION node=3 x_m=70 y_m=0
+FEEDBACK_CONFIG require_onward=1 max_evidence_age_s=2 payload_bytes=64 ttl=1
+FAILURE_CONFIG enabled=1 payload_bytes=64 minimum_report_interval_s=0.5 ttl=1 recovery=newer-successful-validation
+LINK_SIGNAL t_s=0.075170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=0
+LINK_SIGNAL t_s=0.075170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=0
+LINK_SIGNAL t_s=0.091170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=0
+LINK_SIGNAL t_s=0.091170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=0
+PROBE_TX t_s=0.250000 relay=1 seq=0 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=0.25023012100000003 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=0
+LINK_SIGNAL t_s=0.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=1
+PROBE_RX t_s=0.250230 relay=1 observer=0 seq=0
+LINK_SIGNAL t_s=0.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=1
+UNICAST_TEST_TX t_s=0.300000 relay=1 seq=0 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=0.309146 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=2
+LINK_SIGNAL t_s=0.309146 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=2
+LINK_SIGNAL t_s=0.309618 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=3
+LINK_SIGNAL t_s=0.309618 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=3
+ONWARD_RX t_s=0.309618 relay=1 destination=3 probe_seq=0 delay_ms=9.618363
+ONWARD_REPORT_TX t_s=0.309926 relay=1 probe_seq=0 probe_time_s=0.300000 socket_accepted=1
+LINK_SIGNAL t_s=0.310211 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=4
+ONWARD_REPORT_RX t_s=0.310211 relay=1 observer=0 probe_seq=0 evidence_age_s=0.010211
+LINK_SIGNAL t_s=0.310211 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=4
+PROBE_TX t_s=0.375000 relay=2 seq=0 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=0.37523014300000002 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=0
+LINK_SIGNAL t_s=0.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=1
+PROBE_RX t_s=0.375230 relay=2 observer=0 seq=0
+LINK_SIGNAL t_s=0.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=1
+UNICAST_TEST_TX t_s=0.425000 relay=2 seq=0 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=0.429146 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=2
+LINK_SIGNAL t_s=0.429146 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=2
+LINK_SIGNAL t_s=0.429717 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=3
+LINK_SIGNAL t_s=0.429717 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=3
+ONWARD_RX t_s=0.429717 relay=2 destination=3 probe_seq=0 delay_ms=4.717429
+ONWARD_REPORT_TX t_s=0.430008 relay=2 probe_seq=0 probe_time_s=0.425000 socket_accepted=1
+LINK_SIGNAL t_s=0.430274 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=4
+ONWARD_REPORT_RX t_s=0.430274 relay=2 observer=0 probe_seq=0 evidence_age_s=0.005274
+LINK_SIGNAL t_s=0.430274 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=4
+LINK_SIGNAL t_s=0.506644 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=5
+LINK_SIGNAL t_s=0.506644 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=5
+LINK_SIGNAL t_s=0.506902 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=5
+LINK_SIGNAL t_s=0.506902 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=5
+LINK_SIGNAL t_s=0.513324 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=6
+LINK_SIGNAL t_s=0.513324 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=6
+LINK_SIGNAL t_s=0.513755 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=7
+UDP_FORWARD t_s=0.513755 node=0 seq=0 interface=1 ttl=64
+LINK_SIGNAL t_s=0.513755 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=7
+LINK_SIGNAL t_s=0.515324 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=6
+LINK_SIGNAL t_s=0.515324 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=6
+LINK_SIGNAL t_s=0.515817 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=7
+LINK_SIGNAL t_s=0.515817 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=7
+LINK_SIGNAL t_s=0.516242 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=8
+LINK_SIGNAL t_s=0.516242 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=8
+LINK_SIGNAL t_s=0.520047 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=8
+LINK_SIGNAL t_s=0.520047 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=8
+UDP_FORWARD t_s=0.520672 node=2 seq=0 interface=1 ttl=63
+LINK_SIGNAL t_s=0.521091 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=9
+LINK_SIGNAL t_s=0.521091 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=9
+UDP_RX t_s=0.521091 seq=0 delay_ms=21.091430
+PROBE_TX t_s=0.750000 relay=1 seq=1 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=0.75023012099999997 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=1
+LINK_SIGNAL t_s=0.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=9
+PROBE_RX t_s=0.750230 relay=1 observer=0 seq=1
+LINK_SIGNAL t_s=0.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=9
+UNICAST_TEST_TX t_s=0.800000 relay=1 seq=1 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=0.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=10
+LINK_SIGNAL t_s=0.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=10
+ONWARD_RX t_s=0.800230 relay=1 destination=3 probe_seq=1 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=0.800520 relay=1 probe_seq=1 probe_time_s=0.800000 socket_accepted=1
+LINK_SIGNAL t_s=0.800858 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=11
+ONWARD_REPORT_RX t_s=0.800858 relay=1 observer=0 probe_seq=1 evidence_age_s=0.000858
+LINK_SIGNAL t_s=0.800858 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=11
+PROBE_TX t_s=0.875000 relay=2 seq=1 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=0.87523014300000002 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=1
+LINK_SIGNAL t_s=0.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=10
+PROBE_RX t_s=0.875230 relay=2 observer=0 seq=1
+LINK_SIGNAL t_s=0.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=10
+UNICAST_TEST_TX t_s=0.925000 relay=2 seq=1 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=0.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=11
+LINK_SIGNAL t_s=0.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=11
+ONWARD_RX t_s=0.925230 relay=2 destination=3 probe_seq=1 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=0.925520 relay=2 probe_seq=1 probe_time_s=0.925000 socket_accepted=1
+LINK_SIGNAL t_s=0.925822 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=12
+ONWARD_REPORT_RX t_s=0.925822 relay=2 observer=0 probe_seq=1 evidence_age_s=0.000822
+LINK_SIGNAL t_s=0.925822 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=12
+ONWARD_STATE t_s=1.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=1.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=1.000000 strongest=0 fixed=0 adaptive=0 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=1.071170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=13
+LINK_SIGNAL t_s=1.071170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=13
+LINK_SIGNAL t_s=1.092170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=12
+LINK_SIGNAL t_s=1.092170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=12
+PROBE_TX t_s=1.250000 relay=1 seq=2 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=1.250230121 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=2
+LINK_SIGNAL t_s=1.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=13
+PROBE_RX t_s=1.250230 relay=1 observer=0 seq=2
+LINK_SIGNAL t_s=1.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=13
+UNICAST_TEST_TX t_s=1.300000 relay=1 seq=2 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=1.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=14
+LINK_SIGNAL t_s=1.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=14
+ONWARD_RX t_s=1.300230 relay=1 destination=3 probe_seq=2 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=1.300520 relay=1 probe_seq=2 probe_time_s=1.300000 socket_accepted=1
+LINK_SIGNAL t_s=1.300795 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=15
+ONWARD_REPORT_RX t_s=1.300795 relay=1 observer=0 probe_seq=2 evidence_age_s=0.000795
+LINK_SIGNAL t_s=1.300795 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=15
+PROBE_TX t_s=1.375000 relay=2 seq=2 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=1.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=2
+LINK_SIGNAL t_s=1.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=14
+PROBE_RX t_s=1.375230 relay=2 observer=0 seq=2
+LINK_SIGNAL t_s=1.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=14
+UNICAST_TEST_TX t_s=1.425000 relay=2 seq=2 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=1.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=15
+LINK_SIGNAL t_s=1.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=15
+ONWARD_RX t_s=1.425230 relay=2 destination=3 probe_seq=2 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=1.425520 relay=2 probe_seq=2 probe_time_s=1.425000 socket_accepted=1
+LINK_SIGNAL t_s=1.425786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=16
+ONWARD_REPORT_RX t_s=1.425786 relay=2 observer=0 probe_seq=2 evidence_age_s=0.000786
+LINK_SIGNAL t_s=1.425786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=16
+UDP_FORWARD t_s=1.500314 node=2 seq=1 interface=1 ttl=63
+LINK_SIGNAL t_s=1.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=17
+LINK_SIGNAL t_s=1.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=17
+UDP_RX t_s=1.500688 seq=1 delay_ms=0.688286
+PROBE_TX t_s=1.750000 relay=1 seq=3 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=1.750230121 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=3
+LINK_SIGNAL t_s=1.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=16
+PROBE_RX t_s=1.750230 relay=1 observer=0 seq=3
+LINK_SIGNAL t_s=1.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=16
+UNICAST_TEST_TX t_s=1.800000 relay=1 seq=3 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=1.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=17
+LINK_SIGNAL t_s=1.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=17
+ONWARD_RX t_s=1.800230 relay=1 destination=3 probe_seq=3 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=1.800520 relay=1 probe_seq=3 probe_time_s=1.800000 socket_accepted=1
+LINK_SIGNAL t_s=1.800795 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=18
+ONWARD_REPORT_RX t_s=1.800795 relay=1 observer=0 probe_seq=3 evidence_age_s=0.000795
+LINK_SIGNAL t_s=1.800795 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=18
+PROBE_TX t_s=1.875000 relay=2 seq=3 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=1.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=3
+LINK_SIGNAL t_s=1.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=18
+PROBE_RX t_s=1.875230 relay=2 observer=0 seq=3
+LINK_SIGNAL t_s=1.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=18
+UNICAST_TEST_TX t_s=1.925000 relay=2 seq=3 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=1.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=19
+LINK_SIGNAL t_s=1.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=19
+ONWARD_RX t_s=1.925230 relay=2 destination=3 probe_seq=3 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=1.925520 relay=2 probe_seq=3 probe_time_s=1.925000 socket_accepted=1
+LINK_SIGNAL t_s=1.925777 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=20
+ONWARD_REPORT_RX t_s=1.925777 relay=2 observer=0 probe_seq=3 evidence_age_s=0.000777
+LINK_SIGNAL t_s=1.925777 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=20
+ONWARD_STATE t_s=2.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=2.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=2.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=2.077170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=21
+LINK_SIGNAL t_s=2.077170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=21
+LINK_SIGNAL t_s=2.090170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=19
+LINK_SIGNAL t_s=2.090170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=19
+PROBE_TX t_s=2.250000 relay=1 seq=4 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=2.250230121 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=4
+LINK_SIGNAL t_s=2.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=20
+PROBE_RX t_s=2.250230 relay=1 observer=0 seq=4
+LINK_SIGNAL t_s=2.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=20
+UNICAST_TEST_TX t_s=2.300000 relay=1 seq=4 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=2.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=21
+LINK_SIGNAL t_s=2.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=21
+ONWARD_RX t_s=2.300230 relay=1 destination=3 probe_seq=4 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=2.300520 relay=1 probe_seq=4 probe_time_s=2.300000 socket_accepted=1
+LINK_SIGNAL t_s=2.300867 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=22
+ONWARD_REPORT_RX t_s=2.300867 relay=1 observer=0 probe_seq=4 evidence_age_s=0.000867
+LINK_SIGNAL t_s=2.300867 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=22
+PROBE_TX t_s=2.375000 relay=2 seq=4 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=2.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=4
+LINK_SIGNAL t_s=2.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=22
+PROBE_RX t_s=2.375230 relay=2 observer=0 seq=4
+LINK_SIGNAL t_s=2.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=22
+UNICAST_TEST_TX t_s=2.425000 relay=2 seq=4 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=2.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=23
+LINK_SIGNAL t_s=2.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=23
+ONWARD_RX t_s=2.425230 relay=2 destination=3 probe_seq=4 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=2.425520 relay=2 probe_seq=4 probe_time_s=2.425000 socket_accepted=1
+LINK_SIGNAL t_s=2.425840 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=24
+ONWARD_REPORT_RX t_s=2.425840 relay=2 observer=0 probe_seq=4 evidence_age_s=0.000840
+LINK_SIGNAL t_s=2.425840 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=24
+UDP_FORWARD t_s=2.500314 node=2 seq=2 interface=1 ttl=63
+LINK_SIGNAL t_s=2.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=25
+LINK_SIGNAL t_s=2.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=25
+UDP_RX t_s=2.500688 seq=2 delay_ms=0.688286
+PROBE_TX t_s=2.750000 relay=1 seq=5 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=2.750230121 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=5
+LINK_SIGNAL t_s=2.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=23
+PROBE_RX t_s=2.750230 relay=1 observer=0 seq=5
+LINK_SIGNAL t_s=2.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=23
+UNICAST_TEST_TX t_s=2.800000 relay=1 seq=5 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=2.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=24
+LINK_SIGNAL t_s=2.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=24
+ONWARD_RX t_s=2.800230 relay=1 destination=3 probe_seq=5 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=2.800520 relay=1 probe_seq=5 probe_time_s=2.800000 socket_accepted=1
+LINK_SIGNAL t_s=2.800804 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=25
+ONWARD_REPORT_RX t_s=2.800804 relay=1 observer=0 probe_seq=5 evidence_age_s=0.000804
+LINK_SIGNAL t_s=2.800804 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=25
+PROBE_TX t_s=2.875000 relay=2 seq=5 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=2.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=5
+LINK_SIGNAL t_s=2.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=26
+PROBE_RX t_s=2.875230 relay=2 observer=0 seq=5
+LINK_SIGNAL t_s=2.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=26
+UNICAST_TEST_TX t_s=2.925000 relay=2 seq=5 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=2.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=27
+LINK_SIGNAL t_s=2.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=27
+ONWARD_RX t_s=2.925230 relay=2 destination=3 probe_seq=5 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=2.925520 relay=2 probe_seq=5 probe_time_s=2.925000 socket_accepted=1
+LINK_SIGNAL t_s=2.925822 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=28
+ONWARD_REPORT_RX t_s=2.925822 relay=2 observer=0 probe_seq=5 evidence_age_s=0.000822
+LINK_SIGNAL t_s=2.925822 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=28
+ONWARD_STATE t_s=3.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=3.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=3.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=3.071170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=29
+LINK_SIGNAL t_s=3.071170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=29
+LINK_SIGNAL t_s=3.088170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=26
+LINK_SIGNAL t_s=3.088170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=26
+PROBE_TX t_s=3.250000 relay=1 seq=6 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=3.250230121 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=6
+LINK_SIGNAL t_s=3.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=27
+PROBE_RX t_s=3.250230 relay=1 observer=0 seq=6
+LINK_SIGNAL t_s=3.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=27
+UNICAST_TEST_TX t_s=3.300000 relay=1 seq=6 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=3.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=28
+LINK_SIGNAL t_s=3.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=28
+ONWARD_RX t_s=3.300230 relay=1 destination=3 probe_seq=6 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=3.300520 relay=1 probe_seq=6 probe_time_s=3.300000 socket_accepted=1
+LINK_SIGNAL t_s=3.300786 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=29
+ONWARD_REPORT_RX t_s=3.300786 relay=1 observer=0 probe_seq=6 evidence_age_s=0.000786
+LINK_SIGNAL t_s=3.300786 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=29
+PROBE_TX t_s=3.375000 relay=2 seq=6 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=3.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=6
+LINK_SIGNAL t_s=3.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=30
+PROBE_RX t_s=3.375230 relay=2 observer=0 seq=6
+LINK_SIGNAL t_s=3.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=30
+UNICAST_TEST_TX t_s=3.425000 relay=2 seq=6 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=3.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=31
+LINK_SIGNAL t_s=3.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=31
+ONWARD_RX t_s=3.425230 relay=2 destination=3 probe_seq=6 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=3.425520 relay=2 probe_seq=6 probe_time_s=3.425000 socket_accepted=1
+LINK_SIGNAL t_s=3.425750 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=32
+ONWARD_REPORT_RX t_s=3.425750 relay=2 observer=0 probe_seq=6 evidence_age_s=0.000750
+LINK_SIGNAL t_s=3.425750 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=32
+UDP_FORWARD t_s=3.500314 node=2 seq=3 interface=1 ttl=63
+LINK_SIGNAL t_s=3.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=33
+LINK_SIGNAL t_s=3.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=33
+UDP_RX t_s=3.500688 seq=3 delay_ms=0.688286
+PROBE_TX t_s=3.750000 relay=1 seq=7 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=3.750230121 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=7
+LINK_SIGNAL t_s=3.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=30
+PROBE_RX t_s=3.750230 relay=1 observer=0 seq=7
+LINK_SIGNAL t_s=3.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=30
+UNICAST_TEST_TX t_s=3.800000 relay=1 seq=7 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=3.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=31
+LINK_SIGNAL t_s=3.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=31
+ONWARD_RX t_s=3.800230 relay=1 destination=3 probe_seq=7 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=3.800520 relay=1 probe_seq=7 probe_time_s=3.800000 socket_accepted=1
+LINK_SIGNAL t_s=3.800831 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=32
+ONWARD_REPORT_RX t_s=3.800831 relay=1 observer=0 probe_seq=7 evidence_age_s=0.000831
+LINK_SIGNAL t_s=3.800831 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=32
+PROBE_TX t_s=3.875000 relay=2 seq=7 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=3.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=7
+LINK_SIGNAL t_s=3.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=34
+PROBE_RX t_s=3.875230 relay=2 observer=0 seq=7
+LINK_SIGNAL t_s=3.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=34
+UNICAST_TEST_TX t_s=3.925000 relay=2 seq=7 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=3.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=35
+LINK_SIGNAL t_s=3.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=35
+ONWARD_RX t_s=3.925230 relay=2 destination=3 probe_seq=7 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=3.925520 relay=2 probe_seq=7 probe_time_s=3.925000 socket_accepted=1
+LINK_SIGNAL t_s=3.925849 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=36
+ONWARD_REPORT_RX t_s=3.925849 relay=2 observer=0 probe_seq=7 evidence_age_s=0.000849
+LINK_SIGNAL t_s=3.925849 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=36
+ONWARD_STATE t_s=4.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=4.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=4.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=4.068170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=37
+LINK_SIGNAL t_s=4.068170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=37
+LINK_SIGNAL t_s=4.084170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=33
+LINK_SIGNAL t_s=4.084170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=33
+PROBE_TX t_s=4.250000 relay=1 seq=8 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=4.2502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=8
+LINK_SIGNAL t_s=4.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=34
+PROBE_RX t_s=4.250230 relay=1 observer=0 seq=8
+LINK_SIGNAL t_s=4.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=34
+UNICAST_TEST_TX t_s=4.300000 relay=1 seq=8 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=4.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=35
+LINK_SIGNAL t_s=4.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=35
+ONWARD_RX t_s=4.300230 relay=1 destination=3 probe_seq=8 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=4.300520 relay=1 probe_seq=8 probe_time_s=4.300000 socket_accepted=1
+LINK_SIGNAL t_s=4.300840 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=36
+ONWARD_REPORT_RX t_s=4.300840 relay=1 observer=0 probe_seq=8 evidence_age_s=0.000840
+LINK_SIGNAL t_s=4.300840 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=36
+PROBE_TX t_s=4.375000 relay=2 seq=8 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=4.3752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=8
+LINK_SIGNAL t_s=4.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=38
+PROBE_RX t_s=4.375230 relay=2 observer=0 seq=8
+LINK_SIGNAL t_s=4.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=38
+UNICAST_TEST_TX t_s=4.425000 relay=2 seq=8 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=4.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=39
+LINK_SIGNAL t_s=4.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=39
+ONWARD_RX t_s=4.425230 relay=2 destination=3 probe_seq=8 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=4.425520 relay=2 probe_seq=8 probe_time_s=4.425000 socket_accepted=1
+LINK_SIGNAL t_s=4.425813 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=40
+ONWARD_REPORT_RX t_s=4.425813 relay=2 observer=0 probe_seq=8 evidence_age_s=0.000813
+LINK_SIGNAL t_s=4.425813 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=40
+UDP_FORWARD t_s=4.500314 node=2 seq=4 interface=1 ttl=63
+LINK_SIGNAL t_s=4.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=41
+LINK_SIGNAL t_s=4.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=41
+UDP_RX t_s=4.500688 seq=4 delay_ms=0.688286
+PROBE_TX t_s=4.750000 relay=1 seq=9 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=4.7502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=9
+LINK_SIGNAL t_s=4.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=37
+PROBE_RX t_s=4.750230 relay=1 observer=0 seq=9
+LINK_SIGNAL t_s=4.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=37
+UNICAST_TEST_TX t_s=4.800000 relay=1 seq=9 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=4.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=38
+LINK_SIGNAL t_s=4.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=38
+ONWARD_RX t_s=4.800230 relay=1 destination=3 probe_seq=9 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=4.800520 relay=1 probe_seq=9 probe_time_s=4.800000 socket_accepted=1
+LINK_SIGNAL t_s=4.800786 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=39
+ONWARD_REPORT_RX t_s=4.800786 relay=1 observer=0 probe_seq=9 evidence_age_s=0.000786
+LINK_SIGNAL t_s=4.800786 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=39
+PROBE_TX t_s=4.875000 relay=2 seq=9 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=4.8752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=9
+LINK_SIGNAL t_s=4.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=42
+PROBE_RX t_s=4.875230 relay=2 observer=0 seq=9
+LINK_SIGNAL t_s=4.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=42
+UNICAST_TEST_TX t_s=4.925000 relay=2 seq=9 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=4.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=43
+LINK_SIGNAL t_s=4.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=43
+ONWARD_RX t_s=4.925230 relay=2 destination=3 probe_seq=9 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=4.925520 relay=2 probe_seq=9 probe_time_s=4.925000 socket_accepted=1
+LINK_SIGNAL t_s=4.925885 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=44
+ONWARD_REPORT_RX t_s=4.925885 relay=2 observer=0 probe_seq=9 evidence_age_s=0.000885
+LINK_SIGNAL t_s=4.925885 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=44
+ONWARD_STATE t_s=5.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=5.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=5.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=5.069170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=45
+LINK_SIGNAL t_s=5.069170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=45
+LINK_SIGNAL t_s=5.087170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=40
+LINK_SIGNAL t_s=5.087170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=40
+PROBE_TX t_s=5.250000 relay=1 seq=10 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=5.2502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=10
+LINK_SIGNAL t_s=5.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=41
+PROBE_RX t_s=5.250230 relay=1 observer=0 seq=10
+LINK_SIGNAL t_s=5.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=41
+UNICAST_TEST_TX t_s=5.300000 relay=1 seq=10 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=5.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=42
+LINK_SIGNAL t_s=5.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=42
+ONWARD_RX t_s=5.300230 relay=1 destination=3 probe_seq=10 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=5.300520 relay=1 probe_seq=10 probe_time_s=5.300000 socket_accepted=1
+LINK_SIGNAL t_s=5.300750 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=43
+ONWARD_REPORT_RX t_s=5.300750 relay=1 observer=0 probe_seq=10 evidence_age_s=0.000750
+LINK_SIGNAL t_s=5.300750 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=43
+PROBE_TX t_s=5.375000 relay=2 seq=10 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=5.3752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=10
+LINK_SIGNAL t_s=5.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=46
+PROBE_RX t_s=5.375230 relay=2 observer=0 seq=10
+LINK_SIGNAL t_s=5.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=46
+UNICAST_TEST_TX t_s=5.425000 relay=2 seq=10 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=5.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=47
+LINK_SIGNAL t_s=5.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=47
+ONWARD_RX t_s=5.425230 relay=2 destination=3 probe_seq=10 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=5.425520 relay=2 probe_seq=10 probe_time_s=5.425000 socket_accepted=1
+LINK_SIGNAL t_s=5.425840 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=48
+ONWARD_REPORT_RX t_s=5.425840 relay=2 observer=0 probe_seq=10 evidence_age_s=0.000840
+LINK_SIGNAL t_s=5.425840 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=48
+UDP_FORWARD t_s=5.500314 node=2 seq=5 interface=1 ttl=63
+LINK_SIGNAL t_s=5.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=49
+LINK_SIGNAL t_s=5.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=49
+UDP_RX t_s=5.500688 seq=5 delay_ms=0.688286
+PROBE_TX t_s=5.750000 relay=1 seq=11 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=5.7502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=11
+LINK_SIGNAL t_s=5.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=44
+PROBE_RX t_s=5.750230 relay=1 observer=0 seq=11
+LINK_SIGNAL t_s=5.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=44
+UNICAST_TEST_TX t_s=5.800000 relay=1 seq=11 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=5.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=45
+LINK_SIGNAL t_s=5.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=45
+ONWARD_RX t_s=5.800230 relay=1 destination=3 probe_seq=11 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=5.800520 relay=1 probe_seq=11 probe_time_s=5.800000 socket_accepted=1
+LINK_SIGNAL t_s=5.800768 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=46
+ONWARD_REPORT_RX t_s=5.800768 relay=1 observer=0 probe_seq=11 evidence_age_s=0.000768
+LINK_SIGNAL t_s=5.800768 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=46
+PROBE_TX t_s=5.875000 relay=2 seq=11 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=5.8752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=11
+LINK_SIGNAL t_s=5.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=50
+PROBE_RX t_s=5.875230 relay=2 observer=0 seq=11
+LINK_SIGNAL t_s=5.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=50
+UNICAST_TEST_TX t_s=5.925000 relay=2 seq=11 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=5.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=51
+LINK_SIGNAL t_s=5.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=51
+ONWARD_RX t_s=5.925230 relay=2 destination=3 probe_seq=11 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=5.925520 relay=2 probe_seq=11 probe_time_s=5.925000 socket_accepted=1
+LINK_SIGNAL t_s=5.925840 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=52
+ONWARD_REPORT_RX t_s=5.925840 relay=2 observer=0 probe_seq=11 evidence_age_s=0.000840
+LINK_SIGNAL t_s=5.925840 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=52
+ONWARD_STATE t_s=6.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=6.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=6.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=6.072170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=53
+LINK_SIGNAL t_s=6.072170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=53
+LINK_SIGNAL t_s=6.092170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=47
+LINK_SIGNAL t_s=6.092170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=47
+PROBE_TX t_s=6.250000 relay=1 seq=12 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=6.2502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=12
+LINK_SIGNAL t_s=6.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=48
+PROBE_RX t_s=6.250230 relay=1 observer=0 seq=12
+LINK_SIGNAL t_s=6.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=48
+UNICAST_TEST_TX t_s=6.300000 relay=1 seq=12 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=6.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=49
+LINK_SIGNAL t_s=6.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=49
+ONWARD_RX t_s=6.300230 relay=1 destination=3 probe_seq=12 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=6.300520 relay=1 probe_seq=12 probe_time_s=6.300000 socket_accepted=1
+LINK_SIGNAL t_s=6.300885 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=50
+ONWARD_REPORT_RX t_s=6.300885 relay=1 observer=0 probe_seq=12 evidence_age_s=0.000885
+LINK_SIGNAL t_s=6.300885 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=50
+PROBE_TX t_s=6.375000 relay=2 seq=12 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=6.3752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=12
+LINK_SIGNAL t_s=6.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=54
+PROBE_RX t_s=6.375230 relay=2 observer=0 seq=12
+LINK_SIGNAL t_s=6.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=54
+UNICAST_TEST_TX t_s=6.425000 relay=2 seq=12 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=6.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=55
+LINK_SIGNAL t_s=6.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=55
+ONWARD_RX t_s=6.425230 relay=2 destination=3 probe_seq=12 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=6.425520 relay=2 probe_seq=12 probe_time_s=6.425000 socket_accepted=1
+LINK_SIGNAL t_s=6.425849 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=56
+ONWARD_REPORT_RX t_s=6.425849 relay=2 observer=0 probe_seq=12 evidence_age_s=0.000849
+LINK_SIGNAL t_s=6.425849 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=56
+UDP_FORWARD t_s=6.500314 node=2 seq=6 interface=1 ttl=63
+LINK_SIGNAL t_s=6.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=57
+LINK_SIGNAL t_s=6.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=57
+UDP_RX t_s=6.500688 seq=6 delay_ms=0.688286
+PROBE_TX t_s=6.750000 relay=1 seq=13 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=6.7502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=13
+LINK_SIGNAL t_s=6.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=51
+PROBE_RX t_s=6.750230 relay=1 observer=0 seq=13
+LINK_SIGNAL t_s=6.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=51
+UNICAST_TEST_TX t_s=6.800000 relay=1 seq=13 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=6.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=52
+LINK_SIGNAL t_s=6.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=52
+ONWARD_RX t_s=6.800230 relay=1 destination=3 probe_seq=13 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=6.800520 relay=1 probe_seq=13 probe_time_s=6.800000 socket_accepted=1
+LINK_SIGNAL t_s=6.800786 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=53
+ONWARD_REPORT_RX t_s=6.800786 relay=1 observer=0 probe_seq=13 evidence_age_s=0.000786
+LINK_SIGNAL t_s=6.800786 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=53
+PROBE_TX t_s=6.875000 relay=2 seq=13 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=6.8752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=13
+LINK_SIGNAL t_s=6.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=58
+PROBE_RX t_s=6.875230 relay=2 observer=0 seq=13
+LINK_SIGNAL t_s=6.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=58
+UNICAST_TEST_TX t_s=6.925000 relay=2 seq=13 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=6.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=59
+LINK_SIGNAL t_s=6.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=59
+ONWARD_RX t_s=6.925230 relay=2 destination=3 probe_seq=13 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=6.925520 relay=2 probe_seq=13 probe_time_s=6.925000 socket_accepted=1
+LINK_SIGNAL t_s=6.925777 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=60
+ONWARD_REPORT_RX t_s=6.925777 relay=2 observer=0 probe_seq=13 evidence_age_s=0.000777
+LINK_SIGNAL t_s=6.925777 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=60
+ONWARD_STATE t_s=7.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=7.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=7.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=7.074170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=61
+LINK_SIGNAL t_s=7.074170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=61
+LINK_SIGNAL t_s=7.087170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=54
+LINK_SIGNAL t_s=7.087170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=54
+PROBE_TX t_s=7.250000 relay=1 seq=14 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=7.2502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=14
+LINK_SIGNAL t_s=7.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=55
+PROBE_RX t_s=7.250230 relay=1 observer=0 seq=14
+LINK_SIGNAL t_s=7.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=55
+UNICAST_TEST_TX t_s=7.300000 relay=1 seq=14 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=7.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=56
+LINK_SIGNAL t_s=7.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=56
+ONWARD_RX t_s=7.300230 relay=1 destination=3 probe_seq=14 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=7.300520 relay=1 probe_seq=14 probe_time_s=7.300000 socket_accepted=1
+LINK_SIGNAL t_s=7.300849 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=57
+ONWARD_REPORT_RX t_s=7.300849 relay=1 observer=0 probe_seq=14 evidence_age_s=0.000849
+LINK_SIGNAL t_s=7.300849 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=57
+PROBE_TX t_s=7.375000 relay=2 seq=14 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=7.3752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=14
+LINK_SIGNAL t_s=7.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=62
+PROBE_RX t_s=7.375230 relay=2 observer=0 seq=14
+LINK_SIGNAL t_s=7.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=62
+UNICAST_TEST_TX t_s=7.425000 relay=2 seq=14 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=7.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=63
+LINK_SIGNAL t_s=7.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=63
+ONWARD_RX t_s=7.425230 relay=2 destination=3 probe_seq=14 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=7.425520 relay=2 probe_seq=14 probe_time_s=7.425000 socket_accepted=1
+LINK_SIGNAL t_s=7.425867 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=64
+ONWARD_REPORT_RX t_s=7.425867 relay=2 observer=0 probe_seq=14 evidence_age_s=0.000867
+LINK_SIGNAL t_s=7.425867 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=64
+UDP_FORWARD t_s=7.500314 node=2 seq=7 interface=1 ttl=63
+LINK_SIGNAL t_s=7.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=65
+LINK_SIGNAL t_s=7.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=65
+UDP_RX t_s=7.500688 seq=7 delay_ms=0.688286
+PROBE_TX t_s=7.750000 relay=1 seq=15 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=7.7502301210000004 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=15
+LINK_SIGNAL t_s=7.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=58
+PROBE_RX t_s=7.750230 relay=1 observer=0 seq=15
+LINK_SIGNAL t_s=7.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=58
+UNICAST_TEST_TX t_s=7.800000 relay=1 seq=15 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=7.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=59
+LINK_SIGNAL t_s=7.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=59
+ONWARD_RX t_s=7.800230 relay=1 destination=3 probe_seq=15 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=7.800520 relay=1 probe_seq=15 probe_time_s=7.800000 socket_accepted=1
+LINK_SIGNAL t_s=7.800804 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=60
+ONWARD_REPORT_RX t_s=7.800804 relay=1 observer=0 probe_seq=15 evidence_age_s=0.000804
+LINK_SIGNAL t_s=7.800804 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=60
+PROBE_TX t_s=7.875000 relay=2 seq=15 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=7.8752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=15
+LINK_SIGNAL t_s=7.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=66
+PROBE_RX t_s=7.875230 relay=2 observer=0 seq=15
+LINK_SIGNAL t_s=7.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=66
+UNICAST_TEST_TX t_s=7.925000 relay=2 seq=15 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=7.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=67
+LINK_SIGNAL t_s=7.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=67
+ONWARD_RX t_s=7.925230 relay=2 destination=3 probe_seq=15 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=7.925520 relay=2 probe_seq=15 probe_time_s=7.925000 socket_accepted=1
+LINK_SIGNAL t_s=7.925822 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=68
+ONWARD_REPORT_RX t_s=7.925822 relay=2 observer=0 probe_seq=15 evidence_age_s=0.000822
+LINK_SIGNAL t_s=7.925822 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=68
+RELAY_POSITION t_s=8.000000 relay=1 x_m=35.000000 y_m=10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+RELAY_POSITION t_s=8.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=8.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=8.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=8.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=8.075170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=69
+LINK_SIGNAL t_s=8.075170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=69
+LINK_SIGNAL t_s=8.084170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=61
+LINK_SIGNAL t_s=8.084170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=61
+PROBE_TX t_s=8.250000 relay=1 seq=16 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=8.2502301209999995 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=16
+LINK_SIGNAL t_s=8.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=62
+PROBE_RX t_s=8.250230 relay=1 observer=0 seq=16
+LINK_SIGNAL t_s=8.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=62
+UNICAST_TEST_TX t_s=8.300000 relay=1 seq=16 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=8.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=63
+LINK_SIGNAL t_s=8.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=63
+ONWARD_RX t_s=8.300230 relay=1 destination=3 probe_seq=16 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=8.300520 relay=1 probe_seq=16 probe_time_s=8.300000 socket_accepted=1
+LINK_SIGNAL t_s=8.300786 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=64
+ONWARD_REPORT_RX t_s=8.300786 relay=1 observer=0 probe_seq=16 evidence_age_s=0.000786
+LINK_SIGNAL t_s=8.300786 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=64
+PROBE_TX t_s=8.375000 relay=2 seq=16 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=8.3752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=16
+LINK_SIGNAL t_s=8.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=70
+PROBE_RX t_s=8.375230 relay=2 observer=0 seq=16
+LINK_SIGNAL t_s=8.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=70
+UNICAST_TEST_TX t_s=8.425000 relay=2 seq=16 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=8.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=71
+LINK_SIGNAL t_s=8.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=71
+ONWARD_RX t_s=8.425230 relay=2 destination=3 probe_seq=16 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=8.425520 relay=2 probe_seq=16 probe_time_s=8.425000 socket_accepted=1
+LINK_SIGNAL t_s=8.425804 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=72
+ONWARD_REPORT_RX t_s=8.425804 relay=2 observer=0 probe_seq=16 evidence_age_s=0.000804
+LINK_SIGNAL t_s=8.425804 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=72
+UDP_FORWARD t_s=8.500314 node=2 seq=8 interface=1 ttl=63
+LINK_SIGNAL t_s=8.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=73
+LINK_SIGNAL t_s=8.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=73
+UDP_RX t_s=8.500688 seq=8 delay_ms=0.688286
+PROBE_TX t_s=8.750000 relay=1 seq=17 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=8.7502301209999995 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=17
+LINK_SIGNAL t_s=8.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=65
+PROBE_RX t_s=8.750230 relay=1 observer=0 seq=17
+LINK_SIGNAL t_s=8.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=65
+UNICAST_TEST_TX t_s=8.800000 relay=1 seq=17 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=8.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=66
+LINK_SIGNAL t_s=8.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=66
+ONWARD_RX t_s=8.800230 relay=1 destination=3 probe_seq=17 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=8.800520 relay=1 probe_seq=17 probe_time_s=8.800000 socket_accepted=1
+LINK_SIGNAL t_s=8.800813 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=67
+ONWARD_REPORT_RX t_s=8.800813 relay=1 observer=0 probe_seq=17 evidence_age_s=0.000813
+LINK_SIGNAL t_s=8.800813 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=67
+PROBE_TX t_s=8.875000 relay=2 seq=17 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=8.8752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=17
+LINK_SIGNAL t_s=8.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=74
+PROBE_RX t_s=8.875230 relay=2 observer=0 seq=17
+LINK_SIGNAL t_s=8.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=74
+UNICAST_TEST_TX t_s=8.925000 relay=2 seq=17 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=8.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=75
+LINK_SIGNAL t_s=8.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=75
+ONWARD_RX t_s=8.925230 relay=2 destination=3 probe_seq=17 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=8.925520 relay=2 probe_seq=17 probe_time_s=8.925000 socket_accepted=1
+LINK_SIGNAL t_s=8.925750 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=76
+ONWARD_REPORT_RX t_s=8.925750 relay=2 observer=0 probe_seq=17 evidence_age_s=0.000750
+LINK_SIGNAL t_s=8.925750 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=76
+RELAY_POSITION t_s=9.000000 relay=1 x_m=35.000000 y_m=10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+RELAY_POSITION t_s=9.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=9.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=9.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=9.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=9.072170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=77
+LINK_SIGNAL t_s=9.072170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=77
+LINK_SIGNAL t_s=9.089170 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=68
+LINK_SIGNAL t_s=9.089170 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=68
+PROBE_TX t_s=9.250000 relay=1 seq=18 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=9.2502301209999995 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=18
+LINK_SIGNAL t_s=9.250230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=69
+PROBE_RX t_s=9.250230 relay=1 observer=0 seq=18
+LINK_SIGNAL t_s=9.250230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=69
+UNICAST_TEST_TX t_s=9.300000 relay=1 seq=18 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=9.300230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=70
+LINK_SIGNAL t_s=9.300230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=70
+ONWARD_RX t_s=9.300230 relay=1 destination=3 probe_seq=18 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=9.300520 relay=1 probe_seq=18 probe_time_s=9.300000 socket_accepted=1
+LINK_SIGNAL t_s=9.300885 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=71
+ONWARD_REPORT_RX t_s=9.300885 relay=1 observer=0 probe_seq=18 evidence_age_s=0.000885
+LINK_SIGNAL t_s=9.300885 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=71
+PROBE_TX t_s=9.375000 relay=2 seq=18 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=9.3752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=18
+LINK_SIGNAL t_s=9.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=78
+PROBE_RX t_s=9.375230 relay=2 observer=0 seq=18
+LINK_SIGNAL t_s=9.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=78
+UNICAST_TEST_TX t_s=9.425000 relay=2 seq=18 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=9.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=79
+LINK_SIGNAL t_s=9.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=79
+ONWARD_RX t_s=9.425230 relay=2 destination=3 probe_seq=18 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=9.425520 relay=2 probe_seq=18 probe_time_s=9.425000 socket_accepted=1
+LINK_SIGNAL t_s=9.425804 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=80
+ONWARD_REPORT_RX t_s=9.425804 relay=2 observer=0 probe_seq=18 evidence_age_s=0.000804
+LINK_SIGNAL t_s=9.425804 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=80
+UDP_FORWARD t_s=9.500314 node=2 seq=9 interface=1 ttl=63
+LINK_SIGNAL t_s=9.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=81
+UDP_RX t_s=9.500688 seq=9 delay_ms=0.688286
+PROBE_TX t_s=9.750000 relay=1 seq=19 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=9.7502301209999995 tx=1 rx=0 signal_dbm=-77.490338174092415 probe_seq=19
+LINK_SIGNAL t_s=9.750230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=72
+PROBE_RX t_s=9.750230 relay=1 observer=0 seq=19
+LINK_SIGNAL t_s=9.750230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=72
+UNICAST_TEST_TX t_s=9.800000 relay=1 seq=19 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=9.800230 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=73
+LINK_SIGNAL t_s=9.800230 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=73
+ONWARD_RX t_s=9.800230 relay=1 destination=3 probe_seq=19 delay_ms=0.230121
+ONWARD_REPORT_TX t_s=9.800520 relay=1 probe_seq=19 probe_time_s=9.800000 socket_accepted=1
+LINK_SIGNAL t_s=9.800867 relay=1 observer=0 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=74
+ONWARD_REPORT_RX t_s=9.800867 relay=1 observer=0 probe_seq=19 evidence_age_s=0.000867
+LINK_SIGNAL t_s=9.800867 relay=1 observer=3 signal_dbm=-77.490338 noise_dbm=-93.965985 snr_db=16.475647 mac_seq=74
+PROBE_TX t_s=9.875000 relay=2 seq=19 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=9.8752301429999996 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=19
+LINK_SIGNAL t_s=9.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=82
+PROBE_RX t_s=9.875230 relay=2 observer=0 seq=19
+LINK_SIGNAL t_s=9.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=82
+UNICAST_TEST_TX t_s=9.925000 relay=2 seq=19 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=9.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=83
+LINK_SIGNAL t_s=9.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=83
+ONWARD_RX t_s=9.925230 relay=2 destination=3 probe_seq=19 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=9.925520 relay=2 probe_seq=19 probe_time_s=9.925000 socket_accepted=1
+LINK_SIGNAL t_s=9.925786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=84
+ONWARD_REPORT_RX t_s=9.925786 relay=2 observer=0 probe_seq=19 evidence_age_s=0.000786
+LINK_SIGNAL t_s=9.925786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=84
+RELAY_POSITION t_s=10.000000 relay=1 x_m=35.000000 y_m=10.000000 source_distance_m=36.400549 destination_distance_m=36.400549
+RELAY_POSITION t_s=10.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=10.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=10.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=10.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=10.077170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=85
+LINK_SIGNAL t_s=10.077170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=85
+LINK_SIGNAL t_s=10.084170 relay=1 observer=0 signal_dbm=-77.532386 noise_dbm=-93.965985 snr_db=16.433599 mac_seq=75
+LINK_SIGNAL t_s=10.084170 relay=1 observer=3 signal_dbm=-77.532386 noise_dbm=-93.965985 snr_db=16.433599 mac_seq=75
+PROBE_TX t_s=10.250000 relay=1 seq=20 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=10.250230123 tx=1 rx=0 signal_dbm=-77.619660438504425 probe_seq=20
+LINK_SIGNAL t_s=10.250230 relay=1 observer=0 signal_dbm=-77.619660 noise_dbm=-93.965985 snr_db=16.346325 mac_seq=76
+PROBE_RX t_s=10.250230 relay=1 observer=0 seq=20
+LINK_SIGNAL t_s=10.250230 relay=1 observer=3 signal_dbm=-77.619660 noise_dbm=-93.965985 snr_db=16.346325 mac_seq=76
+UNICAST_TEST_TX t_s=10.300000 relay=1 seq=20 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=10.300230 relay=1 observer=0 signal_dbm=-77.647017 noise_dbm=-93.965985 snr_db=16.318969 mac_seq=77
+LINK_SIGNAL t_s=10.300230 relay=1 observer=3 signal_dbm=-77.647017 noise_dbm=-93.965985 snr_db=16.318969 mac_seq=77
+ONWARD_RX t_s=10.300230 relay=1 destination=3 probe_seq=20 delay_ms=0.230123
+ONWARD_REPORT_TX t_s=10.300520 relay=1 probe_seq=20 probe_time_s=10.300000 socket_accepted=1
+LINK_SIGNAL t_s=10.300750 relay=1 observer=0 signal_dbm=-77.647304 noise_dbm=-93.965985 snr_db=16.318681 mac_seq=78
+ONWARD_REPORT_RX t_s=10.300750 relay=1 observer=0 probe_seq=20 evidence_age_s=0.000750
+LINK_SIGNAL t_s=10.300750 relay=1 observer=3 signal_dbm=-77.647304 noise_dbm=-93.965985 snr_db=16.318681 mac_seq=78
+PROBE_TX t_s=10.375000 relay=2 seq=20 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=10.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=20
+LINK_SIGNAL t_s=10.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=86
+PROBE_RX t_s=10.375230 relay=2 observer=0 seq=20
+LINK_SIGNAL t_s=10.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=86
+UNICAST_TEST_TX t_s=10.425000 relay=2 seq=20 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=10.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=87
+LINK_SIGNAL t_s=10.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=87
+ONWARD_RX t_s=10.425230 relay=2 destination=3 probe_seq=20 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=10.425520 relay=2 probe_seq=20 probe_time_s=10.425000 socket_accepted=1
+LINK_SIGNAL t_s=10.425876 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=88
+ONWARD_REPORT_RX t_s=10.425876 relay=2 observer=0 probe_seq=20 evidence_age_s=0.000876
+LINK_SIGNAL t_s=10.425876 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=88
+UDP_FORWARD t_s=10.500314 node=2 seq=10 interface=1 ttl=63
+LINK_SIGNAL t_s=10.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=89
+LINK_SIGNAL t_s=10.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=89
+UDP_RX t_s=10.500688 seq=10 delay_ms=0.688286
+PROBE_TX t_s=10.750000 relay=1 seq=21 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=10.750230125 tx=1 rx=0 signal_dbm=-77.914150615584532 probe_seq=21
+LINK_SIGNAL t_s=10.750230 relay=1 observer=0 signal_dbm=-77.914151 noise_dbm=-93.965985 snr_db=16.051835 mac_seq=79
+PROBE_RX t_s=10.750230 relay=1 observer=0 seq=21
+LINK_SIGNAL t_s=10.750230 relay=1 observer=3 signal_dbm=-77.914151 noise_dbm=-93.965985 snr_db=16.051835 mac_seq=79
+UNICAST_TEST_TX t_s=10.800000 relay=1 seq=21 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=10.800230 relay=1 observer=0 signal_dbm=-77.946033 noise_dbm=-93.965985 snr_db=16.019952 mac_seq=80
+LINK_SIGNAL t_s=10.800230 relay=1 observer=3 signal_dbm=-77.946033 noise_dbm=-93.965985 snr_db=16.019952 mac_seq=80
+ONWARD_RX t_s=10.800230 relay=1 destination=3 probe_seq=21 delay_ms=0.230126
+ONWARD_REPORT_TX t_s=10.800520 relay=1 probe_seq=21 probe_time_s=10.800000 socket_accepted=1
+LINK_SIGNAL t_s=10.800759 relay=1 observer=0 signal_dbm=-77.946373 noise_dbm=-93.965985 snr_db=16.019612 mac_seq=81
+ONWARD_REPORT_RX t_s=10.800759 relay=1 observer=0 probe_seq=21 evidence_age_s=0.000759
+LINK_SIGNAL t_s=10.800759 relay=1 observer=3 signal_dbm=-77.946373 noise_dbm=-93.965985 snr_db=16.019612 mac_seq=81
+PROBE_TX t_s=10.875000 relay=2 seq=21 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=10.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=21
+LINK_SIGNAL t_s=10.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=90
+PROBE_RX t_s=10.875230 relay=2 observer=0 seq=21
+LINK_SIGNAL t_s=10.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=90
+UNICAST_TEST_TX t_s=10.925000 relay=2 seq=21 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=10.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=91
+LINK_SIGNAL t_s=10.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=91
+ONWARD_RX t_s=10.925230 relay=2 destination=3 probe_seq=21 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=10.925520 relay=2 probe_seq=21 probe_time_s=10.925000 socket_accepted=1
+LINK_SIGNAL t_s=10.925786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=92
+ONWARD_REPORT_RX t_s=10.925786 relay=2 observer=0 probe_seq=21 evidence_age_s=0.000786
+LINK_SIGNAL t_s=10.925786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=92
+RELAY_POSITION t_s=11.000000 relay=1 x_m=35.000000 y_m=15.000000 source_distance_m=38.078866 destination_distance_m=38.078866
+RELAY_POSITION t_s=11.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=11.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=11.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=11.000000 strongest=1 fixed=1 adaptive=1 stability_weight=0.217191 forwarding=AODV
+LINK_SIGNAL t_s=11.071170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=93
+LINK_SIGNAL t_s=11.071170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=93
+LINK_SIGNAL t_s=11.094170 relay=1 observer=0 signal_dbm=-78.141667 noise_dbm=-93.965985 snr_db=15.824318 mac_seq=82
+LINK_SIGNAL t_s=11.094170 relay=1 observer=3 signal_dbm=-78.141667 noise_dbm=-93.965985 snr_db=15.824318 mac_seq=82
+PROBE_TX t_s=11.250000 relay=1 seq=22 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=11.250230129 tx=1 rx=0 signal_dbm=-78.250818070915301 probe_seq=22
+LINK_SIGNAL t_s=11.250230 relay=1 observer=0 signal_dbm=-78.250818 noise_dbm=-93.965985 snr_db=15.715167 mac_seq=83
+PROBE_RX t_s=11.250230 relay=1 observer=0 seq=22
+LINK_SIGNAL t_s=11.250230 relay=1 observer=3 signal_dbm=-78.250818 noise_dbm=-93.965985 snr_db=15.715167 mac_seq=83
+UNICAST_TEST_TX t_s=11.300000 relay=1 seq=22 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=11.300230 relay=1 observer=0 signal_dbm=-78.286539 noise_dbm=-93.965985 snr_db=15.679446 mac_seq=84
+LINK_SIGNAL t_s=11.300230 relay=1 observer=3 signal_dbm=-78.286539 noise_dbm=-93.965985 snr_db=15.679446 mac_seq=84
+ONWARD_RX t_s=11.300230 relay=1 destination=3 probe_seq=22 delay_ms=0.230129
+ONWARD_REPORT_TX t_s=11.300520 relay=1 probe_seq=22 probe_time_s=11.300000 socket_accepted=1
+LINK_SIGNAL t_s=11.300813 relay=1 observer=0 signal_dbm=-78.286958 noise_dbm=-93.965985 snr_db=15.679027 mac_seq=85
+ONWARD_REPORT_RX t_s=11.300813 relay=1 observer=0 probe_seq=22 evidence_age_s=0.000813
+LINK_SIGNAL t_s=11.300813 relay=1 observer=3 signal_dbm=-78.286958 noise_dbm=-93.965985 snr_db=15.679027 mac_seq=85
+PROBE_TX t_s=11.375000 relay=2 seq=22 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=11.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=22
+LINK_SIGNAL t_s=11.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=94
+PROBE_RX t_s=11.375230 relay=2 observer=0 seq=22
+LINK_SIGNAL t_s=11.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=94
+UNICAST_TEST_TX t_s=11.425000 relay=2 seq=22 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=11.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=95
+LINK_SIGNAL t_s=11.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=95
+ONWARD_RX t_s=11.425230 relay=2 destination=3 probe_seq=22 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=11.425520 relay=2 probe_seq=22 probe_time_s=11.425000 socket_accepted=1
+LINK_SIGNAL t_s=11.425885 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=96
+ONWARD_REPORT_RX t_s=11.425885 relay=2 observer=0 probe_seq=22 evidence_age_s=0.000885
+LINK_SIGNAL t_s=11.425885 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=96
+UDP_FORWARD t_s=11.500314 node=2 seq=11 interface=1 ttl=63
+LINK_SIGNAL t_s=11.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=97
+LINK_SIGNAL t_s=11.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=97
+UDP_RX t_s=11.500688 seq=11 delay_ms=0.688286
+PROBE_TX t_s=11.750000 relay=1 seq=23 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=11.750230132 tx=1 rx=0 signal_dbm=-78.622794225608104 probe_seq=23
+LINK_SIGNAL t_s=11.750230 relay=1 observer=0 signal_dbm=-78.622794 noise_dbm=-93.965985 snr_db=15.343191 mac_seq=86
+PROBE_RX t_s=11.750230 relay=1 observer=0 seq=23
+LINK_SIGNAL t_s=11.750230 relay=1 observer=3 signal_dbm=-78.622794 noise_dbm=-93.965985 snr_db=15.343191 mac_seq=86
+UNICAST_TEST_TX t_s=11.800000 relay=1 seq=23 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=11.800230 relay=1 observer=0 signal_dbm=-78.661674 noise_dbm=-93.965985 snr_db=15.304311 mac_seq=87
+LINK_SIGNAL t_s=11.800230 relay=1 observer=3 signal_dbm=-78.661674 noise_dbm=-93.965985 snr_db=15.304311 mac_seq=87
+ONWARD_RX t_s=11.800230 relay=1 destination=3 probe_seq=23 delay_ms=0.230133
+ONWARD_REPORT_TX t_s=11.800520 relay=1 probe_seq=23 probe_time_s=11.800000 socket_accepted=1
+LINK_SIGNAL t_s=11.800876 relay=1 observer=0 signal_dbm=-78.662179 noise_dbm=-93.965985 snr_db=15.303807 mac_seq=88
+ONWARD_REPORT_RX t_s=11.800876 relay=1 observer=0 probe_seq=23 evidence_age_s=0.000876
+LINK_SIGNAL t_s=11.800876 relay=1 observer=3 signal_dbm=-78.662179 noise_dbm=-93.965985 snr_db=15.303807 mac_seq=88
+PROBE_TX t_s=11.875000 relay=2 seq=23 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=11.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=23
+LINK_SIGNAL t_s=11.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=98
+PROBE_RX t_s=11.875230 relay=2 observer=0 seq=23
+LINK_SIGNAL t_s=11.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=98
+UNICAST_TEST_TX t_s=11.925000 relay=2 seq=23 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=11.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=99
+LINK_SIGNAL t_s=11.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=99
+ONWARD_RX t_s=11.925230 relay=2 destination=3 probe_seq=23 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=11.925520 relay=2 probe_seq=23 probe_time_s=11.925000 socket_accepted=1
+LINK_SIGNAL t_s=11.925831 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=100
+ONWARD_REPORT_RX t_s=11.925831 relay=2 observer=0 probe_seq=23 evidence_age_s=0.000831
+LINK_SIGNAL t_s=11.925831 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=100
+RELAY_POSITION t_s=12.000000 relay=1 x_m=35.000000 y_m=20.000000 source_distance_m=40.311289 destination_distance_m=40.311289
+RELAY_POSITION t_s=12.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=12.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=12.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=12.000000 strongest=1 fixed=2 adaptive=2 stability_weight=0.256491 forwarding=AODV
+LINK_SIGNAL t_s=12.074170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=101
+LINK_SIGNAL t_s=12.074170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=101
+LINK_SIGNAL t_s=12.090170 relay=1 observer=0 signal_dbm=-78.892494 noise_dbm=-93.965985 snr_db=15.073491 mac_seq=89
+LINK_SIGNAL t_s=12.090170 relay=1 observer=3 signal_dbm=-78.892494 noise_dbm=-93.965985 snr_db=15.073491 mac_seq=89
+PROBE_TX t_s=12.250000 relay=1 seq=24 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=12.250230137000001 tx=1 rx=0 signal_dbm=-79.023424293096156 probe_seq=24
+LINK_SIGNAL t_s=12.250230 relay=1 observer=0 signal_dbm=-79.023424 noise_dbm=-93.965985 snr_db=14.942561 mac_seq=90
+PROBE_RX t_s=12.250230 relay=1 observer=0 seq=24
+LINK_SIGNAL t_s=12.250230 relay=1 observer=3 signal_dbm=-79.023424 noise_dbm=-93.965985 snr_db=14.942561 mac_seq=90
+UNICAST_TEST_TX t_s=12.300000 relay=1 seq=24 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=12.300230 relay=1 observer=0 signal_dbm=-79.064820 noise_dbm=-93.965985 snr_db=14.901165 mac_seq=91
+LINK_SIGNAL t_s=12.300230 relay=1 observer=3 signal_dbm=-79.064820 noise_dbm=-93.965985 snr_db=14.901165 mac_seq=91
+ONWARD_RX t_s=12.300230 relay=1 destination=3 probe_seq=24 delay_ms=0.230137
+ONWARD_REPORT_TX t_s=12.300520 relay=1 probe_seq=24 probe_time_s=12.300000 socket_accepted=1
+LINK_SIGNAL t_s=12.300777 relay=1 observer=0 signal_dbm=-79.065274 noise_dbm=-93.965985 snr_db=14.900711 mac_seq=92
+ONWARD_REPORT_RX t_s=12.300777 relay=1 observer=0 probe_seq=24 evidence_age_s=0.000777
+LINK_SIGNAL t_s=12.300777 relay=1 observer=3 signal_dbm=-79.065274 noise_dbm=-93.965985 snr_db=14.900711 mac_seq=92
+PROBE_TX t_s=12.375000 relay=2 seq=24 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=12.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=24
+LINK_SIGNAL t_s=12.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=102
+PROBE_RX t_s=12.375230 relay=2 observer=0 seq=24
+LINK_SIGNAL t_s=12.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=102
+UNICAST_TEST_TX t_s=12.425000 relay=2 seq=24 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=12.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=103
+LINK_SIGNAL t_s=12.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=103
+ONWARD_RX t_s=12.425230 relay=2 destination=3 probe_seq=24 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=12.425520 relay=2 probe_seq=24 probe_time_s=12.425000 socket_accepted=1
+LINK_SIGNAL t_s=12.425786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=104
+ONWARD_REPORT_RX t_s=12.425786 relay=2 observer=0 probe_seq=24 evidence_age_s=0.000786
+LINK_SIGNAL t_s=12.425786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=104
+UDP_FORWARD t_s=12.500314 node=2 seq=12 interface=1 ttl=63
+LINK_SIGNAL t_s=12.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=105
+LINK_SIGNAL t_s=12.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=105
+UDP_RX t_s=12.500688 seq=12 delay_ms=0.688286
+PROBE_TX t_s=12.750000 relay=1 seq=25 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=12.750230140999999 tx=1 rx=0 signal_dbm=-79.44651209348315 probe_seq=25
+LINK_SIGNAL t_s=12.750230 relay=1 observer=0 signal_dbm=-79.446512 noise_dbm=-93.965985 snr_db=14.519473 mac_seq=93
+PROBE_RX t_s=12.750230 relay=1 observer=0 seq=25
+LINK_SIGNAL t_s=12.750230 relay=1 observer=3 signal_dbm=-79.446512 noise_dbm=-93.965985 snr_db=14.519473 mac_seq=93
+UNICAST_TEST_TX t_s=12.800000 relay=1 seq=25 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=12.800230 relay=1 observer=0 signal_dbm=-79.489835 noise_dbm=-93.965985 snr_db=14.476150 mac_seq=94
+LINK_SIGNAL t_s=12.800230 relay=1 observer=3 signal_dbm=-79.489835 noise_dbm=-93.965985 snr_db=14.476150 mac_seq=94
+ONWARD_RX t_s=12.800230 relay=1 destination=3 probe_seq=25 delay_ms=0.230142
+ONWARD_REPORT_TX t_s=12.800520 relay=1 probe_seq=25 probe_time_s=12.800000 socket_accepted=1
+LINK_SIGNAL t_s=12.800795 relay=1 observer=0 signal_dbm=-79.490326 noise_dbm=-93.965985 snr_db=14.475659 mac_seq=95
+ONWARD_REPORT_RX t_s=12.800795 relay=1 observer=0 probe_seq=25 evidence_age_s=0.000795
+LINK_SIGNAL t_s=12.800795 relay=1 observer=3 signal_dbm=-79.490326 noise_dbm=-93.965985 snr_db=14.475659 mac_seq=95
+PROBE_TX t_s=12.875000 relay=2 seq=25 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=12.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=25
+LINK_SIGNAL t_s=12.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=106
+PROBE_RX t_s=12.875230 relay=2 observer=0 seq=25
+LINK_SIGNAL t_s=12.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=106
+UNICAST_TEST_TX t_s=12.925000 relay=2 seq=25 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=12.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=107
+LINK_SIGNAL t_s=12.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=107
+ONWARD_RX t_s=12.925230 relay=2 destination=3 probe_seq=25 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=12.925520 relay=2 probe_seq=25 probe_time_s=12.925000 socket_accepted=1
+LINK_SIGNAL t_s=12.925849 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=108
+ONWARD_REPORT_RX t_s=12.925849 relay=2 observer=0 probe_seq=25 evidence_age_s=0.000849
+LINK_SIGNAL t_s=12.925849 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=108
+RELAY_POSITION t_s=13.000000 relay=1 x_m=35.000000 y_m=25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+RELAY_POSITION t_s=13.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=13.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=13.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=13.000000 strongest=1 fixed=2 adaptive=2 stability_weight=0.288005 forwarding=AODV
+LINK_SIGNAL t_s=13.074170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=109
+LINK_SIGNAL t_s=13.074170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=109
+LINK_SIGNAL t_s=13.090170 relay=1 observer=0 signal_dbm=-79.744162 noise_dbm=-93.965985 snr_db=14.221823 mac_seq=96
+LINK_SIGNAL t_s=13.090170 relay=1 observer=3 signal_dbm=-79.744162 noise_dbm=-93.965985 snr_db=14.221823 mac_seq=96
+PROBE_TX t_s=13.250000 relay=1 seq=26 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=13.250230146 tx=1 rx=0 signal_dbm=-79.886472096574423 probe_seq=26
+LINK_SIGNAL t_s=13.250230 relay=1 observer=0 signal_dbm=-79.886472 noise_dbm=-93.965985 snr_db=14.079513 mac_seq=97
+PROBE_RX t_s=13.250230 relay=1 observer=0 seq=26
+LINK_SIGNAL t_s=13.250230 relay=1 observer=3 signal_dbm=-79.886472 noise_dbm=-93.965985 snr_db=14.079513 mac_seq=97
+UNICAST_TEST_TX t_s=13.300000 relay=1 seq=26 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=13.300230 relay=1 observer=0 signal_dbm=-79.931201 noise_dbm=-93.965985 snr_db=14.034784 mac_seq=98
+LINK_SIGNAL t_s=13.300230 relay=1 observer=3 signal_dbm=-79.931201 noise_dbm=-93.965985 snr_db=14.034784 mac_seq=98
+ONWARD_RX t_s=13.300230 relay=1 destination=3 probe_seq=26 delay_ms=0.230146
+ONWARD_REPORT_TX t_s=13.300520 relay=1 probe_seq=26 probe_time_s=13.300000 socket_accepted=1
+LINK_SIGNAL t_s=13.300822 relay=1 observer=0 signal_dbm=-79.931732 noise_dbm=-93.965985 snr_db=14.034253 mac_seq=99
+ONWARD_REPORT_RX t_s=13.300822 relay=1 observer=0 probe_seq=26 evidence_age_s=0.000822
+LINK_SIGNAL t_s=13.300822 relay=1 observer=3 signal_dbm=-79.931732 noise_dbm=-93.965985 snr_db=14.034253 mac_seq=99
+PROBE_TX t_s=13.375000 relay=2 seq=26 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=13.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=26
+LINK_SIGNAL t_s=13.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=110
+PROBE_RX t_s=13.375230 relay=2 observer=0 seq=26
+LINK_SIGNAL t_s=13.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=110
+UNICAST_TEST_TX t_s=13.425000 relay=2 seq=26 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=13.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=111
+LINK_SIGNAL t_s=13.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=111
+ONWARD_RX t_s=13.425230 relay=2 destination=3 probe_seq=26 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=13.425520 relay=2 probe_seq=26 probe_time_s=13.425000 socket_accepted=1
+LINK_SIGNAL t_s=13.425786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=112
+ONWARD_REPORT_RX t_s=13.425786 relay=2 observer=0 probe_seq=26 evidence_age_s=0.000786
+LINK_SIGNAL t_s=13.425786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=112
+UDP_FORWARD t_s=13.500314 node=2 seq=13 interface=1 ttl=63
+LINK_SIGNAL t_s=13.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=113
+LINK_SIGNAL t_s=13.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=113
+UDP_RX t_s=13.500688 seq=13 delay_ms=0.688286
+PROBE_TX t_s=13.750000 relay=1 seq=27 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=13.750230151 tx=1 rx=0 signal_dbm=-80.338402320591939 probe_seq=27
+LINK_SIGNAL t_s=13.750230 relay=1 observer=0 signal_dbm=-80.338402 noise_dbm=-93.965985 snr_db=13.627583 mac_seq=100
+PROBE_RX t_s=13.750230 relay=1 observer=0 seq=27
+LINK_SIGNAL t_s=13.750230 relay=1 observer=3 signal_dbm=-80.338402 noise_dbm=-93.965985 snr_db=13.627583 mac_seq=100
+UNICAST_TEST_TX t_s=13.800000 relay=1 seq=27 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=13.800230 relay=1 observer=0 signal_dbm=-80.384086 noise_dbm=-93.965985 snr_db=13.581899 mac_seq=101
+LINK_SIGNAL t_s=13.800230 relay=1 observer=3 signal_dbm=-80.384086 noise_dbm=-93.965985 snr_db=13.581899 mac_seq=101
+ONWARD_RX t_s=13.800230 relay=1 destination=3 probe_seq=27 delay_ms=0.230152
+ONWARD_REPORT_TX t_s=13.800520 relay=1 probe_seq=27 probe_time_s=13.800000 socket_accepted=1
+LINK_SIGNAL t_s=13.800804 relay=1 observer=0 signal_dbm=-80.384611 noise_dbm=-93.965985 snr_db=13.581374 mac_seq=102
+ONWARD_REPORT_RX t_s=13.800804 relay=1 observer=0 probe_seq=27 evidence_age_s=0.000804
+LINK_SIGNAL t_s=13.800804 relay=1 observer=3 signal_dbm=-80.384611 noise_dbm=-93.965985 snr_db=13.581374 mac_seq=102
+PROBE_TX t_s=13.875000 relay=2 seq=27 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=13.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=27
+LINK_SIGNAL t_s=13.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=114
+PROBE_RX t_s=13.875230 relay=2 observer=0 seq=27
+LINK_SIGNAL t_s=13.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=114
+UNICAST_TEST_TX t_s=13.925000 relay=2 seq=27 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=13.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=115
+LINK_SIGNAL t_s=13.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=115
+ONWARD_RX t_s=13.925230 relay=2 destination=3 probe_seq=27 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=13.925520 relay=2 probe_seq=27 probe_time_s=13.925000 socket_accepted=1
+LINK_SIGNAL t_s=13.925786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=116
+ONWARD_REPORT_RX t_s=13.925786 relay=2 observer=0 probe_seq=27 evidence_age_s=0.000786
+LINK_SIGNAL t_s=13.925786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=116
+RELAY_POSITION t_s=14.000000 relay=1 x_m=35.000000 y_m=30.000000 source_distance_m=46.097722 destination_distance_m=46.097722
+RELAY_POSITION t_s=14.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=14.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=14.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=14.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.300471 forwarding=AODV
+LINK_SIGNAL t_s=14.074170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=117
+LINK_SIGNAL t_s=14.074170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=117
+LINK_SIGNAL t_s=14.086170 relay=1 observer=0 signal_dbm=-80.646692 noise_dbm=-93.965985 snr_db=13.319293 mac_seq=103
+LINK_SIGNAL t_s=14.086170 relay=1 observer=3 signal_dbm=-80.646692 noise_dbm=-93.965985 snr_db=13.319293 mac_seq=103
+PROBE_TX t_s=14.250000 relay=1 seq=28 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=14.250230157000001 tx=1 rx=0 signal_dbm=-80.798096726236736 probe_seq=28
+LINK_SIGNAL t_s=14.250230 relay=1 observer=0 signal_dbm=-80.798097 noise_dbm=-93.965985 snr_db=13.167888 mac_seq=104
+PROBE_RX t_s=14.250230 relay=1 observer=0 seq=28
+LINK_SIGNAL t_s=14.250230 relay=1 observer=3 signal_dbm=-80.798097 noise_dbm=-93.965985 snr_db=13.167888 mac_seq=104
+UNICAST_TEST_TX t_s=14.300000 relay=1 seq=28 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=14.300230 relay=1 observer=0 signal_dbm=-80.844351 noise_dbm=-93.965985 snr_db=13.121634 mac_seq=105
+LINK_SIGNAL t_s=14.300230 relay=1 observer=3 signal_dbm=-80.844351 noise_dbm=-93.965985 snr_db=13.121634 mac_seq=105
+ONWARD_RX t_s=14.300230 relay=1 destination=3 probe_seq=28 delay_ms=0.230157
+ONWARD_REPORT_TX t_s=14.300520 relay=1 probe_seq=28 probe_time_s=14.300000 socket_accepted=1
+LINK_SIGNAL t_s=14.300822 relay=1 observer=0 signal_dbm=-80.844900 noise_dbm=-93.965985 snr_db=13.121086 mac_seq=106
+ONWARD_REPORT_RX t_s=14.300822 relay=1 observer=0 probe_seq=28 evidence_age_s=0.000822
+LINK_SIGNAL t_s=14.300822 relay=1 observer=3 signal_dbm=-80.844900 noise_dbm=-93.965985 snr_db=13.121086 mac_seq=106
+PROBE_TX t_s=14.375000 relay=2 seq=28 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=14.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=28
+LINK_SIGNAL t_s=14.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=118
+PROBE_RX t_s=14.375230 relay=2 observer=0 seq=28
+LINK_SIGNAL t_s=14.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=118
+UNICAST_TEST_TX t_s=14.425000 relay=2 seq=28 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=14.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=119
+LINK_SIGNAL t_s=14.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=119
+ONWARD_RX t_s=14.425230 relay=2 destination=3 probe_seq=28 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=14.425520 relay=2 probe_seq=28 probe_time_s=14.425000 socket_accepted=1
+LINK_SIGNAL t_s=14.425795 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=120
+ONWARD_REPORT_RX t_s=14.425795 relay=2 observer=0 probe_seq=28 evidence_age_s=0.000795
+LINK_SIGNAL t_s=14.425795 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=120
+UDP_FORWARD t_s=14.500314 node=2 seq=14 interface=1 ttl=63
+LINK_SIGNAL t_s=14.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=121
+LINK_SIGNAL t_s=14.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=121
+UDP_RX t_s=14.500688 seq=14 delay_ms=0.688286
+PROBE_TX t_s=14.750000 relay=1 seq=29 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=14.750230161999999 tx=1 rx=0 signal_dbm=-81.262015931134442 probe_seq=29
+LINK_SIGNAL t_s=14.750230 relay=1 observer=0 signal_dbm=-81.262016 noise_dbm=-93.965985 snr_db=12.703969 mac_seq=107
+PROBE_RX t_s=14.750230 relay=1 observer=0 seq=29
+LINK_SIGNAL t_s=14.750230 relay=1 observer=3 signal_dbm=-81.262016 noise_dbm=-93.965985 snr_db=12.703969 mac_seq=107
+UNICAST_TEST_TX t_s=14.800000 relay=1 seq=29 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=14.800230 relay=1 observer=0 signal_dbm=-81.308523 noise_dbm=-93.965985 snr_db=12.657463 mac_seq=108
+LINK_SIGNAL t_s=14.800230 relay=1 observer=3 signal_dbm=-81.308523 noise_dbm=-93.965985 snr_db=12.657463 mac_seq=108
+ONWARD_RX t_s=14.800230 relay=1 destination=3 probe_seq=29 delay_ms=0.230163
+ONWARD_REPORT_TX t_s=14.800520 relay=1 probe_seq=29 probe_time_s=14.800000 socket_accepted=1
+LINK_SIGNAL t_s=14.800804 relay=1 observer=0 signal_dbm=-81.309057 noise_dbm=-93.965985 snr_db=12.656928 mac_seq=109
+ONWARD_REPORT_RX t_s=14.800804 relay=1 observer=0 probe_seq=29 evidence_age_s=0.000804
+LINK_SIGNAL t_s=14.800804 relay=1 observer=3 signal_dbm=-81.309057 noise_dbm=-93.965985 snr_db=12.656928 mac_seq=109
+PROBE_TX t_s=14.875000 relay=2 seq=29 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=14.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=29
+LINK_SIGNAL t_s=14.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=122
+PROBE_RX t_s=14.875230 relay=2 observer=0 seq=29
+LINK_SIGNAL t_s=14.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=122
+UNICAST_TEST_TX t_s=14.925000 relay=2 seq=29 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=14.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=123
+LINK_SIGNAL t_s=14.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=123
+ONWARD_RX t_s=14.925230 relay=2 destination=3 probe_seq=29 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=14.925520 relay=2 probe_seq=29 probe_time_s=14.925000 socket_accepted=1
+LINK_SIGNAL t_s=14.925822 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=124
+ONWARD_REPORT_RX t_s=14.925822 relay=2 observer=0 probe_seq=29 evidence_age_s=0.000822
+LINK_SIGNAL t_s=14.925822 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=124
+RELAY_POSITION t_s=15.000000 relay=1 x_m=35.000000 y_m=35.000000 source_distance_m=49.497475 destination_distance_m=49.497475
+RELAY_POSITION t_s=15.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=15.000000 relay=1 evidence_age_s=0.200000 fresh=1
+ONWARD_STATE t_s=15.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=15.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.307655 forwarding=AODV
+LINK_SIGNAL t_s=15.074170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=125
+LINK_SIGNAL t_s=15.074170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=125
+LINK_SIGNAL t_s=15.094170 relay=1 observer=0 signal_dbm=-81.582100 noise_dbm=-93.965985 snr_db=12.383886 mac_seq=110
+LINK_SIGNAL t_s=15.094170 relay=1 observer=3 signal_dbm=-81.582100 noise_dbm=-93.965985 snr_db=12.383886 mac_seq=110
+PROBE_TX t_s=15.250000 relay=1 seq=30 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=15.250230168 tx=1 rx=0 signal_dbm=-81.727232491945955 probe_seq=30
+LINK_SIGNAL t_s=15.250230 relay=1 observer=0 signal_dbm=-81.727232 noise_dbm=-93.965985 snr_db=12.238753 mac_seq=111
+PROBE_RX t_s=15.250230 relay=1 observer=0 seq=30
+LINK_SIGNAL t_s=15.250230 relay=1 observer=3 signal_dbm=-81.727232 noise_dbm=-93.965985 snr_db=12.238753 mac_seq=111
+UNICAST_TEST_TX t_s=15.300000 relay=1 seq=30 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=15.300230 relay=1 observer=0 signal_dbm=-81.773729 noise_dbm=-93.965985 snr_db=12.192256 mac_seq=112
+LINK_SIGNAL t_s=15.300230 relay=1 observer=3 signal_dbm=-81.773729 noise_dbm=-93.965985 snr_db=12.192256 mac_seq=112
+ONWARD_RX t_s=15.300230 relay=1 destination=3 probe_seq=30 delay_ms=0.230169
+ONWARD_REPORT_TX t_s=15.300520 relay=1 probe_seq=30 probe_time_s=15.300000 socket_accepted=1
+LINK_SIGNAL t_s=15.300841 relay=1 observer=0 signal_dbm=-81.774297 noise_dbm=-93.965985 snr_db=12.191688 mac_seq=113
+ONWARD_REPORT_RX t_s=15.300841 relay=1 observer=0 probe_seq=30 evidence_age_s=0.000841
+LINK_SIGNAL t_s=15.300841 relay=1 observer=3 signal_dbm=-81.774297 noise_dbm=-93.965985 snr_db=12.191688 mac_seq=113
+PROBE_TX t_s=15.375000 relay=2 seq=30 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=15.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=30
+LINK_SIGNAL t_s=15.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=126
+PROBE_RX t_s=15.375230 relay=2 observer=0 seq=30
+LINK_SIGNAL t_s=15.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=126
+UNICAST_TEST_TX t_s=15.425000 relay=2 seq=30 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=15.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=127
+LINK_SIGNAL t_s=15.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=127
+ONWARD_RX t_s=15.425230 relay=2 destination=3 probe_seq=30 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=15.425520 relay=2 probe_seq=30 probe_time_s=15.425000 socket_accepted=1
+LINK_SIGNAL t_s=15.425759 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=128
+ONWARD_REPORT_RX t_s=15.425759 relay=2 observer=0 probe_seq=30 evidence_age_s=0.000759
+LINK_SIGNAL t_s=15.425759 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=128
+UDP_FORWARD t_s=15.500314 node=2 seq=15 interface=1 ttl=63
+LINK_SIGNAL t_s=15.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=129
+LINK_SIGNAL t_s=15.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=129
+UDP_RX t_s=15.500688 seq=15 delay_ms=0.688286
+PROBE_TX t_s=15.750000 relay=1 seq=31 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=15.800000 relay=1 seq=31 udp_payload_bytes=64 socket_accepted=1
+ONWARD_FINAL_FAILURE t_s=15.812248 relay=1
+FAILURE_REPORT_TX t_s=15.812248 relay=1 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=15.875000 relay=2 seq=31 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=15.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=31
+LINK_SIGNAL t_s=15.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=130
+PROBE_RX t_s=15.875230 relay=2 observer=0 seq=31
+LINK_SIGNAL t_s=15.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=130
+UNICAST_TEST_TX t_s=15.925000 relay=2 seq=31 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=15.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=131
+LINK_SIGNAL t_s=15.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=131
+ONWARD_RX t_s=15.925230 relay=2 destination=3 probe_seq=31 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=15.925520 relay=2 probe_seq=31 probe_time_s=15.925000 socket_accepted=1
+LINK_SIGNAL t_s=15.925876 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=132
+ONWARD_REPORT_RX t_s=15.925876 relay=2 observer=0 probe_seq=31 evidence_age_s=0.000876
+LINK_SIGNAL t_s=15.925876 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=132
+RELAY_POSITION t_s=16.000000 relay=1 x_m=35.000000 y_m=40.000000 source_distance_m=53.150729 destination_distance_m=53.150729
+RELAY_POSITION t_s=16.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=16.000000 relay=1 evidence_age_s=0.700000 fresh=1
+ONWARD_STATE t_s=16.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=16.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.310523 forwarding=AODV
+LINK_SIGNAL t_s=16.076170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=133
+LINK_SIGNAL t_s=16.076170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=133
+PROBE_TX t_s=16.250000 relay=1 seq=32 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=16.300000 relay=1 seq=32 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=16.375000 relay=2 seq=32 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=16.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=32
+LINK_SIGNAL t_s=16.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=134
+PROBE_RX t_s=16.375230 relay=2 observer=0 seq=32
+LINK_SIGNAL t_s=16.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=134
+UNICAST_TEST_TX t_s=16.425000 relay=2 seq=32 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=16.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=135
+LINK_SIGNAL t_s=16.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=135
+ONWARD_RX t_s=16.425230 relay=2 destination=3 probe_seq=32 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=16.425520 relay=2 probe_seq=32 probe_time_s=16.425000 socket_accepted=1
+LINK_SIGNAL t_s=16.425768 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=136
+ONWARD_REPORT_RX t_s=16.425768 relay=2 observer=0 probe_seq=32 evidence_age_s=0.000768
+LINK_SIGNAL t_s=16.425768 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=136
+UDP_FORWARD t_s=16.500314 node=2 seq=16 interface=1 ttl=63
+LINK_SIGNAL t_s=16.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=137
+LINK_SIGNAL t_s=16.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=137
+UDP_RX t_s=16.500688 seq=16 delay_ms=0.688286
+PROBE_TX t_s=16.750000 relay=1 seq=33 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=16.800000 relay=1 seq=33 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=16.875000 relay=2 seq=33 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=16.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=33
+LINK_SIGNAL t_s=16.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=138
+PROBE_RX t_s=16.875230 relay=2 observer=0 seq=33
+LINK_SIGNAL t_s=16.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=138
+UNICAST_TEST_TX t_s=16.925000 relay=2 seq=33 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=16.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=139
+LINK_SIGNAL t_s=16.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=139
+ONWARD_RX t_s=16.925230 relay=2 destination=3 probe_seq=33 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=16.925520 relay=2 probe_seq=33 probe_time_s=16.925000 socket_accepted=1
+LINK_SIGNAL t_s=16.925795 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=140
+ONWARD_REPORT_RX t_s=16.925795 relay=2 observer=0 probe_seq=33 evidence_age_s=0.000795
+LINK_SIGNAL t_s=16.925795 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=140
+RELAY_POSITION t_s=17.000000 relay=1 x_m=35.000000 y_m=45.000000 source_distance_m=57.008771 destination_distance_m=57.008771
+RELAY_POSITION t_s=17.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=17.000000 relay=1 evidence_age_s=1.700000 fresh=1
+ONWARD_STATE t_s=17.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=17.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.311496 forwarding=AODV
+LINK_SIGNAL t_s=17.076170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=141
+LINK_SIGNAL t_s=17.076170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=141
+PROBE_TX t_s=17.250000 relay=1 seq=34 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=17.300000 relay=1 seq=34 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=17.375000 relay=2 seq=34 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=17.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=34
+LINK_SIGNAL t_s=17.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=142
+PROBE_RX t_s=17.375230 relay=2 observer=0 seq=34
+LINK_SIGNAL t_s=17.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=142
+UNICAST_TEST_TX t_s=17.425000 relay=2 seq=34 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=17.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=143
+LINK_SIGNAL t_s=17.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=143
+ONWARD_RX t_s=17.425230 relay=2 destination=3 probe_seq=34 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=17.425520 relay=2 probe_seq=34 probe_time_s=17.425000 socket_accepted=1
+LINK_SIGNAL t_s=17.425831 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=144
+ONWARD_REPORT_RX t_s=17.425831 relay=2 observer=0 probe_seq=34 evidence_age_s=0.000831
+LINK_SIGNAL t_s=17.425831 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=144
+UDP_FORWARD t_s=17.500314 node=2 seq=17 interface=1 ttl=63
+LINK_SIGNAL t_s=17.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=145
+LINK_SIGNAL t_s=17.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=145
+UDP_RX t_s=17.500688 seq=17 delay_ms=0.688286
+PROBE_TX t_s=17.750000 relay=1 seq=35 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=17.800000 relay=1 seq=35 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=17.875000 relay=2 seq=35 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=17.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=35
+LINK_SIGNAL t_s=17.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=146
+PROBE_RX t_s=17.875230 relay=2 observer=0 seq=35
+LINK_SIGNAL t_s=17.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=146
+UNICAST_TEST_TX t_s=17.925000 relay=2 seq=35 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=17.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=147
+LINK_SIGNAL t_s=17.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=147
+ONWARD_RX t_s=17.925230 relay=2 destination=3 probe_seq=35 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=17.925520 relay=2 probe_seq=35 probe_time_s=17.925000 socket_accepted=1
+LINK_SIGNAL t_s=17.925777 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=148
+ONWARD_REPORT_RX t_s=17.925777 relay=2 observer=0 probe_seq=35 evidence_age_s=0.000777
+LINK_SIGNAL t_s=17.925777 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=148
+RELAY_POSITION t_s=18.000000 relay=1 x_m=35.000000 y_m=50.000000 source_distance_m=61.032778 destination_distance_m=61.032778
+RELAY_POSITION t_s=18.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=18.000000 relay=1 evidence_age_s=2.700000 fresh=0
+ONWARD_STATE t_s=18.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=18.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=18.070170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=149
+LINK_SIGNAL t_s=18.070170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=149
+PROBE_TX t_s=18.250000 relay=1 seq=36 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=18.300000 relay=1 seq=36 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=18.375000 relay=2 seq=36 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=18.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=36
+LINK_SIGNAL t_s=18.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=150
+PROBE_RX t_s=18.375230 relay=2 observer=0 seq=36
+LINK_SIGNAL t_s=18.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=150
+UNICAST_TEST_TX t_s=18.425000 relay=2 seq=36 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=18.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=151
+LINK_SIGNAL t_s=18.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=151
+ONWARD_RX t_s=18.425230 relay=2 destination=3 probe_seq=36 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=18.425520 relay=2 probe_seq=36 probe_time_s=18.425000 socket_accepted=1
+LINK_SIGNAL t_s=18.425876 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=152
+ONWARD_REPORT_RX t_s=18.425876 relay=2 observer=0 probe_seq=36 evidence_age_s=0.000876
+LINK_SIGNAL t_s=18.425876 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=152
+UDP_FORWARD t_s=18.500314 node=2 seq=18 interface=1 ttl=63
+LINK_SIGNAL t_s=18.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=153
+LINK_SIGNAL t_s=18.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=153
+UDP_RX t_s=18.500688 seq=18 delay_ms=0.688286
+PROBE_TX t_s=18.750000 relay=1 seq=37 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=18.800000 relay=1 seq=37 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=18.875000 relay=2 seq=37 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=18.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=37
+LINK_SIGNAL t_s=18.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=154
+PROBE_RX t_s=18.875230 relay=2 observer=0 seq=37
+LINK_SIGNAL t_s=18.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=154
+UNICAST_TEST_TX t_s=18.925000 relay=2 seq=37 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=18.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=155
+LINK_SIGNAL t_s=18.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=155
+ONWARD_RX t_s=18.925230 relay=2 destination=3 probe_seq=37 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=18.925520 relay=2 probe_seq=37 probe_time_s=18.925000 socket_accepted=1
+LINK_SIGNAL t_s=18.925858 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=156
+ONWARD_REPORT_RX t_s=18.925858 relay=2 observer=0 probe_seq=37 evidence_age_s=0.000858
+LINK_SIGNAL t_s=18.925858 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=156
+RELAY_POSITION t_s=19.000000 relay=1 x_m=35.000000 y_m=55.000000 source_distance_m=65.192024 destination_distance_m=65.192024
+RELAY_POSITION t_s=19.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=19.000000 relay=1 evidence_age_s=3.700000 fresh=0
+ONWARD_STATE t_s=19.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=19.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=19.076170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=157
+LINK_SIGNAL t_s=19.076170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=157
+PROBE_TX t_s=19.250000 relay=1 seq=38 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=19.300000 relay=1 seq=38 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=19.375000 relay=2 seq=38 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=19.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=38
+LINK_SIGNAL t_s=19.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=158
+PROBE_RX t_s=19.375230 relay=2 observer=0 seq=38
+LINK_SIGNAL t_s=19.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=158
+UNICAST_TEST_TX t_s=19.425000 relay=2 seq=38 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=19.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=159
+LINK_SIGNAL t_s=19.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=159
+ONWARD_RX t_s=19.425230 relay=2 destination=3 probe_seq=38 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=19.425520 relay=2 probe_seq=38 probe_time_s=19.425000 socket_accepted=1
+LINK_SIGNAL t_s=19.425849 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=160
+ONWARD_REPORT_RX t_s=19.425849 relay=2 observer=0 probe_seq=38 evidence_age_s=0.000849
+LINK_SIGNAL t_s=19.425849 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=160
+UDP_FORWARD t_s=19.500314 node=2 seq=19 interface=1 ttl=63
+LINK_SIGNAL t_s=19.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=161
+LINK_SIGNAL t_s=19.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=161
+UDP_RX t_s=19.500688 seq=19 delay_ms=0.688286
+PROBE_TX t_s=19.750000 relay=1 seq=39 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=19.800000 relay=1 seq=39 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=19.875000 relay=2 seq=39 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=19.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=39
+LINK_SIGNAL t_s=19.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=162
+PROBE_RX t_s=19.875230 relay=2 observer=0 seq=39
+LINK_SIGNAL t_s=19.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=162
+UNICAST_TEST_TX t_s=19.925000 relay=2 seq=39 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=19.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=163
+LINK_SIGNAL t_s=19.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=163
+ONWARD_RX t_s=19.925230 relay=2 destination=3 probe_seq=39 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=19.925520 relay=2 probe_seq=39 probe_time_s=19.925000 socket_accepted=1
+LINK_SIGNAL t_s=19.925813 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=164
+ONWARD_REPORT_RX t_s=19.925813 relay=2 observer=0 probe_seq=39 evidence_age_s=0.000813
+LINK_SIGNAL t_s=19.925813 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=164
+RELAY_POSITION t_s=20.000000 relay=1 x_m=35.000000 y_m=60.000000 source_distance_m=69.462220 destination_distance_m=69.462220
+RELAY_POSITION t_s=20.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=20.000000 relay=1 evidence_age_s=4.700000 fresh=0
+ONWARD_STATE t_s=20.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=20.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=20.071170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=165
+LINK_SIGNAL t_s=20.071170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=165
+PROBE_TX t_s=20.250000 relay=1 seq=40 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=20.300000 relay=1 seq=40 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=20.375000 relay=2 seq=40 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=20.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=40
+LINK_SIGNAL t_s=20.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=166
+PROBE_RX t_s=20.375230 relay=2 observer=0 seq=40
+LINK_SIGNAL t_s=20.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=166
+UNICAST_TEST_TX t_s=20.425000 relay=2 seq=40 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=20.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=167
+LINK_SIGNAL t_s=20.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=167
+ONWARD_RX t_s=20.425230 relay=2 destination=3 probe_seq=40 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=20.425520 relay=2 probe_seq=40 probe_time_s=20.425000 socket_accepted=1
+LINK_SIGNAL t_s=20.425867 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=168
+ONWARD_REPORT_RX t_s=20.425867 relay=2 observer=0 probe_seq=40 evidence_age_s=0.000867
+LINK_SIGNAL t_s=20.425867 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=168
+UDP_FORWARD t_s=20.500314 node=2 seq=20 interface=1 ttl=63
+LINK_SIGNAL t_s=20.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=169
+LINK_SIGNAL t_s=20.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=169
+UDP_RX t_s=20.500688 seq=20 delay_ms=0.688286
+PROBE_TX t_s=20.750000 relay=1 seq=41 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=20.800000 relay=1 seq=41 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=20.875000 relay=2 seq=41 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=20.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=41
+LINK_SIGNAL t_s=20.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=170
+PROBE_RX t_s=20.875230 relay=2 observer=0 seq=41
+LINK_SIGNAL t_s=20.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=170
+UNICAST_TEST_TX t_s=20.925000 relay=2 seq=41 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=20.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=171
+LINK_SIGNAL t_s=20.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=171
+ONWARD_RX t_s=20.925230 relay=2 destination=3 probe_seq=41 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=20.925520 relay=2 probe_seq=41 probe_time_s=20.925000 socket_accepted=1
+LINK_SIGNAL t_s=20.925849 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=172
+ONWARD_REPORT_RX t_s=20.925849 relay=2 observer=0 probe_seq=41 evidence_age_s=0.000849
+LINK_SIGNAL t_s=20.925849 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=172
+RELAY_POSITION t_s=21.000000 relay=1 x_m=35.000000 y_m=65.000000 source_distance_m=73.824115 destination_distance_m=73.824115
+RELAY_POSITION t_s=21.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=21.000000 relay=1 evidence_age_s=5.700000 fresh=0
+ONWARD_STATE t_s=21.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=21.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=21.076170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=173
+LINK_SIGNAL t_s=21.076170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=173
+PROBE_TX t_s=21.250000 relay=1 seq=42 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=21.300000 relay=1 seq=42 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=21.375000 relay=2 seq=42 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=21.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=42
+LINK_SIGNAL t_s=21.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=174
+PROBE_RX t_s=21.375230 relay=2 observer=0 seq=42
+LINK_SIGNAL t_s=21.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=174
+UNICAST_TEST_TX t_s=21.425000 relay=2 seq=42 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=21.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=175
+LINK_SIGNAL t_s=21.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=175
+ONWARD_RX t_s=21.425230 relay=2 destination=3 probe_seq=42 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=21.425520 relay=2 probe_seq=42 probe_time_s=21.425000 socket_accepted=1
+LINK_SIGNAL t_s=21.425813 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=176
+ONWARD_REPORT_RX t_s=21.425813 relay=2 observer=0 probe_seq=42 evidence_age_s=0.000813
+LINK_SIGNAL t_s=21.425813 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=176
+UDP_FORWARD t_s=21.500314 node=2 seq=21 interface=1 ttl=63
+LINK_SIGNAL t_s=21.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=177
+LINK_SIGNAL t_s=21.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=177
+UDP_RX t_s=21.500688 seq=21 delay_ms=0.688286
+PROBE_TX t_s=21.750000 relay=1 seq=43 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=21.800000 relay=1 seq=43 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=21.875000 relay=2 seq=43 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=21.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=43
+LINK_SIGNAL t_s=21.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=178
+PROBE_RX t_s=21.875230 relay=2 observer=0 seq=43
+LINK_SIGNAL t_s=21.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=178
+UNICAST_TEST_TX t_s=21.925000 relay=2 seq=43 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=21.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=179
+LINK_SIGNAL t_s=21.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=179
+ONWARD_RX t_s=21.925230 relay=2 destination=3 probe_seq=43 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=21.925520 relay=2 probe_seq=43 probe_time_s=21.925000 socket_accepted=1
+LINK_SIGNAL t_s=21.925759 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=180
+ONWARD_REPORT_RX t_s=21.925759 relay=2 observer=0 probe_seq=43 evidence_age_s=0.000759
+LINK_SIGNAL t_s=21.925759 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=180
+RELAY_POSITION t_s=22.000000 relay=1 x_m=35.000000 y_m=70.000000 source_distance_m=78.262379 destination_distance_m=78.262379
+RELAY_POSITION t_s=22.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=22.000000 relay=1 evidence_age_s=6.700000 fresh=0
+ONWARD_STATE t_s=22.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=22.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=22.075170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=181
+LINK_SIGNAL t_s=22.075170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=181
+PROBE_TX t_s=22.250000 relay=1 seq=44 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=22.300000 relay=1 seq=44 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=22.375000 relay=2 seq=44 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=22.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=44
+LINK_SIGNAL t_s=22.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=182
+PROBE_RX t_s=22.375230 relay=2 observer=0 seq=44
+LINK_SIGNAL t_s=22.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=182
+UNICAST_TEST_TX t_s=22.425000 relay=2 seq=44 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=22.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=183
+LINK_SIGNAL t_s=22.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=183
+ONWARD_RX t_s=22.425230 relay=2 destination=3 probe_seq=44 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=22.425520 relay=2 probe_seq=44 probe_time_s=22.425000 socket_accepted=1
+LINK_SIGNAL t_s=22.425795 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=184
+ONWARD_REPORT_RX t_s=22.425795 relay=2 observer=0 probe_seq=44 evidence_age_s=0.000795
+LINK_SIGNAL t_s=22.425795 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=184
+UDP_FORWARD t_s=22.500314 node=2 seq=22 interface=1 ttl=63
+LINK_SIGNAL t_s=22.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=185
+LINK_SIGNAL t_s=22.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=185
+UDP_RX t_s=22.500688 seq=22 delay_ms=0.688286
+PROBE_TX t_s=22.750000 relay=1 seq=45 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=22.800000 relay=1 seq=45 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=22.875000 relay=2 seq=45 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=22.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=45
+LINK_SIGNAL t_s=22.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=186
+PROBE_RX t_s=22.875230 relay=2 observer=0 seq=45
+LINK_SIGNAL t_s=22.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=186
+UNICAST_TEST_TX t_s=22.925000 relay=2 seq=45 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=22.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=187
+LINK_SIGNAL t_s=22.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=187
+ONWARD_RX t_s=22.925230 relay=2 destination=3 probe_seq=45 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=22.925520 relay=2 probe_seq=45 probe_time_s=22.925000 socket_accepted=1
+LINK_SIGNAL t_s=22.925849 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=188
+ONWARD_REPORT_RX t_s=22.925849 relay=2 observer=0 probe_seq=45 evidence_age_s=0.000849
+LINK_SIGNAL t_s=22.925849 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=188
+RELAY_POSITION t_s=23.000000 relay=1 x_m=35.000000 y_m=75.000000 source_distance_m=82.764727 destination_distance_m=82.764727
+RELAY_POSITION t_s=23.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=23.000000 relay=1 evidence_age_s=7.700000 fresh=0
+ONWARD_STATE t_s=23.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=23.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=23.075170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=189
+LINK_SIGNAL t_s=23.075170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=189
+PROBE_TX t_s=23.250000 relay=1 seq=46 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=23.300000 relay=1 seq=46 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=23.375000 relay=2 seq=46 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=23.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=46
+LINK_SIGNAL t_s=23.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=190
+PROBE_RX t_s=23.375230 relay=2 observer=0 seq=46
+LINK_SIGNAL t_s=23.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=190
+UNICAST_TEST_TX t_s=23.425000 relay=2 seq=46 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=23.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=191
+LINK_SIGNAL t_s=23.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=191
+ONWARD_RX t_s=23.425230 relay=2 destination=3 probe_seq=46 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=23.425520 relay=2 probe_seq=46 probe_time_s=23.425000 socket_accepted=1
+LINK_SIGNAL t_s=23.425876 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=192
+ONWARD_REPORT_RX t_s=23.425876 relay=2 observer=0 probe_seq=46 evidence_age_s=0.000876
+LINK_SIGNAL t_s=23.425876 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=192
+UDP_FORWARD t_s=23.500314 node=2 seq=23 interface=1 ttl=63
+LINK_SIGNAL t_s=23.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=193
+LINK_SIGNAL t_s=23.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=193
+UDP_RX t_s=23.500688 seq=23 delay_ms=0.688286
+PROBE_TX t_s=23.750000 relay=1 seq=47 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=23.800000 relay=1 seq=47 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=23.875000 relay=2 seq=47 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=23.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=47
+LINK_SIGNAL t_s=23.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=194
+PROBE_RX t_s=23.875230 relay=2 observer=0 seq=47
+LINK_SIGNAL t_s=23.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=194
+UNICAST_TEST_TX t_s=23.925000 relay=2 seq=47 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=23.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=195
+LINK_SIGNAL t_s=23.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=195
+ONWARD_RX t_s=23.925230 relay=2 destination=3 probe_seq=47 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=23.925520 relay=2 probe_seq=47 probe_time_s=23.925000 socket_accepted=1
+LINK_SIGNAL t_s=23.925849 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=196
+ONWARD_REPORT_RX t_s=23.925849 relay=2 observer=0 probe_seq=47 evidence_age_s=0.000849
+LINK_SIGNAL t_s=23.925849 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=196
+RELAY_POSITION t_s=24.000000 relay=1 x_m=35.000000 y_m=80.000000 source_distance_m=87.321246 destination_distance_m=87.321246
+RELAY_POSITION t_s=24.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=24.000000 relay=1 evidence_age_s=8.700000 fresh=0
+ONWARD_STATE t_s=24.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=24.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=24.077170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=197
+LINK_SIGNAL t_s=24.077170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=197
+PROBE_TX t_s=24.250000 relay=1 seq=48 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=24.300000 relay=1 seq=48 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=24.375000 relay=2 seq=48 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=24.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=48
+LINK_SIGNAL t_s=24.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=198
+PROBE_RX t_s=24.375230 relay=2 observer=0 seq=48
+LINK_SIGNAL t_s=24.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=198
+UNICAST_TEST_TX t_s=24.425000 relay=2 seq=48 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=24.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=199
+LINK_SIGNAL t_s=24.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=199
+ONWARD_RX t_s=24.425230 relay=2 destination=3 probe_seq=48 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=24.425520 relay=2 probe_seq=48 probe_time_s=24.425000 socket_accepted=1
+LINK_SIGNAL t_s=24.425786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=200
+ONWARD_REPORT_RX t_s=24.425786 relay=2 observer=0 probe_seq=48 evidence_age_s=0.000786
+LINK_SIGNAL t_s=24.425786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=200
+UDP_FORWARD t_s=24.500314 node=2 seq=24 interface=1 ttl=63
+LINK_SIGNAL t_s=24.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=201
+LINK_SIGNAL t_s=24.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=201
+UDP_RX t_s=24.500688 seq=24 delay_ms=0.688286
+PROBE_TX t_s=24.750000 relay=1 seq=49 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=24.800000 relay=1 seq=49 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=24.875000 relay=2 seq=49 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=24.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=49
+LINK_SIGNAL t_s=24.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=202
+PROBE_RX t_s=24.875230 relay=2 observer=0 seq=49
+LINK_SIGNAL t_s=24.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=202
+UNICAST_TEST_TX t_s=24.925000 relay=2 seq=49 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=24.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=203
+LINK_SIGNAL t_s=24.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=203
+ONWARD_RX t_s=24.925230 relay=2 destination=3 probe_seq=49 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=24.925520 relay=2 probe_seq=49 probe_time_s=24.925000 socket_accepted=1
+LINK_SIGNAL t_s=24.925813 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=204
+ONWARD_REPORT_RX t_s=24.925813 relay=2 observer=0 probe_seq=49 evidence_age_s=0.000813
+LINK_SIGNAL t_s=24.925813 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=204
+RELAY_POSITION t_s=25.000000 relay=1 x_m=35.000000 y_m=85.000000 source_distance_m=91.923882 destination_distance_m=91.923882
+RELAY_POSITION t_s=25.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=25.000000 relay=1 evidence_age_s=9.700000 fresh=0
+ONWARD_STATE t_s=25.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=25.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=25.072170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=205
+LINK_SIGNAL t_s=25.072170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=205
+PROBE_TX t_s=25.250000 relay=1 seq=50 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=25.300000 relay=1 seq=50 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=25.375000 relay=2 seq=50 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=25.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=50
+LINK_SIGNAL t_s=25.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=206
+PROBE_RX t_s=25.375230 relay=2 observer=0 seq=50
+LINK_SIGNAL t_s=25.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=206
+UNICAST_TEST_TX t_s=25.425000 relay=2 seq=50 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=25.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=207
+LINK_SIGNAL t_s=25.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=207
+ONWARD_RX t_s=25.425230 relay=2 destination=3 probe_seq=50 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=25.425520 relay=2 probe_seq=50 probe_time_s=25.425000 socket_accepted=1
+LINK_SIGNAL t_s=25.425768 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=208
+ONWARD_REPORT_RX t_s=25.425768 relay=2 observer=0 probe_seq=50 evidence_age_s=0.000768
+LINK_SIGNAL t_s=25.425768 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=208
+UDP_FORWARD t_s=25.500314 node=2 seq=25 interface=1 ttl=63
+LINK_SIGNAL t_s=25.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=209
+LINK_SIGNAL t_s=25.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=209
+UDP_RX t_s=25.500688 seq=25 delay_ms=0.688286
+PROBE_TX t_s=25.750000 relay=1 seq=51 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=25.800000 relay=1 seq=51 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=25.875000 relay=2 seq=51 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=25.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=51
+LINK_SIGNAL t_s=25.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=210
+PROBE_RX t_s=25.875230 relay=2 observer=0 seq=51
+LINK_SIGNAL t_s=25.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=210
+UNICAST_TEST_TX t_s=25.925000 relay=2 seq=51 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=25.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=211
+LINK_SIGNAL t_s=25.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=211
+ONWARD_RX t_s=25.925230 relay=2 destination=3 probe_seq=51 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=25.925520 relay=2 probe_seq=51 probe_time_s=25.925000 socket_accepted=1
+LINK_SIGNAL t_s=25.925822 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=212
+ONWARD_REPORT_RX t_s=25.925822 relay=2 observer=0 probe_seq=51 evidence_age_s=0.000822
+LINK_SIGNAL t_s=25.925822 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=212
+RELAY_POSITION t_s=26.000000 relay=1 x_m=35.000000 y_m=90.000000 source_distance_m=96.566040 destination_distance_m=96.566040
+RELAY_POSITION t_s=26.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=26.000000 relay=1 evidence_age_s=10.700000 fresh=0
+ONWARD_STATE t_s=26.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=26.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=26.070170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=213
+LINK_SIGNAL t_s=26.070170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=213
+PROBE_TX t_s=26.250000 relay=1 seq=52 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=26.300000 relay=1 seq=52 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=26.375000 relay=2 seq=52 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=26.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=52
+LINK_SIGNAL t_s=26.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=214
+PROBE_RX t_s=26.375230 relay=2 observer=0 seq=52
+LINK_SIGNAL t_s=26.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=214
+UNICAST_TEST_TX t_s=26.425000 relay=2 seq=52 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=26.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=215
+LINK_SIGNAL t_s=26.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=215
+ONWARD_RX t_s=26.425230 relay=2 destination=3 probe_seq=52 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=26.425520 relay=2 probe_seq=52 probe_time_s=26.425000 socket_accepted=1
+LINK_SIGNAL t_s=26.425876 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=216
+ONWARD_REPORT_RX t_s=26.425876 relay=2 observer=0 probe_seq=52 evidence_age_s=0.000876
+LINK_SIGNAL t_s=26.425876 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=216
+UDP_FORWARD t_s=26.500314 node=2 seq=26 interface=1 ttl=63
+LINK_SIGNAL t_s=26.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=217
+LINK_SIGNAL t_s=26.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=217
+UDP_RX t_s=26.500688 seq=26 delay_ms=0.688286
+PROBE_TX t_s=26.750000 relay=1 seq=53 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=26.800000 relay=1 seq=53 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=26.875000 relay=2 seq=53 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=26.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=53
+LINK_SIGNAL t_s=26.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=218
+PROBE_RX t_s=26.875230 relay=2 observer=0 seq=53
+LINK_SIGNAL t_s=26.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=218
+UNICAST_TEST_TX t_s=26.925000 relay=2 seq=53 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=26.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=219
+LINK_SIGNAL t_s=26.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=219
+ONWARD_RX t_s=26.925230 relay=2 destination=3 probe_seq=53 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=26.925520 relay=2 probe_seq=53 probe_time_s=26.925000 socket_accepted=1
+LINK_SIGNAL t_s=26.925840 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=220
+ONWARD_REPORT_RX t_s=26.925840 relay=2 observer=0 probe_seq=53 evidence_age_s=0.000840
+LINK_SIGNAL t_s=26.925840 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=220
+RELAY_POSITION t_s=27.000000 relay=1 x_m=35.000000 y_m=95.000000 source_distance_m=101.242284 destination_distance_m=101.242284
+RELAY_POSITION t_s=27.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=27.000000 relay=1 evidence_age_s=11.700000 fresh=0
+ONWARD_STATE t_s=27.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=27.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=27.070170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=221
+LINK_SIGNAL t_s=27.070170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=221
+PROBE_TX t_s=27.250000 relay=1 seq=54 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=27.300000 relay=1 seq=54 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=27.375000 relay=2 seq=54 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=27.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=54
+LINK_SIGNAL t_s=27.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=222
+PROBE_RX t_s=27.375230 relay=2 observer=0 seq=54
+LINK_SIGNAL t_s=27.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=222
+UNICAST_TEST_TX t_s=27.425000 relay=2 seq=54 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=27.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=223
+LINK_SIGNAL t_s=27.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=223
+ONWARD_RX t_s=27.425230 relay=2 destination=3 probe_seq=54 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=27.425520 relay=2 probe_seq=54 probe_time_s=27.425000 socket_accepted=1
+LINK_SIGNAL t_s=27.425795 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=224
+ONWARD_REPORT_RX t_s=27.425795 relay=2 observer=0 probe_seq=54 evidence_age_s=0.000795
+LINK_SIGNAL t_s=27.425795 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=224
+UDP_FORWARD t_s=27.500314 node=2 seq=27 interface=1 ttl=63
+LINK_SIGNAL t_s=27.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=225
+LINK_SIGNAL t_s=27.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=225
+UDP_RX t_s=27.500688 seq=27 delay_ms=0.688286
+PROBE_TX t_s=27.750000 relay=1 seq=55 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=27.800000 relay=1 seq=55 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=27.875000 relay=2 seq=55 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=27.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=55
+LINK_SIGNAL t_s=27.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=226
+PROBE_RX t_s=27.875230 relay=2 observer=0 seq=55
+LINK_SIGNAL t_s=27.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=226
+UNICAST_TEST_TX t_s=27.925000 relay=2 seq=55 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=27.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=227
+LINK_SIGNAL t_s=27.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=227
+ONWARD_RX t_s=27.925230 relay=2 destination=3 probe_seq=55 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=27.925520 relay=2 probe_seq=55 probe_time_s=27.925000 socket_accepted=1
+LINK_SIGNAL t_s=27.925750 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=228
+ONWARD_REPORT_RX t_s=27.925750 relay=2 observer=0 probe_seq=55 evidence_age_s=0.000750
+LINK_SIGNAL t_s=27.925750 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=228
+RELAY_POSITION t_s=28.000000 relay=1 x_m=35.000000 y_m=100.000000 source_distance_m=105.948101 destination_distance_m=105.948101
+RELAY_POSITION t_s=28.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=28.000000 relay=1 evidence_age_s=12.700000 fresh=0
+ONWARD_STATE t_s=28.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=28.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=28.071170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=229
+LINK_SIGNAL t_s=28.071170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=229
+PROBE_TX t_s=28.250000 relay=1 seq=56 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=28.300000 relay=1 seq=56 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=28.375000 relay=2 seq=56 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=28.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=56
+LINK_SIGNAL t_s=28.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=230
+PROBE_RX t_s=28.375230 relay=2 observer=0 seq=56
+LINK_SIGNAL t_s=28.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=230
+UNICAST_TEST_TX t_s=28.425000 relay=2 seq=56 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=28.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=231
+LINK_SIGNAL t_s=28.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=231
+ONWARD_RX t_s=28.425230 relay=2 destination=3 probe_seq=56 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=28.425520 relay=2 probe_seq=56 probe_time_s=28.425000 socket_accepted=1
+LINK_SIGNAL t_s=28.425750 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=232
+ONWARD_REPORT_RX t_s=28.425750 relay=2 observer=0 probe_seq=56 evidence_age_s=0.000750
+LINK_SIGNAL t_s=28.425750 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=232
+UDP_FORWARD t_s=28.500314 node=2 seq=28 interface=1 ttl=63
+LINK_SIGNAL t_s=28.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=233
+LINK_SIGNAL t_s=28.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=233
+UDP_RX t_s=28.500688 seq=28 delay_ms=0.688286
+PROBE_TX t_s=28.750000 relay=1 seq=57 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=28.800000 relay=1 seq=57 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=28.875000 relay=2 seq=57 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=28.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=57
+LINK_SIGNAL t_s=28.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=234
+PROBE_RX t_s=28.875230 relay=2 observer=0 seq=57
+LINK_SIGNAL t_s=28.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=234
+UNICAST_TEST_TX t_s=28.925000 relay=2 seq=57 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=28.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=235
+LINK_SIGNAL t_s=28.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=235
+ONWARD_RX t_s=28.925230 relay=2 destination=3 probe_seq=57 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=28.925520 relay=2 probe_seq=57 probe_time_s=28.925000 socket_accepted=1
+LINK_SIGNAL t_s=28.925777 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=236
+ONWARD_REPORT_RX t_s=28.925777 relay=2 observer=0 probe_seq=57 evidence_age_s=0.000777
+LINK_SIGNAL t_s=28.925777 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=236
+RELAY_POSITION t_s=29.000000 relay=1 x_m=35.000000 y_m=105.000000 source_distance_m=110.679718 destination_distance_m=110.679718
+RELAY_POSITION t_s=29.000000 relay=2 x_m=35.000000 y_m=-25.000000 source_distance_m=43.011626 destination_distance_m=43.011626
+ONWARD_STATE t_s=29.000000 relay=1 evidence_age_s=13.700000 fresh=0
+ONWARD_STATE t_s=29.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=29.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+LINK_SIGNAL t_s=29.069170 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=237
+LINK_SIGNAL t_s=29.069170 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=237
+PROBE_TX t_s=29.250000 relay=1 seq=58 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=29.300000 relay=1 seq=58 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=29.375000 relay=2 seq=58 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=29.375230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=58
+LINK_SIGNAL t_s=29.375230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=238
+PROBE_RX t_s=29.375230 relay=2 observer=0 seq=58
+LINK_SIGNAL t_s=29.375230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=238
+UNICAST_TEST_TX t_s=29.425000 relay=2 seq=58 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=29.425230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=239
+LINK_SIGNAL t_s=29.425230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=239
+ONWARD_RX t_s=29.425230 relay=2 destination=3 probe_seq=58 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=29.425520 relay=2 probe_seq=58 probe_time_s=29.425000 socket_accepted=1
+LINK_SIGNAL t_s=29.425786 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=240
+ONWARD_REPORT_RX t_s=29.425786 relay=2 observer=0 probe_seq=58 evidence_age_s=0.000786
+LINK_SIGNAL t_s=29.425786 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=240
+UDP_FORWARD t_s=29.500314 node=2 seq=29 interface=1 ttl=63
+LINK_SIGNAL t_s=29.500688 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=241
+LINK_SIGNAL t_s=29.500688 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=241
+UDP_RX t_s=29.500688 seq=29 delay_ms=0.688286
+PROBE_TX t_s=29.750000 relay=1 seq=59 udp_payload_bytes=64 socket_accepted=1
+UNICAST_TEST_TX t_s=29.800000 relay=1 seq=59 udp_payload_bytes=64 socket_accepted=1
+PROBE_TX t_s=29.875000 relay=2 seq=59 udp_payload_bytes=64 socket_accepted=1
+SIGNAL_RX t_s=29.875230143 tx=2 rx=0 signal_dbm=-79.66467592604522 probe_seq=59
+LINK_SIGNAL t_s=29.875230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=242
+PROBE_RX t_s=29.875230 relay=2 observer=0 seq=59
+LINK_SIGNAL t_s=29.875230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=242
+UNICAST_TEST_TX t_s=29.925000 relay=2 seq=59 udp_payload_bytes=64 socket_accepted=1
+LINK_SIGNAL t_s=29.925230 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=243
+LINK_SIGNAL t_s=29.925230 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=243
+ONWARD_RX t_s=29.925230 relay=2 destination=3 probe_seq=59 delay_ms=0.230143
+ONWARD_REPORT_TX t_s=29.925520 relay=2 probe_seq=59 probe_time_s=29.925000 socket_accepted=1
+LINK_SIGNAL t_s=29.925759 relay=2 observer=0 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=244
+ONWARD_REPORT_RX t_s=29.925759 relay=2 observer=0 probe_seq=59 evidence_age_s=0.000759
+LINK_SIGNAL t_s=29.925759 relay=2 observer=3 signal_dbm=-79.664676 noise_dbm=-93.965985 snr_db=14.301309 mac_seq=244
+ONWARD_STATE t_s=30.000000 relay=1 evidence_age_s=14.700000 fresh=0
+ONWARD_STATE t_s=30.000000 relay=2 evidence_age_s=0.075000 fresh=1
+LIVE_CHOICE t_s=30.000000 strongest=2 fixed=2 adaptive=2 stability_weight=0.200000 forwarding=AODV
+SUMMARY rule=adaptive selector_enabled=0 moveRelay=1 sent=30 received=30 pdr_percent=100.000000
+PROBE_SUMMARY relay=1 attempted=60 socket_accepted=60 received_at_source=31
+PROBE_SUMMARY relay=2 attempted=60 socket_accepted=60 received_at_source=60
+ONWARD_SUMMARY relay=1 received_at_destination=31 last_rx_s=15.300230
+ONWARD_SUMMARY relay=2 received_at_destination=60 last_rx_s=29.925230
+FEEDBACK_SUMMARY relay=1 destination_attempted=31 destination_socket_accepted=31 relay_report_attempted=31 relay_report_socket_accepted=31 source_reports_received=31
+FEEDBACK_SUMMARY relay=2 destination_attempted=60 destination_socket_accepted=60 relay_report_attempted=60 relay_report_socket_accepted=60 source_reports_received=60
+UNICAST_TEST_SUMMARY relay=1 attempted=60 socket_accepted=60 received_at_destination=31 reports_received_at_source=31
+UNICAST_TEST_SUMMARY relay=2 attempted=60 socket_accepted=60 received_at_destination=60 reports_received_at_source=60
+FAILURE_SUMMARY relay=1 final_data_failures=1 report_attempted=1 socket_accepted=1 received_at_source=0
+FAILURE_SUMMARY relay=2 final_data_failures=0 report_attempted=0 socket_accepted=0 received_at_source=0

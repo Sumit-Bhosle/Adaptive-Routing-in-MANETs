@@ -555,3 +555,47 @@ This comparison isolates onward verification within the prototype.
 It is not a comparison against standard AODV or evidence that adaptive
 weights outperform fixed weights. Configured relay-to-destination routes
 and one seed/run were used.
+
+## Verified checkpoint: STA-RS with failure feedback
+
+STA-RS (Signal-Trend-Aware Relay Selection) now performs live relay
+selection and changes application forwarding in a controlled four-node
+ns-3.46 prototype.
+
+The evaluation covers three scenarios, five configurations, and ten
+random-number runs per configuration: 150 simulations in total.
+Each simulation transmits 30 application packets over 30 seconds.
+
+| Configuration | Stationary PDR (%) | Moving away PDR (%) | Moving toward source PDR (%) |
+|---|---:|---:|---:|
+| AODV with monitoring and failure reporting | 100.00 | 97.67 | 100.00 |
+| Strongest signal with failure feedback | 100.00 | 100.00 | 100.00 |
+| Fixed weights with failure feedback | 100.00 | 100.00 | 100.00 |
+| STA-RS without failure feedback | 100.00 | 100.00 | 93.33 |
+| STA-RS with failure feedback | 100.00 | 100.00 | 100.00 |
+
+Each cell represents ten runs and 300 transmitted application packets.
+
+- Moving away: revised STA-RS delivered 300/300 packets versus monitored
+  AODV's 293/300, an improvement of 2.33 percentage points.
+- Moving toward the source: failure feedback increased STA-RS delivery
+  from 280/300 to 300/300, an improvement of 6.67 percentage points.
+- Revised STA-RS delivered 900/900 application packets across its 30 runs.
+- Strongest-signal and fixed-weight selectors also delivered 900/900
+  with failure feedback. An additional delivery benefit from adaptive
+  weighting has not been demonstrated.
+
+![STA-RS repeated delivery evaluation](results/relay-failure-feedback/repeated-wuKU9x/comparison/sta-rs-failure-feedback-pdr.png)
+
+These findings apply to the tested topology and traffic. Custom selectors
+use configured relay-to-destination routes; this is a forwarding prototype,
+not a complete general-purpose routing protocol. AODV in this comparison
+also receives monitoring traffic, which can affect route discovery and
+failure detection.
+
+Pending: delay and application-goodput analysis, monitoring and network
+overhead, ordinary AODV without monitoring, a recent published comparator,
+and the final report and presentation.
+
+See [the project log](docs/project-log.md) for implementation details,
+experimental limitations, and reproduction commands.

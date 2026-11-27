@@ -1,0 +1,1 @@
+/home/stayhard/Projects/ns-3.46/build/scratch/ns3.46-relay-failure-feedback-debug --rngRun=1 --adaptiveForwarding=1 --selectionRule=1 --fastFailure=1 --moveRelay=1 --towardSource=0 --movementDuration=6 --relay2Offset=25 --relaySpeed=5 --requireOnward=1 --onwardMaxAge=2

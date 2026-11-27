@@ -832,3 +832,184 @@ Final figures must include descriptive axis labels, units where
 applicable, readable legends, scenario settings, and clearly labelled
 event markers. Repeated-run figures should state the number of runs
 and define any uncertainty intervals.
+
+## Milestone: repeated evaluation of STA-RS failure feedback
+
+### Problem and development sequence
+
+Earlier observations showed that an improving source-to-relay link does
+not guarantee a usable relay-to-destination link. Onward confirmation
+therefore became a separate eligibility condition.
+
+Broadcast-based monitoring also exposed stationary runs with no
+application delivery. Diagnostics identified repeated, nearly simultaneous
+ARP transmission failures from both relays at the destination. Broadcast
+probe reception alone did not establish usable unicast delivery.
+
+The subsequent version added staggered unicast validation to the
+destination, with broadcast confirmations returned through the relay.
+The previously failing stationary runs succeeded under this revised
+monitoring setup. This change can also help AODV establish or maintain
+routes, so it must not be credited solely to adaptive selection.
+
+A separate packet-copy issue was corrected earlier: confirmation and
+report packets use fresh packet objects while preserving the original
+probe sequence and timestamp. Reusing packet UIDs had interfered with
+AODV duplicate detection.
+
+### Previous repeated checkpoint
+
+The unicast-validation batch contains 120 simulations:
+three scenarios, four methods, and ten runs per combination.
+
+Results:
+- Stationary: all methods delivered 300/300 packets.
+- Moving away: monitored AODV delivered 293/300; all custom selectors
+  delivered 300/300.
+- Moving toward source: monitored AODV delivered 300/300; each custom
+  selector delivered 280/300.
+
+Batch: `results/relay-unicast-validation/repeated-JiCf7R/`.
+
+In the toward-source case, STA-RS continued using relay 1 while its last
+successful onward evidence remained within the two-second freshness
+limit. In run 1, packets 13 and 14 were lost before selection changed
+at 15 seconds.
+
+### Failure-feedback implementation
+
+Source: `simulations/relay-failure-feedback.cc`.
+
+The original unicast-validation source is preserved separately.
+
+- Each relay observes `MacTxFinalDataFailed`, filtered by the
+  destination MAC address.
+- The event indicates exhausted transmission attempts, not proof of a
+  permanent disconnection.
+- With `fastFailure=1`, the relay broadcasts a 64-byte UDP failure
+  report with TTL 1.
+- Reports are rate-limited to at most one per relay per 0.5 seconds.
+- Source failure knowledge changes only when a report arrives through
+  a simulated socket.
+- A received failure report triggers an additional candidate evaluation.
+- A relay is blocked while its latest confirmed original probe timestamp
+  is no newer than the reported failure time.
+- A newer successful validation can restore eligibility at a subsequent
+  evaluation.
+- The original freshness timeout remains active if reports are lost.
+- Failure handling is shared by strongest, fixed, and adaptive selectors.
+- The adaptive scoring formula is unchanged.
+
+The source uses packet timestamps under the simulation's common clock.
+Distributed clock synchronization and generalized route discovery are
+outside the current prototype.
+
+If no candidate is selected, the source removes its custom host route
+and falls back to AODV. That fallback is not itself constrained by the
+custom onward-evidence gate.
+
+Failure-triggered evaluations add rows at non-integer times to the scoring
+CSV. Scripts must not assume exactly 60 rows or only integer timestamps.
+The earlier Python scorer does not reproduce the new failure-feedback
+state machine.
+
+### Smoke-test evidence
+
+Batch: `results/relay-failure-feedback/check-7sWChV/`.
+
+In toward-source run 1:
+- Original STA-RS switched at 15.000000 s and delivered 28/30.
+- Revised STA-RS switched at 13.316996 s and delivered 30/30.
+- The selection change occurred 1.683004 s earlier.
+- Monitored AODV also delivered 30/30.
+- Revised STA-RS sent 23 failure reports, all received at the source.
+- Their UDP payload total was 1472 bytes, excluding protocol headers,
+  MAC retries, and other monitoring traffic.
+- Monitored AODV sent one failure report in that run.
+
+The switch-time difference compares two STA-RS versions. It is not an
+AODV route-repair-time measurement.
+
+### Repeated experiment
+
+Runner: `scripts/run-failure-feedback-evaluation.sh`.
+
+Batch: `results/relay-failure-feedback/repeated-wuKU9x/`.
+
+Configuration:
+- ns-3.46, four nodes, 802.11a at a fixed 6 Mbit/s data/control rate.
+- Explicit log-distance propagation model.
+- Seed 12345; random-number run indices 1 through 10.
+- Duration 30 s; 30 application UDP packets, 128 bytes each.
+- Application interval 1 s; first transmission at 0.5 s.
+- Relay 2 offset 25 m; relay 1 movement speed 5 m/s.
+- Movement begins at 10 s.
+- Away movement continues until the simulation ends.
+- Toward-source movement lasts 6 s and then stops.
+- Original onward-evidence maximum age remains 2 s.
+
+Configurations:
+- `aodv`: ordinary AODV routing with the experiment's monitoring and
+  failure-report traffic; no custom forwarding override.
+- `strongest`: strongest-signal selection with failure feedback.
+- `fixed`: fixed quality/stability weighting with failure feedback.
+- `stars-original`: adaptive selection without failure feedback.
+- `stars-fast`: adaptive selection with failure feedback.
+
+Custom configurations use configured onward host routes.
+Common monitoring mechanisms do not imply identical actual traffic counts.
+The failure-feedback ablation changes both reporting traffic and the
+source's reaction; those costs must be measured.
+
+### Results
+
+| Configuration | Stationary received/sent | Away received/sent | Toward received/sent |
+|---|---:|---:|---:|
+| AODV with monitoring | 300/300 | 293/300 | 300/300 |
+| Strongest with failure feedback | 300/300 | 300/300 | 300/300 |
+| Fixed with failure feedback | 300/300 | 300/300 | 300/300 |
+| STA-RS without failure feedback | 300/300 | 300/300 | 280/300 |
+| STA-RS with failure feedback | 300/300 | 300/300 | 300/300 |
+
+All 150 simulations are included. No runs were excluded.
+
+The revised STA-RS preserved its away-scenario delivery advantage over
+monitored AODV and eliminated the original STA-RS losses in all ten
+toward-source runs. It tied AODV in stationary and toward-source delivery.
+
+The results do not establish a delivery advantage of adaptive weighting
+over the other custom selectors, lower total overhead, general scalability,
+or superiority in arbitrary mobility and interference conditions.
+
+### Figure and reproducibility
+
+Plot script: `plots/sta-rs-failure-feedback-pdr.gp`.
+
+The batch includes a source snapshot, build hashes, a manifest, individual
+commands, and per-run logs. Plot input is `comparison/pdr.dat`.
+
+The figure shows mean PDR (%) with observed minimum-to-maximum ranges
+across ten runs. These whiskers are not confidence intervals. The second
+panel isolates the observed delivery difference between STA-RS versions.
+
+Regenerate the saved figure from the repository root:
+
+    (cd results/relay-failure-feedback/repeated-wuKU9x/comparison && gnuplot ../../../../plots/sta-rs-failure-feedback-pdr.gp)
+
+Rerun the experiment after building its executable:
+
+    bash scripts/run-failure-feedback-evaluation.sh
+
+### Remaining submission work
+
+1. Extract received-packet delay in milliseconds, including startup and
+   movement-period results separately. Lost packets have no delay sample.
+2. Plot delivered application UDP payload rate in kbit/s against simulation
+   time in seconds, with an explicit measurement window and byte definition.
+3. Count monitoring payload and distinguish it from total network/MAC
+   overhead, including routing traffic and retransmissions.
+4. Run ordinary AODV without the custom monitoring traffic.
+5. Complete the foundation-paper review and a feasible recent published
+   comparison method.
+6. Produce final plots, conclusions, presentation, and a reproducible demo.
+7. Create `FINAL_Walkthrough.MD` after these evaluations are complete.
